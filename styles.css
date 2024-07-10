@@ -1,0 +1,143 @@
+
+/* General */
+html {
+    box-sizing: border-box;
+    font-family: system-ui;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+header {
+    height: 100px;
+    display: flex;
+    background-color: #FFE600;
+    
+}
+
+.header-wrapper {
+    height: 100%;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.logo-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.logo-container img {
+    height: 35px;
+    max-width: 130px;
+}
+
+.searcher-container {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.search-bar {
+    height: 40px;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.search-bar input {
+    height: 100%;
+    width: 100%;
+    max-width: 600px;
+    border: none;
+    border-radius: 2px 0 0 2px;
+    outline: none;
+    padding: 0 10px;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.search-bar button {
+    height: 100%;
+    width: 50px;
+    border: none;
+    border-radius: 0 2px 2px 0;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+.search-bar button::before {
+    position: relative;
+    content: "";
+    border-left: 1px solid #e6e6e6;
+    right: 50%;
+}
+
+.disney-add img {
+    height: 40px;
+    max-width: 400px;
+}
+
+.nav-bar {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-sendto {
+    height: 100%;
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #FFFFFF;
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    list-style-type: none;
+}
+
+.nav-sublist {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    /* visibility: hidden; */
+    list-style-type: none;
+}
+
+/* Home */
+
+
+
+
+/* ItemDetail */
+
+
+
+
+/* ItemList */
+
+
+
