@@ -14,11 +14,19 @@ body {
     box-sizing: inherit;
 }
 
+
+/* Header */
+
 header {
     height: 100px;
     display: flex;
     background-color: #FFE600;
     
+}
+
+header a {
+    text-decoration: none;
+    color: black;
 }
 
 .header-wrapper {
@@ -72,6 +80,12 @@ header {
     font-weight: 300;
 }
 
+.search-bar input[type="text"] {
+    font-size: 16px;
+    color: rgba(0, 0, 0, .8980392157);
+    padding-left: 15px;
+}
+
 .search-bar button {
     height: 100%;
     width: 50px;
@@ -95,11 +109,11 @@ header {
 
 .nav-bar {
     height: 50%;
-    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    font-size: 14px;
 }
 
 .nav-sendto {
@@ -108,24 +122,87 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: #FFFFFF;
+}
+
+.nav-sendto img {
+    height: 25px;
+    width: 25px;
+}
+
+.nav-sendto div {
+    height: 100%;
+    display: flex;
+    padding-left: 5px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nav-sendto span:first-child {
+    font-size: 12px;
+    font-weight: 300;
 }
 
 .nav-list {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    align-items: center;
-    list-style-type: none;
+    padding-left: 0;
+    width: 650px;
 }
 
-.nav-sublist {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    /* visibility: hidden; */
-    list-style-type: none;
+.nav-list li {
+    display: inline-block;
+    position: relative;
 }
+
+.nav-list li a {
+    display: block;
+    padding: 10px 20px 10px 0;
+}
+
+.nav-list li > ul { 
+    display: none; 
+}
+
+.nav-list li:hover > ul { 
+    display: block;
+}
+
+.nav-list-dropdown {
+    position: absolute;
+    z-index: 1;
+    width: 200px;
+    left: 0;
+    top: 40px;
+    padding: 10px 20px;
+    background-color: #333;
+    border-radius: 2px;
+}
+
+.nav-list-dropdown li {
+    position: relative;
+    display: block;
+}
+
+.nav-list-dropdown a {
+    padding: 5px 15px;
+    color: #FFFFFF;
+}
+
+.nav-last {
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    list-style-type: none;
+    justify-content: space-between;
+    margin-right: 5px;
+}
+
+.nav-last img {
+    height: 20px;
+    width: 20px;
+}
+
+
 
 /* Home */
 

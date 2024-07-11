@@ -23,55 +23,44 @@ const Header = () => {
                 <div className="nav-bar">
                     <div className="nav-sendto">
                         <a href="">
+                            <img src="../assets/pin.png"/>
                         </a>
+                        <div>
+                            <span>Enviar a</span>
+                            <span>Entre Ríos 3260</span>
+                        </div>
                     </div>
 
                     <ul className="nav-list">
                         <li>
-                            <div className="nav-sublist">
-                                <ul>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                </ul>
-                            </div>
+                            <a href="#">Categorías</a>
+                            <ul className="nav-list-dropdown">
+                                <li><a href="#">A</a></li>
+                                <li><a href="#">B</a></li>
+                                <li><a href="#">C</a></li>
+                            </ul>
                         </li>
-                        <li>Ofertas</li>
-                        <li>Historial</li>
-                        <li>Supermercado</li>
-                        <li>Moda</li>
-                        <li>Mercado Play</li>
-                        <li>Vender</li>
-                        <li>Ayuda</li>
+                        <li><a href="#">Ofertas</a></li>
+                        <li><a href="#">Historial</a></li>
+                        <li><a href="#">Supermercado</a></li>
+                        <li><a href="#">Moda</a></li> 
+                        <li><a href="#">Mercado Play</a></li>
+                        <li><a href="#">Vender</a></li>
+                        <li><a href="#">Ayuda</a></li>
                     </ul>
 
-                    <div className="nav-list">
+                    <div className="nav-last">
                         <a href="">
+                            Creá tu cuenta
                         </a>
                         <a href="">
+                            Ingresá
                         </a>
                         <a href="">
+                            Mis compras
                         </a>
                         <a href="">
+                            <img src="../assets/cart.png"/>
                         </a>
                     </div>
                 </div>
