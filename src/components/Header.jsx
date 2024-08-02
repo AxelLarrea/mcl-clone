@@ -7,7 +7,9 @@ const Header = () => {
             <div className="header-wrapper">
                 <div className="searcher-container">
                     <div className="logo-container">
-                        <img src="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/6.6.59/mercadolibre/logo_large_25years_v2.png" alt="Mcl logo"/>
+                        <a href="/">
+                            <img src="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/6.6.59/mercadolibre/logo_large_25years_v2.png" alt="Mcl logo"/>
+                        </a>
                     </div>
 
                     <div className="search-bar">
@@ -38,6 +40,46 @@ const Header = () => {
                                 <li><a href="#">A</a></li>
                                 <li><a href="#">B</a></li>
                                 <li><a href="#">C</a></li>
+                                <li><a href="#">D</a></li>
+                                <li>
+                                    <a href="#">Prueba</a>
+                                    <div className="nav-list-dropdown-nested">
+                                        <p>Tecnología</p>
+                                        <hr></hr>
+                                        <div className="nested-dropdown-grid">
+                                            <div className="nested-dropdown-btn">
+                                                <span>Celulares y Teléfonos</span>
+                                                <a href="#">D.1</a>
+                                            </div>
+
+                                            <div className="nested-dropdown-btn">
+                                                <span>Cámaras y Accesorios</span>
+                                                <a href="#">D.2</a>
+                                            </div>
+
+                                            <div className="nested-dropdown-btn">
+                                                <span>Consolas y Videojuegos</span>
+                                                <a href="#">D.3</a>
+                                            </div>
+
+                                            <div className="nested-dropdown-btn">
+                                                <span>Computación</span>
+                                                <a href="#">D.1</a>
+                                            </div>
+
+                                            <div className="nested-dropdown-btn">
+                                                <span>Electrónica, Audio y Video</span>
+                                                <a href="#">D.2</a>
+                                            </div>
+
+                                            <div className="nested-dropdown-btn">
+                                                <span>Televisores</span>
+                                                <a href="#">D.3</a>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                         </li>
                         <li><a href="#">Ofertas</a></li>

@@ -152,16 +152,17 @@ header a {
     position: relative;
 }
 
+
 .nav-list li a {
     display: block;
     padding: 10px 20px 10px 0;
 }
 
-.nav-list li > ul { 
+.nav-list li > ul, .nav-list-dropdown-nested { 
     display: none; 
 }
 
-.nav-list li:hover > ul { 
+.nav-list li:hover > ul, li:hover > .nav-list-dropdown-nested { 
     display: block;
 }
 
@@ -170,20 +171,67 @@ header a {
     z-index: 1;
     width: 200px;
     left: 0;
-    top: 40px;
-    padding: 10px 20px;
+    padding-left: 0;
     background-color: #333;
-    border-radius: 2px;
+    border-radius: 4px;
 }
 
 .nav-list-dropdown li {
     position: relative;
     display: block;
+    padding-left: 15px;
+}
+
+.nav-list-dropdown > li:hover {
+    background-color: #3483fa;
 }
 
 .nav-list-dropdown a {
-    padding: 5px 15px;
+    padding: 5px 10px;
     color: #FFFFFF;
+}
+
+.nav-list-dropdown-nested {
+    position: absolute;
+    height: 300px;
+    left: 100%;
+    bottom: -10px;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid gray;
+}
+
+.nav-list-dropdown-nested hr {
+    background-color: #666;
+    opacity: 0.5;
+}
+
+.nav-list-dropdown-nested a {
+    color: #333;
+}
+
+.nav-list-dropdown-nested li {
+    padding-left: 0;
+}
+
+.nested-dropdown-grid {
+    display: grid;
+    grid-template-columns: 200px 200px 300px;
+}
+
+.nested-dropdown-btn {
+    padding-bottom: 30px;
+}
+
+.nested-dropdown-btn a {
+    
+    color: #666;
+    font-weight: 400;
+}
+
+.nested-dropdown-btn a:hover {
+    color: #3483fa;
 }
 
 .nav-last {

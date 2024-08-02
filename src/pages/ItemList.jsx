@@ -8,9 +8,13 @@ const ItemList = () => {
     const [items, setItems] = useState()
 
     async function getItems() {
-        const response = await axios.get('https://api.mercadolibre.com/sites/MLA/search?q=samsung&limit=10')
-        setItems(response.data.results) // cambiar luego para agregar los filtros
-        console.log(response.data.results)
+        try {
+            const response = await axios.get('https://api.mercadolibre.com/sites/MLA/search?q=samsung&limit=10')
+            setItems(response.data.results) // cambiar luego para agregar los filtros
+            console.log(response.data.results)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     useEffect(() => {
