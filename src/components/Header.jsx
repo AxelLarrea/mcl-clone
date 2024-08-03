@@ -13,7 +13,7 @@ const Header = () => {
                     </div>
 
                     <div className="search-bar">
-                        <input type="text" />
+                        <input type="text" placeholder="Buscar productos, marcas y más"/>
                         <button></button>
                     </div>
 
@@ -34,15 +34,14 @@ const Header = () => {
                     </div>
 
                     <ul className="nav-list">
-                        <li>
+                        <li id="category">
                             <a href="#">Categorías</a>
                             <ul className="nav-list-dropdown">
-                                <li><a href="#">A</a></li>
-                                <li><a href="#">B</a></li>
-                                <li><a href="#">C</a></li>
-                                <li><a href="#">D</a></li>
-                                <li>
-                                    <a href="#">Prueba</a>
+                                <li><a href="#">Vehículos</a></li>
+                                <li><a href="#">Inmuebles</a></li>
+                                <li><a href="#">Supermercado</a></li>
+                                <li id="tec-cat">
+                                    <a href="#">Tecnología</a>
                                     <div className="nav-list-dropdown-nested">
                                         <p>Tecnología</p>
                                         <hr></hr>
@@ -80,6 +79,24 @@ const Header = () => {
                                         </div>
                                     </div>
                                 </li>
+                                <li><a href="#">Hogar y Muebles</a></li>
+                                <li><a href="#">Electrodomésticos</a></li>
+                                <li><a href="#">Herramientas</a></li>
+                                <li><a href="#">Construcción</a></li>
+                                <li><a href="#">Deportes y Fitness</a></li>
+                                <li><a href="#">Accesorios para Vehículos</a></li>
+                                <li><a href="#">Moda</a></li>
+                                <li><a href="#">Juegos y Juguetes</a></li>
+                                <li><a href="#">Bebés</a></li>
+                                <li><a href="#">Belleza y Cuidado Personal</a></li>
+                                <li><a href="#">Salud y Equipamiento Médico</a></li>
+                                <li><a href="#">Industrias y Oficinas</a></li>
+                                <li><a href="#">Agro</a></li>
+                                <li><a href="#">Productos Sustentables</a></li>
+                                <li><a href="#">Servicios</a></li>
+                                <li><a href="#">Más vendidos</a></li>
+                                <li><a href="#">Tiendas oficiales</a></li>
+                                <li><a href="#">Ver más categorías</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Ofertas</a></li>
