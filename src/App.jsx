@@ -2,7 +2,7 @@ import { Route } from 'wouter';
 import Home from './pages/Home';
 import ItemDetail from './pages/ItemDetail';
 import ItemList from './pages/ItemList';
-import '../styles.css';
+import './styles/styles.css';
 
 const App = () => {
     return (
