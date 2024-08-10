@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import '../styles/carousel.css'
 
 const img_data = [
-    'https://http2.mlstatic.com/D_NQ_748503-MLA78139163033_082024-OO.webp',
+    'https://http2.mlstatic.com/D_NQ_977782-MLA78139337685_082024-OO.webp',
     'https://http2.mlstatic.com/D_NQ_777684-MLA77436518502_072024-OO.webp',
     'https://http2.mlstatic.com/D_NQ_949748-MLA78188815567_082024-OO.webp',
     'https://http2.mlstatic.com/D_NQ_788082-MLA78197452999_082024-OO.webp',
