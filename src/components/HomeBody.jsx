@@ -1,234 +1,71 @@
 import { useEffect, useState } from 'react';
 import Carousel from './Carousel';
+import Shortcuts from './Shortcuts';
 
 
 
-
+const cards = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
 
 const HomeBody = () => {
 
-    const [index, setIndex] = useState(0)
-
-    // useState para guardar y modificar el tamaño del transform size equivale a dos cards
-    // ya que necesitamos mostrar dos nuevas cards en el slide.
-    const [size, setSize] = useState(0)
-    const [sizeAcum, setSizeAcum] = useState(0)
-
-    const getInitialSize = () => {
-        const card = document.querySelector('.card')
-        const carousel = document.querySelector('.cards-container')
-        const styles = getComputedStyle(carousel);
-        const tam = -((card.scrollWidth * 2)  + Number(styles.gap.slice(0, -2)) * 2)
-        setSize(tam)
-        setSizeAcum(tam)
-        setIndex(7)
-    }
-    
-
-    useEffect(() => {
-        getInitialSize()
-    }, [])
-
-
-    const handleNext = () => {
-        // Array de cards para saber la cantidad
-        const cards_array = document.querySelectorAll('.card')
-        
-        // Tamaño límite total llegando a mostrar las últimas cards
-        const limitSize = cards_array.length*(size/2) - size/2*6 
-        
-        // Actualizamos el tamaño del translate para moverlo a la derecha
-        const carousel = document.querySelector('.cards-container')
-        carousel.style.transform = `translateX(${sizeAcum}px)`
-        
-        // Controlar los botones
-        if(sizeAcum === limitSize) {
-            const btn = document.querySelector('.btn-shortcut.right')
-            btn.style.visibility = 'hidden'
-            const btn2 = document.querySelector('.btn-shortcut.left')
-            btn2.style.visibility = 'visible'
-            setSizeAcum(sizeAcum-size)
-        } else {
-            setSizeAcum(sizeAcum+size)
-        }
-    }
-
-
-    const handlePrev = () => {
-        // Actualizamos el tamaño del translate para moverlo a la derecha
-        const carousel = document.querySelector('.cards-container')
-        carousel.style.transform = `translateX(${sizeAcum}px)`
-
-        // Controlar los botones
-        if(sizeAcum === 0) {
-            const btn = document.querySelector('.btn-shortcut.right')
-            btn.style.visibility = 'visible'
-            const btn2 = document.querySelector('.btn-shortcut.left')
-            btn2.style.visibility = 'hidden'
-            setSizeAcum(sizeAcum+size)
-        } else {
-            setSizeAcum(sizeAcum-size)
-        }
-    }
 
 
     return (
         <>
             <Carousel/>
+            <Shortcuts/>
 
-            <div className="shortcuts-container">
-                
+            <div className="inspired-banner-wrapper">
 
-                <div className="shortcuts-wrapper">
+                <button className="btn-shortcut left"></button>
 
-                    <button className='btn-shortcut left' onClick={handlePrev}>
-                    </button>
+                <button className="btn-shortcut right"></button>
+
+                <div className="inspired-banner-container">
                     
-                    <button className='btn-shortcut right' onClick={handleNext}>
-                    </button>
+                    <h3> Inspirado en lo último que viste </h3>
 
-                    <div className="shortcuts">
+                    {   cards.map( (item, key) => 
+                            <span className={`carrousel-dot `} key={key}></span>
+                        )
+                    }
 
-                        <div className="cards-container">
+                    {/* Esto es para los dots  ${key === index ? "active" : ""} */}
+                    
+                    <div className="inspired-banner-cards">
 
-                            <div className="card">
-                                <div className='card-title'>
-                                    <h5>Visto recientemente</h5>
-                                </div>
-                                <div className='card-img'>
-                                    <img src='https://www.nippon.com/es/ncommon/contents/japan-topics/560509/560509.jpg'/>
-                                </div>
-                                <div className='card-bottom-rec'>
-                                    <span className='article-title'>Hatsune Miku Hatsune Miku Hatsune Miku Hatsune Miku Hatsune Miku </span>
-                                    <div className='card-bottom-price'>
-                                        <span>Precio con descuento</span>
-                                        <div className='card-precios'>
-                                            <span>$23.000</span>
-                                            <span>38% off</span>
+                        {   cards.map((card, index) => (
+                                <div className="card" key={index}>
+                                    <div className='card-title'>
+                                        <h5>Visto recientemente</h5>
+                                    </div>
+                                    <div className='card-img'>
+                                        <img src='https://www.nippon.com/es/ncommon/contents/japan-topics/560509/560509.jpg'/>
+                                    </div>
+                                    <div className='card-bottom-rec'>
+                                        <span className='article-title'>Hatsune Miku Hatsune Miku Hatsune Miku Hatsune Miku Hatsune Miku </span>
+                                        <div className='card-bottom-price'>
+                                            <span>Precio con descuento</span>
+                                            <div className='card-precios'>
+                                                <span>$23.000</span>
+                                                <span>38% off</span>
+                                            </div>
+                                            <div>
+                                                Envío gratis
+                                            </div>
                                         </div>
-                                        <div>
-                                            Envío gratis
-                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div className="card">
-                                <div className='card-title'>
-                                    <h5>Ingresá a tu cuenta</h5>
-                                </div>
-                                <div className='card-img'>
-                                    <img src='https://http2.mlstatic.com/frontend-assets/homes-palpatine/dynamic-access-desktop/registration-da.svg'/>
-                                </div>
-                                <div className='card-bottom'>
-                                    <span className='article-title'>Disfrutá de ofertas y comprá sin límites</span>
-
-                                    <div className='card-btn'>
-                                        <a>Ingresar a tu cuenta</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="card">
-                                <div className='card-title'>
-                                    <h5>Medios de pago</h5>
-                                </div>
-                                <div className='card-img'>
-                                    <img src='https://http2.mlstatic.com/frontend-assets/homes-palpatine/dynamic-access-desktop/payment-methods.svg'/>
-                                </div>
-                                <div className='card-bottom'>
-                                    <span className='article-title'>Pagá tus compras de forma rápida y segura</span>
-
-                                    <div className='card-btn'>
-                                        <a>Conocer medios de pago</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="card">
-                                <div className='card-title'>
-                                    <h5>Menos de $20.000</h5>
-                                </div>
-                                <div className='card-img'>
-                                    <img src='https://http2.mlstatic.com/frontend-assets/homes-palpatine/dynamic-access-desktop/low-price-product.svg   '/>
-                                </div>
-                                <div className='card-bottom'>
-                                    <span className='article-title'>Descubrí productos con precios bajos</span>
-                                    <div className='card-btn'>
-                                        <a>Mostrar productos</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="card">
-                                <div className='card-title'>
-                                    <h5>Más vendidos</h5>
-                                </div>
-                                <div className='card-img'>
-                                    <img src='https://http2.mlstatic.com/frontend-assets/homes-palpatine/dynamic-access-desktop/top-sale.svg'/>
-                                </div>
-                                <div className='card-bottom'>
-                                    <span className='article-title'>Explorá los productos que son tendencia</span>
-                                    <div className='card-btn'>
-                                        <a>Ir a Más vendidos</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="card">
-                                <div className='card-title'>
-                                    <h5>Compra protegida</h5>
-                                </div>
-                                <div className='card-img'>
-                                    <img src='https://http2.mlstatic.com/frontend-assets/homes-palpatine/dynamic-access-desktop/buy-protected.svg'/>
-                                </div>
-                                <div className='card-bottom'>
-                                    <span className='article-title'>Podes devolver tu compra gratis</span>
-
-                                    <div className='card-btn'>
-                                        <a>Cómo funciona</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="card">
-                                <div className='card-title'>
-                                    <h5>Tiendas oficiales</h5>
-                                </div>
-                                <div className='card-img'>
-                                    <img src='https://http2.mlstatic.com/frontend-assets/homes-palpatine/dynamic-access-desktop/store-official.svg'/>
-                                </div>
-                                <div className='card-bottom'>
-                                    <span className='article-title'>Encontrá tus marcas preferidas</span>
-
-                                    <div className='card-btn'>
-                                        <a>Mostrar tiendas</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="card">
-                                <div className='card-title'>
-                                    <h5>Nuestras categorías</h5>
-                                </div>
-                                <div className='card-img'>
-                                    <img src='https://http2.mlstatic.com/frontend-assets/homes-palpatine/dynamic-access-desktop/categories.svg'/>
-                                </div>
-                                <div className='card-bottom'>
-                                    <span className='article-title'>Encontrá celulares, ropa, inmuebles y más</span>
-
-                                    <div className='card-btn'>
-                                        <a>Ir a Categorías</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
+                            ))
+                        
+                        }  
 
                     </div>
+
                 </div>
-                
+
             </div>
+
         </>
     );
 }
