@@ -47,7 +47,7 @@ const Shortcuts = () => {
     }
 
     const handlePrev = () => {
-        // Actualizamos el tamaño del translate para moverlo a la derecha
+        // Actualizamos el tamaño del translate para moverlo a la izquierda
         const carousel = document.querySelector('.cards-container')
         carousel.style.transform = `translateX(${sizeAcum}px)`
 
@@ -92,7 +92,7 @@ const Shortcuts = () => {
                                     <div className='card-bottom-price'>
                                         <span>Precio con descuento</span>
                                         <div className='card-precios'>
-                                            <span>$23.000</span>
+                                            <span>$ 23.000</span>
                                             <span>38% off</span>
                                         </div>
                                         <div>

@@ -26,7 +26,7 @@ body {
 .inspired-banner-wrapper {
     position: relative;
     max-width: 1200px;
-    height: 500px;
+    height: 450px;
     background-color: white;
     border-radius: 6px;
     margin: 30px auto;
@@ -39,17 +39,77 @@ body {
 .inspired-banner-wrapper > .right {
     top: 40%;
 }
+.inspired-banner-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.inspired-banner-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    height: 50px;
+}
+
+.dots-container {
+    display: flex;
+    height: 10px;
+    gap: .1rem;
+}
+
+.dots-container .carrousel-dot {
+    width: 8px;
+    height: 8px;
+    background-color: rgb(0, 0, 0, .1);
+}
+
+.dots-container .carrousel-dot.active {
+    transform: scale(.8);
+    background-color: #3483fa;
+    border: none;
+}
 
 .inspired-banner-cards {
     position: relative;
     display: flex;
     flex-direction: row;
-    gap: 1.5rem;
     max-width: 1200px;
-    height: 300px;
+    height: 400px;
     transition: all .5s ;
-    overflow: hidden;
 }
+
+.inspired-banner-cards .card {
+    width: 200px;
+    height: 400px;
+    box-shadow: none;
+    min-width: 200px;
+}
+
+.inspired-banner-cards .card img {
+    width: 170px;
+    height: 200px;
+}
+
+.inspired-banner-cards .card-bottom-price * {
+    padding-bottom: 5px;
+}
+
+.inspired-banner-cards .article-title {
+    text-align: start;
+}
+
+.inspired-banner-cards .card-bottom-price div:nth-last-child(1) {
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+.card-cuotas {
+    color: #00a650;
+}
+
+
 
 /* ItemDetail */
 
