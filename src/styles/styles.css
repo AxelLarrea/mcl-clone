@@ -17,99 +17,105 @@ body {
 
 
 
-/* Footer */
 
 
 
 /* Home */
 
-.inspired-banner-wrapper {
-    position: relative;
+.subscribe-wrapper {
     max-width: 1200px;
-    height: 450px;
-    background-color: white;
+    height: 220px;
+    margin: 0 auto;
+    background-color: #fff;
     border-radius: 6px;
-    margin: 30px auto;
 }
 
-.inspired-banner-wrapper > .left {
-    top: 40%;
-}
-
-.inspired-banner-wrapper > .right {
-    top: 40%;
-}
-.inspired-banner-container {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.inspired-banner-header {
+.subscribe-header, .subscribe-bottom {
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 12px;
-    height: 50px;
 }
 
-.dots-container {
+.subscribe-header {
+    height: 32%;
+    border-radius: 6px 6px 0 0;
+    background: linear-gradient(90deg, #a90f90 55%, #0c1a51 100%);
+}
+
+.subscribe-text {
     display: flex;
-    height: 10px;
-    gap: .1rem;
+    gap: .6em;
+    color: #fff;
+    font-size: 20px;
 }
 
-.dots-container .carrousel-dot {
-    width: 8px;
-    height: 8px;
-    background-color: rgb(0, 0, 0, .1);
+.subscribe-text span:nth-child(2) {
+    text-decoration: line-through;
 }
 
-.dots-container .carrousel-dot.active {
-    transform: scale(.8);
-    background-color: #3483fa;
+.subscribe-btn {
+    padding: 10px 12px;
+    background-color: #53467d;
     border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
 }
 
-.inspired-banner-cards {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    max-width: 1200px;
-    height: 400px;
-    transition: all .5s ;
+.subscribe-btn a {
+    color: #fff;
+    text-decoration: none;
 }
 
-.inspired-banner-cards .card {
-    width: 200px;
-    height: 400px;
-    box-shadow: none;
-    min-width: 200px;
+.subscribe-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
 }
 
-.inspired-banner-cards .card img {
-    width: 170px;
-    height: 200px;
-}
-
-.inspired-banner-cards .card-bottom-price * {
-    padding-bottom: 5px;
-}
-
-.inspired-banner-cards .article-title {
-    text-align: start;
-}
-
-.inspired-banner-cards .card-bottom-price div:nth-last-child(1) {
-    margin-top: 5px;
+.subscribe-bottom span:first-child {
+    font-size: 18px;
     font-weight: 600;
 }
 
-.card-cuotas {
-    color: #00a650;
+.subscribe-benefits {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
 }
 
+.subscribe-benefits .logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, .07);
+}
 
+.subscribe-benefits .logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.disney, .shipment {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.disney, .shipment span {
+    font-size: 14px;
+}
+
+.shipment {
+    width: 400px;
+    justify-content: flex-end;
+}
+
+.shipment span {
+    max-width: 80%;
+}
 
 /* ItemDetail */
 
@@ -118,4 +124,5 @@ body {
 /* ItemList */
 
 
+/* Footer */
 

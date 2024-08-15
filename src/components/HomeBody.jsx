@@ -1,117 +1,52 @@
 import { useEffect, useState } from 'react';
 import Carousel from './Carousel';
 import Shortcuts from './Shortcuts';
+import BannerSlider from './BannerSlider';
 
-
-
-const cards = Array.from({ length: 24 }, (v, i) => i);
-const dots = Array.from({ length: cards.length/6 }, (v, i) => i);
 
 const HomeBody = () => {
-
-    // useState para guardar y modificar el tamaño del transform size equivale a dos cards
-    // ya que necesitamos mostrar dos nuevas cards en el slide.
-    const [size] = useState(-100)
-    const [sizeAcum, setSizeAcum] = useState(-100)
-    const [index, setIndex] = useState(0)
-
-    const handleNext = () => {
-        // Array de cards para saber la cantidad
-        const cards_array = document.querySelectorAll('.inspired-banner-cards > .card')
-        
-        // Tamaño límite total llegando a mostrar las últimas cards
-        const limitSize = cards_array.length/6 - 1
-        
-        // Actualizamos el tamaño del translate para moverlo a la derecha
-        const carousel = document.querySelector('.inspired-banner-cards')
-        carousel.style.marginLeft = `${sizeAcum}%`
-        
-        // Controlar los botones
-        if(sizeAcum === limitSize*-100) {
-            const btn = document.querySelector('.inspired-banner-wrapper .btn-shortcut.right')
-            btn.style.visibility = 'hidden'
-            const btn2 = document.querySelector('.inspired-banner-wrapper .btn-shortcut.left')
-            btn2.style.visibility = 'visible'
-            setSizeAcum(sizeAcum-size)
-        } else {
-            setSizeAcum(sizeAcum+size)
-        }
-        setIndex(index+1)
-    }
-
-    const handlePrev = () => {
-        // Actualizamos el tamaño del translate para moverlo a la izquierda
-        const carousel = document.querySelector('.inspired-banner-cards')
-        carousel.style.marginLeft = `${sizeAcum}%`
-
-        // Controlar los botones
-        if(sizeAcum === 0) {
-            const btn = document.querySelector('.inspired-banner-wrapper .btn-shortcut.right')
-            btn.style.visibility = 'visible'
-            const btn2 = document.querySelector('.inspired-banner-wrapper .btn-shortcut.left')
-            btn2.style.visibility = 'hidden'
-            setSizeAcum(sizeAcum+size)
-        } else {
-            setSizeAcum(sizeAcum-size)
-        }
-        setIndex(index-1)
-    }
 
 
     return (
         <>
             <Carousel/>
             <Shortcuts/>
-
-            <div className="inspired-banner-wrapper">
-
-                <button className="btn-shortcut left" onClick={handlePrev}></button>
-
-                <button className="btn-shortcut right" onClick={handleNext}></button>
-
-                <div className="inspired-banner-container">
-                    <div className="inspired-banner-header">
-
-                        <h3> Inspirado en lo último que viste </h3>
-                        <div className="dots-container">
-
-                            {   dots.map( (item, key) => 
-                                    <span className={`carrousel-dot ${key === index ? "active" : ""}`} key={key}></span>
-                                )
-                            }
-
-                        </div>
+            <BannerSlider/>
+            
+            <div className="subscribe-wrapper">
+                <div className='subscribe-header'>
+                    <div className='subscribe-text'>
+                        <span>Suscribite al Nivel 6 con precio de promoción</span>
+                        <span>$ 5.999</span>
+                        <span>$ 1.999/mes</span>
                     </div>
-                    
-                    <div className="inspired-banner-cards">
 
-                        {   cards.map((card, key) => (
-                                <div className="card" key={key}>
-                                    <div className='card-img'>
-                                        <img src='https://www.nippon.com/es/ncommon/contents/japan-topics/560509/560509.jpg'/>
-                                    </div>
-                                    <div className='card-bottom-rec'>
-                                        <span className='article-title'>Hatsune Miku Hatsune Miku Hatsune Miku Hatsune Miku Hatsune Miku </span>
-                                        <div className='card-bottom-price'>
-                                            <span>Precio con descuento</span>
-                                            <div className='card-precios'>
-                                                <span>$ 23.000</span>
-                                                <span>38% off</span>
-                                            </div>
+                    <div className="subscribe-btn">
+                        <a href="#">Suscribite</a>
+                    </div>
+                </div>
+                
+                <div className='subscribe-bottom'>
+                    <span> Conseguí los mejores beneficios en Mercado Libre </span>
 
-                                            <span className={`${key%2 === 0 ? "card-cuotas" : ""}`}>Mismo precio en 3 cuotas de $ 3250</span>
-                                            <div>
-                                                Envío gratis
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))
-                        }
+                    <div className='subscribe-benefits'>
+                        <div className="disney">
+                            <div className="logo">
+                                <img src="https://http2.mlstatic.com/resources/frontend/statics/loyal/partners/disneyplus/widget-l6/dplus@2x.png" alt="disney+ logo" />
+                            </div>
+                            <span>Disney+ incluido</span>
+                        </div>
 
+                        <div className="shipment">
+                            <div className="logo">
+                                <img src="https://http2.mlstatic.com/resources/frontend/statics/loyal/v2/truckgiftv4@2x.png" alt="shipment logo" />
+                            </div>
+                            <span>Envíos gratis y rápidos desde $ 23.000 y 45% OFF en envíos de menos de $ 23.000</span>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </>
     );
 }

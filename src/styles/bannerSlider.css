@@ -1,0 +1,95 @@
+.banner-wrapper {
+    position: relative;
+    max-width: 1200px;
+    height: 450px;
+    background-color: white;
+    border-radius: 6px;
+    margin: 30px auto;
+}
+
+.banner-wrapper > .left {
+    visibility: hidden;
+    top: 40%;
+}
+
+.banner-wrapper > .right {
+    visibility: visible;
+    top: 40%;
+}
+.banner-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.banner-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    height: 50px;
+}
+
+.dots-container {
+    display: flex;
+    height: 10px;
+    gap: .1rem;
+}
+
+.dots-container .carrousel-dot {
+    width: 8px;
+    height: 8px;
+    background-color: rgb(0, 0, 0, .1);
+}
+
+.dots-container .carrousel-dot.active {
+    transform: scale(.8);
+    background-color: #3483fa;
+    border: none;
+}
+
+.banner-cards {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    height: 400px;
+    transition: all .5s ;
+}
+
+.banner-cards .card {
+    width: 200px;
+    height: 400px;
+    box-shadow: none;
+    min-width: 200px;
+}
+
+.banner-cards .card img {
+    width: 170px;
+    height: 200px;
+}
+
+.banner-cards .card-bottom-price * {
+    padding-bottom: 5px;
+}
+
+.banner-cards .article-title {
+    text-align: start;
+}
+
+.banner-cards .card-bottom-price div:nth-last-child(1) {
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+.banner-cards .card-precios span:first-child {
+    font-size: 24px;
+}
+
+.banner-cards .card-precios span:nth-child(2) {
+    font-size: 14px;
+}
+
+.card-cuotas {
+    color: #00a650;
+}
