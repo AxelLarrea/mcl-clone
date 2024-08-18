@@ -10,51 +10,60 @@ const BannerSlider = () => {
     // useState para guardar y modificar el tamaño del transform size equivale a dos cards
     // ya que necesitamos mostrar dos nuevas cards en el slide.
     const [size] = useState(-100)
-    const [sizeAcum, setSizeAcum] = useState(-100)
+    const [sizeAcum, setSizeAcum] = useState(0)
     const [index, setIndex] = useState(0)
 
+    
+
     const handleNext = () => {
+        
+        setIndex(index+1)
+
         // Array de cards para saber la cantidad
         const cards_array = document.querySelectorAll('.banner-cards > .card')
         
         // Tamaño límite total llegando a mostrar las últimas cards
         const limitSize = cards_array.length/6 - 1
-        
+        console.log(limitSize)
         // Actualizamos el tamaño del translate para moverlo a la derecha
         const carousel = document.querySelector('.banner-cards')
-        carousel.style.marginLeft = `${sizeAcum}%`
-        
+        carousel.style.marginLeft = `${sizeAcum-100}%`
+
         // Controlar los botones
         const btn = document.querySelector('.banner-wrapper .btn-shortcut.right')
         const btn2 = document.querySelector('.banner-wrapper .btn-shortcut.left')
         
-        if(sizeAcum === limitSize*-100) {
+        if(sizeAcum-100 === (limitSize*-100)) {
             btn.style.visibility = 'hidden'
-            setSizeAcum(sizeAcum-size)
+            setSizeAcum(sizeAcum+size)
         } else {
             btn.style.visibility = 'visible'
             btn2.style.visibility = 'visible'
             setSizeAcum(sizeAcum+size)
         }
-        setIndex(index+1)
     }
+    
 
     const handlePrev = () => {
+        setIndex(index-1)
+
         // Actualizamos el tamaño del translate para moverlo a la izquierda
         const carousel = document.querySelector('.banner-cards')
-        carousel.style.marginLeft = `${sizeAcum}%`
+        carousel.style.marginLeft = `${sizeAcum+100}%`
 
         // Controlar los botones
+        const btn = document.querySelector('.banner-wrapper .btn-shortcut.right')
         const btn2 = document.querySelector('.banner-wrapper .btn-shortcut.left')
         
-        if(sizeAcum === 0) {
+        if(sizeAcum+100 === 0) {
+            btn.style.visibility = 'visible'
             btn2.style.visibility = 'hidden'
-            setSizeAcum(sizeAcum+size)
+            setSizeAcum(sizeAcum-size)
         } else {
+            btn.style.visibility = 'visible'
             btn2.style.visibility = 'visible'
             setSizeAcum(sizeAcum-size)
         }
-        setIndex(index-1)
     }
 
     return (

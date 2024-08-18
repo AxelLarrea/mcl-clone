@@ -55,6 +55,7 @@
     max-width: 1200px;
     height: 400px;
     transition: all .5s ;
+    margin-left: 0;
 }
 
 .banner-cards .card {
