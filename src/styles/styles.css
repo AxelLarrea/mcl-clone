@@ -196,6 +196,79 @@ body {
     height: 300px;
 }
 
+
+    /* Three categories */
+
+.three-categories-wrapper {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    height: 450px;
+    margin: 30px auto;
+}
+
+.three-categories-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 390px;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 6px;
+}
+
+.three-categories-item .title {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.three-categories-item .image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.three-categories-wrapper img {
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all .3s ease;
+}
+
+.three-categories-wrapper .image img:hover {
+    scale: 1.05;
+}
+
+.three-categories-item .thumbnails {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
+
+.thumbnails .thumb {
+    width: 70px;
+    height: 70px;
+    border: 2px solid rgba(128, 128, 128, .1);
+    border-radius: 6px;
+}
+
+.thumbnails .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.thumbnails .thumb:hover {
+    border: 2px solid rgba(52, 131, 250);
+}
+
+
+
 /* ItemDetail */
 
 

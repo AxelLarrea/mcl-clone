@@ -2,16 +2,23 @@ import { useEffect, useState } from 'react';
 import Carousel from './Carousel';
 import Shortcuts from './Shortcuts';
 import BannerSlider from './BannerSlider';
+import ThreeCategories from './ThreeCategories';
 
+
+// Cards para el componente bannerSlider
+const cards = Array.from({ length: 24 }, (v, i) => i);
 
 const HomeBody = () => {
-
 
     return (
         <>
             <Carousel/>
             <Shortcuts/>
-            <BannerSlider/>
+            <BannerSlider
+                data={cards}
+                totalCards={6}
+                title={"Inspirado en lo último que viste"}
+            />
             
             <div className="subscribe-wrapper">
                 <div className='subscribe-header'>
@@ -69,6 +76,20 @@ const HomeBody = () => {
                 </div>
 
             </div>
+
+            <BannerSlider
+                data={cards}
+                totalCards={6}
+                title={"Relacionado con tus visitas en Salud y Equipamiento Médico"}
+            />
+
+            <BannerSlider
+                data={cards}
+                totalCards={6}
+                title={"Elegidos para vos en Belleza y Cuidado Personal"}
+            />
+            
+            <ThreeCategories/>
 
         </>
     );

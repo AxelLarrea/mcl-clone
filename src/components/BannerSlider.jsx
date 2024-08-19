@@ -1,83 +1,83 @@
-import { useState } from "react"
+import { useState, useRef} from "react"
 import "../styles/bannerSlider.css"
 
 
-const cards = Array.from({ length: 24 }, (v, i) => i);
-const dots = Array.from({ length: cards.length/6 }, (v, i) => i);
 
-const BannerSlider = () => {
+
+const BannerSlider = ({data, totalCards, title}) => {
 
     // useState para guardar y modificar el tamaño del transform size equivale a dos cards
     // ya que necesitamos mostrar dos nuevas cards en el slide.
     const [size] = useState(-100)
     const [sizeAcum, setSizeAcum] = useState(0)
     const [index, setIndex] = useState(0)
+    const carousel = useRef(null)
+    const btnRight = useRef(null)
+    const btnLeft = useRef(null)
 
-    
+    console.log(carousel)
+    // Array para la cantidad de dots
+    const dots = Array.from({ length: Math.ceil(data.length/totalCards) }, (v, i) => i);
+
 
     const handleNext = () => {
         
-        setIndex(index+1)
+        setIndex(prev => prev+1)
 
-        // Array de cards para saber la cantidad
-        const cards_array = document.querySelectorAll('.banner-cards > .card')
-        
         // Tamaño límite total llegando a mostrar las últimas cards
-        const limitSize = cards_array.length/6 - 1
-        console.log(limitSize)
+        const limitSize = data.length/totalCards - 1
+        
         // Actualizamos el tamaño del translate para moverlo a la derecha
-        const carousel = document.querySelector('.banner-cards')
-        carousel.style.marginLeft = `${sizeAcum-100}%`
+        carousel.current.style.marginLeft = `${sizeAcum-100}%`
 
         // Controlar los botones
-        const btn = document.querySelector('.banner-wrapper .btn-shortcut.right')
-        const btn2 = document.querySelector('.banner-wrapper .btn-shortcut.left')
+        // const btn = document.querySelector('.banner-wrapper .btn-shortcut.right')
+        // const btn2 = document.querySelector('.banner-wrapper .btn-shortcut.left')
         
         if(sizeAcum-100 === (limitSize*-100)) {
-            btn.style.visibility = 'hidden'
+            btnRight.current.style.visibility = 'hidden'
             setSizeAcum(sizeAcum+size)
         } else {
-            btn.style.visibility = 'visible'
-            btn2.style.visibility = 'visible'
+            btnRight.current.style.visibility = 'visible'
+            btnLeft.current.style.visibility = 'visible'
             setSizeAcum(sizeAcum+size)
         }
     }
     
 
     const handlePrev = () => {
-        setIndex(index-1)
+        setIndex(prev => prev-1)
 
         // Actualizamos el tamaño del translate para moverlo a la izquierda
-        const carousel = document.querySelector('.banner-cards')
-        carousel.style.marginLeft = `${sizeAcum+100}%`
+        carousel.current.style.marginLeft = `${sizeAcum+100}%`
 
         // Controlar los botones
-        const btn = document.querySelector('.banner-wrapper .btn-shortcut.right')
-        const btn2 = document.querySelector('.banner-wrapper .btn-shortcut.left')
+        // const btn = document.querySelector('.banner-wrapper .btn-shortcut.right')
+        // const btn2 = document.querySelector('.banner-wrapper .btn-shortcut.left')
         
         if(sizeAcum+100 === 0) {
-            btn.style.visibility = 'visible'
-            btn2.style.visibility = 'hidden'
+            btnRight.current.style.visibility = 'visible'
+            btnLeft.current.style.visibility = 'hidden'
             setSizeAcum(sizeAcum-size)
         } else {
-            btn.style.visibility = 'visible'
-            btn2.style.visibility = 'visible'
+            btnRight.current.style.visibility = 'visible'
+            btnLeft.current.style.visibility = 'visible'
             setSizeAcum(sizeAcum-size)
         }
     }
 
     return (
         <>
-            <div className="banner-wrapper">
+            <div className="banner-wrapper" style={{maxWidth: `${totalCards*200}px`}}>
 
-                <button className="btn-shortcut left" onClick={handlePrev}></button>
+                <button className="btn-shortcut left" ref={btnLeft} onClick={handlePrev}></button>
 
-                <button className="btn-shortcut right" onClick={handleNext}></button>
+                <button className="btn-shortcut right" ref={btnRight} onClick={handleNext}></button>
 
                 <div className="banner-container">
                     <div className="banner-header">
 
-                        <h3> Inspirado en lo último que viste </h3>
+                        <h3> {title} </h3>
                         <div className="dots-container">
 
                             {   dots.map( (item, key) => 
@@ -88,9 +88,9 @@ const BannerSlider = () => {
                         </div>
                     </div>
                     
-                    <div className="banner-cards">
+                    <div className="banner-cards" ref={carousel}>
 
-                        {   cards.map((card, key) => (
+                        { data && data.map((card, key) => (
                                 <div className="card" key={key}>
                                     <div className='card-img'>
                                         <img src='https://www.nippon.com/es/ncommon/contents/japan-topics/560509/560509.jpg'/>
