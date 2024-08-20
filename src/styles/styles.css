@@ -29,6 +29,7 @@ body {
     margin: 0 auto;
     background-color: #fff;
     border-radius: 6px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .12);
 }
 
 .subscribe-header, .subscribe-bottom {
@@ -215,6 +216,7 @@ body {
     height: 100%;
     background-color: #fff;
     border-radius: 6px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .12);
 }
 
 .three-categories-item .title {
@@ -230,8 +232,7 @@ body {
 }
 
 .three-categories-wrapper img {
-    z-index: 0;
-    width: 100%;
+    width: fit-content;
     height: 100%;
     object-fit: cover;
     transition: all .3s ease;
@@ -267,6 +268,147 @@ body {
     border: 2px solid rgba(52, 131, 250);
 }
 
+    /* Ad banner */
+
+.ad-banner-wrapper {
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    height: 250px;
+    margin: 30px auto;
+}
+
+.ad-image {
+    width: 40%;
+    height: 100%;
+}
+
+.ad-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px 0px 0px 6px;
+}
+
+.ad-info {
+    display: flex;
+    width: 60%;
+    height: 100%;
+    background-color: #000;
+    border-radius: 0px 6px 6px 0px;
+}
+
+.ad-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 100%;
+    padding: 15px;
+    
+}
+
+.ad-logo div {
+    width: 100px;
+    height: 70px;
+    background-color: #fff;
+    border-radius: 6px;
+}
+
+.ad-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.ad-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+    color: #fff;
+}
+
+.little-text {
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.bigger-text {
+    max-width: 280px;
+    font-size: 24px;
+}
+
+.ad-link a {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+    /* Offers */
+
+.offer-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 3em;
+    max-width: 1200px;
+    max-height: 450px;
+    margin: 30px auto;
+}
+
+.offer-day {
+    width: 350px;
+    height: 450px;
+}
+
+.offer-day .card {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+}
+
+.offer-day .title {
+    display: flex;
+    height: 50px;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 12px 0 0 16px;
+}
+
+.offer-day .card-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 250px;
+}
+
+.offer-day .card-img img {
+    width: 200px;
+    height: 200px;
+    object-fit: fill;
+}
+
+.offer-day .article-title {
+    font-size: 16px;
+}
+
+.offer-day .card-bottom-price span:first-child {
+    font-size: 16px;
+}
+
+.offer-day .card-bottom-price .cuotas {
+    font-size: 14px;
+}
+
+.offer-day .card-precios span:first-child {
+    font-size: 32px;
+}
+
+.offer-day .card-precios span:last-child {
+    font-size: 18px;
+}
 
 
 /* ItemDetail */

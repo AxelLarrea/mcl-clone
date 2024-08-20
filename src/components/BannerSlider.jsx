@@ -14,8 +14,8 @@ const BannerSlider = ({data, totalCards, title}) => {
     const carousel = useRef(null)
     const btnRight = useRef(null)
     const btnLeft = useRef(null)
-
-    console.log(carousel)
+    
+    
     // Array para la cantidad de dots
     const dots = Array.from({ length: Math.ceil(data.length/totalCards) }, (v, i) => i);
 
@@ -31,9 +31,6 @@ const BannerSlider = ({data, totalCards, title}) => {
         carousel.current.style.marginLeft = `${sizeAcum-100}%`
 
         // Controlar los botones
-        // const btn = document.querySelector('.banner-wrapper .btn-shortcut.right')
-        // const btn2 = document.querySelector('.banner-wrapper .btn-shortcut.left')
-        
         if(sizeAcum-100 === (limitSize*-100)) {
             btnRight.current.style.visibility = 'hidden'
             setSizeAcum(sizeAcum+size)
@@ -52,9 +49,6 @@ const BannerSlider = ({data, totalCards, title}) => {
         carousel.current.style.marginLeft = `${sizeAcum+100}%`
 
         // Controlar los botones
-        // const btn = document.querySelector('.banner-wrapper .btn-shortcut.right')
-        // const btn2 = document.querySelector('.banner-wrapper .btn-shortcut.left')
-        
         if(sizeAcum+100 === 0) {
             btnRight.current.style.visibility = 'visible'
             btnLeft.current.style.visibility = 'hidden'
