@@ -3,10 +3,19 @@ import Carousel from './Carousel';
 import Shortcuts from './Shortcuts';
 import BannerSlider from './BannerSlider';
 import ThreeCategories from './ThreeCategories';
+import SubscribeBanner from './SubscribeBanner';
+import MovieBanner from './MovieBanner';
+import AdBanner from './AdBanner';
+import OfferBanner from './OfferBanner';
+import BenefitsBanner from './BenefitsBanner';
+import { benefitsData } from '../utils/data';
 
-
-// Cards para el componente bannerSlider
+// Cards para el componente BannerSlider
 const cards = Array.from({ length: 24 }, (v, i) => i);
+
+
+
+
 
 const HomeBody = () => {
 
@@ -14,68 +23,15 @@ const HomeBody = () => {
         <>
             <Carousel/>
             <Shortcuts/>
+
             <BannerSlider
                 data={cards}
                 totalCards={6}
                 title={"Inspirado en lo último que viste"}
             />
             
-            <div className="subscribe-wrapper">
-                <div className='subscribe-header'>
-                    <div className='subscribe-text'>
-                        <span>Suscribite al Nivel 6 con precio de promoción</span>
-                        <span>$ 5.999</span>
-                        <span>$ 1.999/mes</span>
-                    </div>
-
-                    <div className="subscribe-btn">
-                        <a href="#">Suscribite</a>
-                    </div>
-                </div>
-                
-                <div className='subscribe-bottom'>
-                    <span> Conseguí los mejores beneficios en Mercado Libre </span>
-
-                    <div className='subscribe-benefits'>
-                        <div className="disney">
-                            <div className="logo">
-                                <img src="https://http2.mlstatic.com/resources/frontend/statics/loyal/partners/disneyplus/widget-l6/dplus@2x.png" alt="disney+ logo" />
-                            </div>
-                            <span>Disney+ incluido</span>
-                        </div>
-
-                        <div className="shipment">
-                            <div className="logo">
-                                <img src="https://http2.mlstatic.com/resources/frontend/statics/loyal/v2/truckgiftv4@2x.png" alt="shipment logo" />
-                            </div>
-                            <span>Envíos gratis y rápidos desde $ 23.000 y 45% OFF en envíos de menos de $ 23.000</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="movie-banner-wrapper">
-                
-                <img src="https://http2.mlstatic.com/D_NQ_803027-MLU74643615266_022024-OO.webp" alt="background image" />
-
-                <div className='movie-banner-info'>
-
-                    <img src="https://http2.mlstatic.com/storage/homes-korriban/assets/images/touchpoint_trailer/logo-mercado-play-v3.png" alt="mercadoplay logo" />
-                    
-                    <div className='text-container'>
-                        <h2>Ahora podés ver series y películas</h2>
-                        <span>GRATIS</span>
-                    </div>
-
-                    <button>Ir a Mercado Play</button>
-
-                </div>
-                
-                <div className='movie-banner'>
-                    <img src="https://http2.mlstatic.com/D_NQ_908278-MLA77634269219_072024-OO.webp"></img>
-                </div>
-
-            </div>
+            <SubscribeBanner/>
+            <MovieBanner/>
 
             <BannerSlider
                 data={cards}
@@ -90,78 +46,38 @@ const HomeBody = () => {
             />
             
             <ThreeCategories/>
+            <AdBanner/>
+            <OfferBanner
+                cards={cards}
+            />
 
-            <div className="ad-banner-wrapper">
-
-                <div className='ad-image'>
-                    <img src="https://http2.mlstatic.com/D_NQ_929074-MLA76244397248_052024-OO.jpg" alt="ad image" />
-                </div>
-                
-                <div className='ad-info'>
-
-                    <div className='ad-logo'>
-                        <div>
-                            <img src="https://http2.mlstatic.com/D_NQ_722575-MLA76026955698_052024-OO.jpg" alt="brand's logo" />
-                        </div>
-                    </div>
-
-                    <div className='ad-text'>
-                        <div className='little-text'>
-                            <span>CONOCE</span>
-                        </div>
-
-                        <div className='bigger-text'>
-                            <span>
-                                NUESTRO CATÁLOGO DE PRODUCTOS
-                            </span>
-                        </div>
-
-                        <div className='ad-link'>
-                            <a href="#">
-                                IR A TIENDA
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div className="offer-wrapper">
-
-                <div className="offer-day">
-                    <div className="card">
-                        <div className="title">
-                            <span>Oferta del día</span>
-                        </div>
-                        <div className='card-img'>
-                            <img src='https://www.nippon.com/es/ncommon/contents/japan-topics/560509/560509.jpg'/>
-                        </div>
-                        <div className='card-bottom-rec'>
-                            <span className='article-title'>Hatsune Miku Hatsune Miku Hatsune Miku Hatsune Miku Hatsune Miku Hatsune Miku Hatsune Miku </span>
-                            <div className='card-bottom-price'>
-                                <span>Precio con descuento</span>
-                                <div className='card-precios'>
-                                    <span>$ 23.000</span>
-                                    <span>38% OFF</span>
-                                </div>
-
-                                <span className='cuotas'>En 3 cuotas de $ 3250</span>
-                                <div>
-                                    Envío gratis
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <BannerSlider
+            <BannerSlider
                 data={cards}
-                totalCards={4}
-                title={"Ofertas"}
-                />
+                totalCards={6}
+                title={"Porque viste productos de Belleza y Cuidado Personal"}
+            />
 
-            </div>
+
+            <BenefitsBanner 
+                data={benefitsData}
+                totalCards={3}
+            />
+
+            <BannerSlider
+                data={cards}
+                totalCards={6}
+                title={"Más vendidos en Máscaras de pestañas"}
+                showLink={true}
+                link={"#"}
+                linkText={"Ir a Más vendidos"}
+            />
+
+            <BannerSlider
+                data={cards}
+                totalCards={6}
+                title={"Relacionado con lo último que viste"}
+                
+            />  
 
         </>
     );

@@ -1,0 +1,64 @@
+.offer-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 3em;
+    max-width: 1200px;
+    max-height: 450px;
+    margin: 30px auto;
+}
+
+.offer-day {
+    width: 350px;
+    height: 450px;
+}
+
+.offer-day .card {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+}
+
+.offer-day .title {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    font-size: 19px;
+    font-weight: 600;
+    padding: 0 12px;
+}
+
+.offer-day .card-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 250px;
+}
+
+.offer-day .card-img img {
+    width: 200px;
+    height: 200px;
+    object-fit: fill;
+}
+
+.offer-day .article-title {
+    font-size: 16px;
+}
+
+.offer-day .card-bottom-price span:first-child {
+    font-size: 16px;
+}
+
+.offer-day .card-bottom-price .cuotas {
+    font-size: 14px;
+}
+
+.offer-day .card-precios span:first-child {
+    font-size: 32px;
+}
+
+.offer-day .card-precios span:last-child {
+    font-size: 18px;
+}

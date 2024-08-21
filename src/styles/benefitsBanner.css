@@ -1,0 +1,99 @@
+.benefits-banner-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    height: 350px;
+    margin: 30px auto;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+.benefits-banner-wrapper .btn-shortcut.left {
+    left: -30px;
+    top: 40%;
+}
+
+.benefits-banner-wrapper .btn-shortcut.right {
+    right: -30px;
+    top: 40%;
+}
+
+.benefits-banner-cards {
+    padding-top: 20px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.benefits-cards-container {
+    display: flex;
+    width: 100%;
+    height: 250px;
+    padding: 0 12px;
+    gap: 1.1em;
+    transition: all 0.5s ease;
+}
+
+.benefit-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 250px;
+    min-width: 380px;
+}
+
+.benefit-card > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    z-index: 0;
+}
+
+.benefit-partner-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    z-index: 1;
+    background: linear-gradient(0deg, #000 0%, rgba(0, 43, 231, 0) 100%);
+    border-radius: 0 0 6px 6px;
+}
+
+.benefit-partner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    gap: 1em;
+    margin: 0 20px 20px;
+}
+
+.benefit-partner img {
+    width: 80px;
+    height: 80px;
+    border-radius: 6px;
+    
+}
+
+.partner-text {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+
+.partner-text span:first-child {
+    font-size: 12px;
+}
+
+.partner-text span:nth-child(2) {
+    font-size: 22px;
+}
+
+.partner-text span:last-child {
+    font-size: 18px;
+}

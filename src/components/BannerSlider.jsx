@@ -4,7 +4,7 @@ import "../styles/bannerSlider.css"
 
 
 
-const BannerSlider = ({data, totalCards, title}) => {
+const BannerSlider = ({data, totalCards, title, showLink=false, link, linkText}) => {
 
     // useState para guardar y modificar el tamaño del transform size equivale a dos cards
     // ya que necesitamos mostrar dos nuevas cards en el slide.
@@ -71,7 +71,12 @@ const BannerSlider = ({data, totalCards, title}) => {
                 <div className="banner-container">
                     <div className="banner-header">
 
-                        <h3> {title} </h3>
+                        <div>
+                            <h3> {title} </h3>
+
+                            { showLink && <a href={link}> { linkText } </a> }
+                        </div>
+
                         <div className="dots-container">
 
                             {   dots.map( (item, key) => 

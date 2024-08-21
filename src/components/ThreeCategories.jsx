@@ -1,4 +1,5 @@
 import ThreeCatsItem from "./ThreeCatsItem";
+import '../styles/threeCategories.css';
 
 
 const thumbs1 = ['http://http2.mlstatic.com/D_668683-MLA48680079527_122021-I.jpg', 

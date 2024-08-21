@@ -31,6 +31,20 @@
     height: 50px;
 }
 
+.banner-header div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.banner-header a {
+    color: #3483fa;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 0;
+}
+
 .dots-container {
     display: flex;
     height: 10px;
