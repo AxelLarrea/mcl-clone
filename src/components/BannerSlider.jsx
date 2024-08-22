@@ -17,7 +17,7 @@ const BannerSlider = ({data, totalCards, title, showLink=false, link, linkText})
     
     
     // Array para la cantidad de dots
-    const dots = Array.from({ length: Math.ceil(data.length/totalCards) }, (v, i) => i);
+    const dots = Array.from({ length: Math.ceil(data && data.length/totalCards) }, (v, i) => i);
 
 
     const handleNext = () => {
@@ -92,7 +92,7 @@ const BannerSlider = ({data, totalCards, title, showLink=false, link, linkText})
                         { data && data.map((card, key) => (
                                 <div className="card" key={key}>
                                     <div className='card-img'>
-                                        <img src='https://www.nippon.com/es/ncommon/contents/japan-topics/560509/560509.jpg'/>
+                                        <img src={card.url}/>
                                     </div>
                                     <div className='card-bottom-rec'>
                                         <span className='article-title'>Hatsune Miku Hatsune Miku Hatsune Miku Hatsune Miku Hatsune Miku </span>

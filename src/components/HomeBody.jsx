@@ -9,6 +9,11 @@ import AdBanner from './AdBanner';
 import OfferBanner from './OfferBanner';
 import BenefitsBanner from './BenefitsBanner';
 import { benefitsData } from '../utils/data';
+import useGetData from '../hooks/useGetData';
+import TwoOffersCard from './TwoOffersCard';
+import TwoOffersSection from './TwoOffersSection';
+
+
 
 // Cards para el componente BannerSlider
 const cards = Array.from({ length: 24 }, (v, i) => i);
@@ -16,8 +21,21 @@ const cards = Array.from({ length: 24 }, (v, i) => i);
 
 
 
-
 const HomeBody = () => {
+
+    // API para imagenes random de Hatsune Miku https://api.nekosapi.com/v3/characters/1/images
+    // const data = useGetData('https://api.waifu.im/search?is_nsfw=false&limit=24')
+
+    // console.log(data)
+
+    
+    // const getTheFuckingData = async () => {
+    //     // Simulando la llamada a la API
+    //     const response = await fetch('https://api.waifu.im/search?is_nsfw=true&limit=24')
+    //     const data = await response.json()
+    //     setData(data.images)
+    // }
+    
 
     return (
         <>
@@ -76,7 +94,22 @@ const HomeBody = () => {
                 data={cards}
                 totalCards={6}
                 title={"Relacionado con lo último que viste"}
-                
+            />  
+
+            
+            <TwoOffersSection/>
+            
+            <BannerSlider
+                data={cards}
+                totalCards={6}
+                title={"Similares a lo que te interesa"}
+            />  
+
+            
+            <BannerSlider
+                data={cards}
+                totalCards={6}
+                title={"Inspirado en lo que te interesa"}
             />  
 
         </>
