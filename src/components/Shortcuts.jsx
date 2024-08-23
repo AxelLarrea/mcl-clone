@@ -22,7 +22,7 @@ const Shortcuts = () => {
         getInitialSize()
     }, [])
 
-
+    
     const handleNext = () => {
         // Array de cards para saber la cantidad
         const cards_array = document.querySelectorAll('.cards-container > .card')

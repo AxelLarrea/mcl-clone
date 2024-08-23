@@ -8,10 +8,11 @@ import MovieBanner from './MovieBanner';
 import AdBanner from './AdBanner';
 import OfferBanner from './OfferBanner';
 import BenefitsBanner from './BenefitsBanner';
+import TwoOffersSection from './TwoOffersSection';
+
 import { benefitsData } from '../utils/data';
 import useGetData from '../hooks/useGetData';
-import TwoOffersCard from './TwoOffersCard';
-import TwoOffersSection from './TwoOffersSection';
+import CategoriesSlider from './CategoriesSlider';
 
 
 
@@ -97,7 +98,16 @@ const HomeBody = () => {
             />  
 
             
-            <TwoOffersSection/>
+            <TwoOffersSection
+                stCardtxt1={"TECNO OFERTAS"}
+                stCardtxt2={"HASTA 30% OFF Y"}
+                stCardtxt3={"12X SIN INTERÉS"}
+                stCardimg={"https://http2.mlstatic.com/D_NQ_818115-MLA78556065987_082024-OO.jpg"}
+                ndCardtxt1={""}
+                ndCardtxt2={"LAS OFERTAS"}
+                ndCardtxt3={"MÁS BUSCADAS"}
+                ndCardimg={"https://http2.mlstatic.com/D_NQ_631229-MLA78158672620_082024-OO.jpg"}
+            />
             
             <BannerSlider
                 data={cards}
@@ -110,7 +120,67 @@ const HomeBody = () => {
                 data={cards}
                 totalCards={6}
                 title={"Inspirado en lo que te interesa"}
-            />  
+            /> 
+
+
+            <TwoOffersSection
+                stCardtxt1={""}
+                stCardtxt2={"LAS OFERTAS"}
+                stCardtxt3={"MÁS BUSCADAS"}
+                stCardimg={"https://http2.mlstatic.com/D_NQ_847826-MLA78386827199_082024-OO.jpg"}
+                ndCardtxt1={""}
+                ndCardtxt2={"OFERTAS QUE TE"}
+                ndCardtxt3={"LLEGAN VOLANDO"}
+                ndCardimg={"https://http2.mlstatic.com/D_NQ_758583-MLA78158668786_082024-OO.jpg"}
+            />
+
+
+            <BannerSlider
+                data={cards}
+                totalCards={6}
+                title={"Más vendidos de la semana en Repelentes"}
+                showLink={true}
+                link={"#"}
+                linkText={"Ir a Más vendidos"}
+            /> 
+
+            <BannerSlider
+                data={cards}
+                totalCards={6}
+                title={"Más vendidos de la semana en Paraguas"}
+                showLink={true}
+                link={"#"}
+                linkText={"Ir a Más vendidos"}
+            />
+
+            <BannerSlider
+                data={cards}
+                totalCards={6}
+                title={"Más vendidos de la semana en Para Cocina"}
+                showLink={true}
+                link={"#"}
+                linkText={"Ir a Más vendidos"}
+            /> 
+
+            <BannerSlider
+                data={cards}
+                totalCards={6}
+                title={"Más vendidos de la semana en Indumentaria y Calzado"}
+                showLink={true}
+                link={"#"}
+                linkText={"Ir a Más vendidos"}
+            /> 
+
+            <BannerSlider
+                data={cards}
+                totalCards={6}
+                title={"Más vendidos de la semana en Notebooks"}
+                showLink={true}
+                link={"#"}
+                linkText={"Ir a Más vendidos"}
+            /> 
+            
+            <CategoriesSlider/>
 
         </>
     );

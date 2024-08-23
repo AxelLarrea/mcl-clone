@@ -1,22 +1,23 @@
 import '../styles/twoOffers.css'
 import TwoOffersCard from './TwoOffersCard';
 
-const TwoOffersSection = () => {
+const TwoOffersSection = ({ stCardtxt1, stCardtxt2, stCardtxt3, stCardimg , ndCardtxt1, ndCardtxt2, ndCardtxt3, ndCardimg  }) => {
     return (
         <>
             <div className="two-offers-wrapper">
                 
                 <TwoOffersCard
-                    imgUrl={"https://http2.mlstatic.com/D_NQ_818115-MLA78556065987_082024-OO.jpg"}
-                    firstText={"TECNO OFERTAS"}
-                    secondText={"HASTA 30% OFF Y"}
-                    thirdText={"12X SIN INTERÉS"}
+                    imgUrl={stCardimg}
+                    firstText={stCardtxt1}
+                    secondText={stCardtxt2}
+                    thirdText={stCardtxt3}
                 />
                 
                 <TwoOffersCard
-                    imgUrl={"https://http2.mlstatic.com/D_NQ_631229-MLA78158672620_082024-OO.jpg"}
-                    secondText={"LAS OFERTAS"}
-                    thirdText={"MÁS BUSCADAS"}
+                    imgUrl={ndCardimg}
+                    firstText={ndCardtxt1}
+                    secondText={ndCardtxt2}
+                    thirdText={ndCardtxt3}
                 />
             </div>
         </>

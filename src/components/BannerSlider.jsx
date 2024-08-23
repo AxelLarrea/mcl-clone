@@ -92,7 +92,7 @@ const BannerSlider = ({data, totalCards, title, showLink=false, link, linkText})
                         { data && data.map((card, key) => (
                                 <div className="card" key={key}>
                                     <div className='card-img'>
-                                        <img src={card.url}/>
+                                        <img src={card?.url || "https://www.nippon.com/es/ncommon/contents/japan-topics/560509/560509.jpg"}/>
                                     </div>
                                     <div className='card-bottom-rec'>
                                         <span className='article-title'>Hatsune Miku Hatsune Miku Hatsune Miku Hatsune Miku Hatsune Miku </span>
