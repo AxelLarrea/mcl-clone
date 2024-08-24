@@ -6,9 +6,7 @@ import "../styles/bannerSlider.css"
 
 const BannerSlider = ({data, totalCards, title, showLink=false, link, linkText}) => {
 
-    // useState para guardar y modificar el tamaño del transform size equivale a dos cards
-    // ya que necesitamos mostrar dos nuevas cards en el slide.
-    const [size] = useState(-100)
+    const size = -100
     const [sizeAcum, setSizeAcum] = useState(0)
     const [index, setIndex] = useState(0)
     const carousel = useRef(null)
@@ -25,13 +23,13 @@ const BannerSlider = ({data, totalCards, title, showLink=false, link, linkText})
         setIndex(prev => prev+1)
 
         // Tamaño límite total llegando a mostrar las últimas cards
-        const limitSize = data.length/totalCards - 1
+        const limitSize = (data.length/totalCards - 1) * size
         
         // Actualizamos el tamaño del translate para moverlo a la derecha
-        carousel.current.style.marginLeft = `${sizeAcum-100}%`
+        carousel.current.style.marginLeft = `${sizeAcum+size}%`
 
         // Controlar los botones
-        if(sizeAcum-100 === (limitSize*-100)) {
+        if(sizeAcum+size === limitSize) {
             btnRight.current.style.visibility = 'hidden'
             setSizeAcum(sizeAcum+size)
         } else {
@@ -46,10 +44,10 @@ const BannerSlider = ({data, totalCards, title, showLink=false, link, linkText})
         setIndex(prev => prev-1)
 
         // Actualizamos el tamaño del translate para moverlo a la izquierda
-        carousel.current.style.marginLeft = `${sizeAcum+100}%`
+        carousel.current.style.marginLeft = `${sizeAcum-size}%`
 
         // Controlar los botones
-        if(sizeAcum+100 === 0) {
+        if(sizeAcum-size === 0) {
             btnRight.current.style.visibility = 'visible'
             btnLeft.current.style.visibility = 'hidden'
             setSizeAcum(sizeAcum-size)

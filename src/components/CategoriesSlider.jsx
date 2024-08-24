@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import "../styles/CategoriesSlider.css"
+import "../styles/categoriesSlider.css"
 
 
 const categories = [
@@ -9,9 +9,6 @@ const categories = [
     "Agro", "Antigüedades y Colecciones", "Consolas y Videojuegos", "Entradas para Eventos", 
     "Alimentos y Bebidas", "Arte, Librería y Mercería", "Construcción", "Industrias y Oficinas", 
     "Animales y Mascotas", "Bebés", "Cámaras y Accesorios", "Instrumentos Musicales",
-    "Agro", "Antigüedades y Colecciones", "Consolas y Videojuegos", "Entradas para Eventos", 
-    "Alimentos y Bebidas", "Arte, Librería y Mercería", "Construcción", "Industrias y Oficinas", 
-    "Animales y Mascotas", "Bebés", "Cámaras y Accesorios", "Instrumentos Musicales"
 ]
 
 const categoriesImg = [
@@ -32,61 +29,54 @@ const categoriesImg = [
 const dots = Array.from({ length: Math.ceil(categories.length/12) }, (v, i) => i);
 
 const CategoriesSlider = () => {
+    const size = -100
     const [sizeAcum, setSizeAcum] = useState(0)
     const [index, setIndex] = useState(0)
     const carousel = useRef(null)
     const btnRight = useRef(null)
     const btnLeft = useRef(null)
     
-
+    const totalColumns = categories.length/3
+        
     const handleNext = () => {
         
         setIndex(prev => prev+1)
         
+        // Límite del tamaño del translate para moverlo a la derecha
+        const limitSize = (categories.length/12 - 1) * size
+        
         // Actualizamos el tamaño del translate para moverlo a la derecha
-        const card = document.querySelector('.categories-cards > .category-card')
-        const cardStyles = getComputedStyle(card)
-        const carouselStyles = getComputedStyle(carousel.current);
-        const cardWidth = Number(cardStyles.width.slice(0, -2)) * 4
-        const gap = Number(carouselStyles.gap.slice(0, -2)) * 4
-        const move = cardWidth+gap
-        carousel.current.style.transform = `translateX(${sizeAcum-move}px)`
+        carousel.current.style.marginLeft = `${sizeAcum+size}%`
 
         // Controlar los botones
-        if(sizeAcum-move === -move) {
+        if(sizeAcum+size === limitSize) {
             btnRight.current.style.visibility = 'hidden'
             btnLeft.current.style.visibility = 'visible'
-            setSizeAcum(sizeAcum+move)
+            setSizeAcum(sizeAcum+size)
         } else {
             btnRight.current.style.visibility = 'visible'
             btnLeft.current.style.visibility = 'visible'
-            setSizeAcum(sizeAcum-move)
+            setSizeAcum(sizeAcum+size)
         }
     }
     
 
     const handlePrev = () => {
+
         setIndex(prev => prev-1)
 
         // Actualizamos el tamaño del translate para moverlo a la izquierda
-        const card = document.querySelector('.categories-cards > .category-card')
-        const cardStyles = getComputedStyle(card)
-        const carouselStyles = getComputedStyle(carousel.current);
-        const cardWidth = Number(cardStyles.width.slice(0, -2)) * 4
-        const gap = Number(carouselStyles.gap.slice(0, -2)) * 4
-        const move = cardWidth+gap
-        carousel.current.style.transform = `translateX(${sizeAcum-move}px)`
-
+        carousel.current.style.marginLeft = `${sizeAcum-size}%`
 
         // Controlar los botones
-        if(sizeAcum-move === 0) {
+        if(sizeAcum-size === 0) {
             btnRight.current.style.visibility = 'visible'
             btnLeft.current.style.visibility = 'hidden'
-            setSizeAcum(sizeAcum-move)
+            setSizeAcum(sizeAcum-size)
         } else {
             btnRight.current.style.visibility = 'visible'
             btnLeft.current.style.visibility = 'visible'
-            setSizeAcum(sizeAcum+move)
+            setSizeAcum(sizeAcum-size)
         }
     }
 
@@ -117,7 +107,7 @@ const CategoriesSlider = () => {
 
                 <div className="categories-slider">
 
-                    <div className="categories-cards" ref={carousel}>
+                    <div className="categories-cards" ref={carousel} style={{ gridTemplateColumns: `repeat(${totalColumns}, 1fr)` }}>
 
                         { categories.map( (card, id) => (
 

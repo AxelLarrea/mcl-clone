@@ -13,6 +13,7 @@ import TwoOffersSection from './TwoOffersSection';
 import { benefitsData } from '../utils/data';
 import useGetData from '../hooks/useGetData';
 import CategoriesSlider from './CategoriesSlider';
+import BottomSection from './BottomSection';
 
 
 
@@ -181,6 +182,17 @@ const HomeBody = () => {
             /> 
             
             <CategoriesSlider/>
+
+            <BannerSlider
+                data={cards}
+                totalCards={6}
+                title={"Tu historial"}
+                showLink={true}
+                link={"#"}
+                linkText={"Ir a mi historial de navegación"}
+            /> 
+
+            <BottomSection/>
 
         </>
     );

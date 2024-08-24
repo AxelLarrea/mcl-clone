@@ -10,6 +10,10 @@
     border-radius: 6px;
 }
 
+.categories-slider-wrapper > .btn-shortcut.left, .categories-slider-wrapper > .btn-shortcut.right {
+    top: 40%;
+}
+
 .categories-slider-wrapper .banner-header {
     padding: 0 20px;
 }
@@ -19,7 +23,7 @@
     max-height: 100%;
     display: flex;
     overflow: hidden;
-    padding: 10px 20px 0;
+    padding: 10px 0 0 20px;
 }
 
 .categories-cards {
@@ -27,8 +31,8 @@
     height: 100%;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    gap: 1.3em;
-    transition: all .5s ease;
+    gap: 20px;
+    transition: all .3s;
 }
 
 .category-card {

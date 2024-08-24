@@ -1,43 +1,9 @@
-
+import '../styles/footer.css'
 
 
 const Footer = () => {
     return (
         <footer>
-
-            <div className="footer-top-info">
-
-                <div className="footer-shopping-info">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                
-                <div className="footer-regret">
-                    <div></div>
-                    <div></div>
-                </div>
-
-                <div className="footer-help">
-
-                </div>
-
-                <div className="footer-most-searched">
-                    <p>Productos más buscados</p>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-            </div>
 
             <div className="footer-more-info">
                 <button>Más información</button>
@@ -68,8 +34,7 @@ const Footer = () => {
                 <p></p>
                 <p></p>
             </div>
-
-
+            
         </footer>
     );
 }
