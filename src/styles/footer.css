@@ -1,5 +1,133 @@
 
-.footer {
-    width: 100%;
-    
+footer {
+    background-color: #fff;
+}
+
+
+.footer-more-info {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 250px;
+    max-height: 0;
+    background-color: #f7f7f7;
+    border-top: 1px rgb(230, 230, 230) solid;
+    transition: all .5s ease;
+}
+
+.footer-more-btn {
+    position: absolute;
+    bottom: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-more-btn button {
+    position: relative;
+    bottom: 0;
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px #e6e6e6 solid;
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    padding: 10px 15px;
+    color: #666;
+    transition: all .2s ease;
+}
+
+.footer-more-btn button svg {
+    width: 10px;
+    height: 10px;
+    margin-left: 5px;
+}
+
+.footer-info-columns {
+    display: flex;
+    max-width: 1200px;
+    gap: 4em;
+    overflow: hidden;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.footer-column h5 {
+    margin-bottom: 10px;
+}
+
+.footer-column a {
+    color: #999;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom-wrapper {
+    border-top: 0;
+}
+
+.footer-bottom-info {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.footer-bottom-item {
+    padding-top: 20px;
+}
+
+.footer-bottom-item ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-bottom-item li {
+    list-style: none;
+    font-size: 14px;
+}
+
+.footer-bottom-text {
+    display: flex;
+    flex-direction: column;
+    gap: .3em;
+    padding: 20px 0;
+}
+
+.footer-bottom-text p {
+    color: #999;
+    margin: 0;
+    font-size: 12px;
+}
+
+@keyframes rotate-down {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(90deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes rotate-up {
+    0% {
+        transform: rotate(180deg);
+    }
+    50% {
+        transform: rotate(90deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
 }
