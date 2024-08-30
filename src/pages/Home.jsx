@@ -1,6 +1,6 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import HomeBody from '../components/HomeBody';
+import HomeBody from '../components/home/HomeBody';
 
 
 const Home = () => {

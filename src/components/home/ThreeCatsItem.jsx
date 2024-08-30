@@ -1,6 +1,5 @@
 
 
-
 const ThreeCatsItem = ({ link, title, thumbs }) => {
 
     return (

@@ -1,5 +1,6 @@
 import { useState, useRef} from "react"
-import "../styles/bannerSlider.css"
+import "../../styles/home/bannerSlider.css"
+
 
 
 

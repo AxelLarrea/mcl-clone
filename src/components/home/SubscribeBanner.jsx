@@ -1,4 +1,4 @@
-import '../styles/subscribeBanner.css'
+import '../../styles/home/subscribeBanner.css'
 
 
 const SubscribeBanner = () => {

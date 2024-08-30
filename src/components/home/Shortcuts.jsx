@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import '../styles/shortcuts.css'
+import '../../styles/home/shortcuts.css'
 
 const Shortcuts = () => {
 

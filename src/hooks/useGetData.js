@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import getData from '../utils/getData';
+import axios from 'axios';
+
 
 const useGetData = (url) => {
 
@@ -7,9 +8,10 @@ const useGetData = (url) => {
 
     const getDataHook = async () => {
         try {
-            const response = await getData(url)
-            
-            setData(response)
+            const response = await axios.get(url)
+            const data = await response.data
+            console.log(data)
+            setData(data)
         } catch (error) {
             console.log(error)
         }
@@ -21,5 +23,5 @@ const useGetData = (url) => {
     
     return data;
 }
- 
+
 export default useGetData;

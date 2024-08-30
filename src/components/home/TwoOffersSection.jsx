@@ -1,4 +1,4 @@
-import '../styles/twoOffers.css'
+import '../../styles/home/twoOffers.css'
 import TwoOffersCard from './TwoOffersCard';
 
 const TwoOffersSection = ({ stCardtxt1, stCardtxt2, stCardtxt3, stCardimg , ndCardtxt1, ndCardtxt2, ndCardtxt3, ndCardimg  }) => {

@@ -1,5 +1,5 @@
 import BannerSlider from "./BannerSlider";
-import '../styles/offersBanner.css'
+import '../../styles/home/offersBanner.css'
 
 const OfferBanner = ({ cards }) => {
     return (

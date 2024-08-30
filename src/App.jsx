@@ -1,15 +1,15 @@
 import { Route } from 'wouter';
 import Home from './pages/Home';
-import ItemDetail from './pages/ItemDetail';
-import ItemList from './pages/ItemList';
+import Search from './pages/Search';
+import Product from './pages/Product';
 import './styles/styles.css';
 
 const App = () => {
     return (
         <>
             <Route path="/" component={Home}/>
-            <Route path="/detail" component={ItemDetail}/>
-            <Route path="/items" component={ItemList}/>
+            <Route path="/product" component={Product}/>
+            <Route path="/search" component={Search}/>
         </>
     );
 }

@@ -1,4 +1,4 @@
-import '../styles/movieBanner.css'
+import '../../styles/home/movieBanner.css'
 
 
 const MovieBanner = () => {

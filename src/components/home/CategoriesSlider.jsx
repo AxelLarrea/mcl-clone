@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import "../styles/categoriesSlider.css"
+import "../../styles/home/categoriesSlider.css"
 
 
 const categories = [

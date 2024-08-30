@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import '../styles/benefitsBanner.css'
+import '../../styles/home/benefitsBanner.css'
 
 const BenefitsBanner = ({ data, totalCards }) => {
 

@@ -13,7 +13,7 @@ const Footer = () => {
     const handleClick = () => {
         
         const svg = document.querySelector('.footer-more-btn button svg')
-        console.log(svg)
+        
         if (!clicked) {
             footerInfo.current.style.maxHeight = 0
             footerBottom.current.style.borderTop = 0

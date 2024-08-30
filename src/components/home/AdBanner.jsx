@@ -1,4 +1,4 @@
-import '../styles/adBanner.css'
+import '../../styles/home/adBanner.css'
 
 
 const AdBanner = () => {

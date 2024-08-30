@@ -9,11 +9,11 @@ import AdBanner from './AdBanner';
 import OfferBanner from './OfferBanner';
 import BenefitsBanner from './BenefitsBanner';
 import TwoOffersSection from './TwoOffersSection';
-
-import { benefitsData } from '../utils/data';
-import useGetData from '../hooks/useGetData';
 import CategoriesSlider from './CategoriesSlider';
 import BottomSection from './BottomSection';
+
+import { benefitsData } from '../../utils/data';
+import useGetData from '../../hooks/useGetData';
 
 
 
@@ -21,22 +21,13 @@ import BottomSection from './BottomSection';
 const cards = Array.from({ length: 24 }, (v, i) => i);
 
 
-
-
 const HomeBody = () => {
 
     // API para imagenes random de Hatsune Miku https://api.nekosapi.com/v3/characters/1/images
-    // const data = useGetData('https://api.waifu.im/search?is_nsfw=false&limit=24')
+    // API para imagenes random de waifus https://api.waifu.im/search?is_nsfw=false&limit=24
+    // const data = useGetData('https://api.nekosapi.com/v3/characters/1/images')
+    // data && console.log(data)
 
-    // console.log(data)
-
-    
-    // const getTheFuckingData = async () => {
-    //     // Simulando la llamada a la API
-    //     const response = await fetch('https://api.waifu.im/search?is_nsfw=true&limit=24')
-    //     const data = await response.json()
-    //     setData(data.images)
-    // }
     
 
     return (

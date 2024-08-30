@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import '../styles/carousel.css'
+import '../../styles/home/carousel.css'
 
 const img_data = [
     'https://http2.mlstatic.com/D_NQ_977782-MLA78139337685_082024-OO.webp',
