@@ -24,15 +24,21 @@ body {
  
 
 
-
-
-
-
 /* ItemDetail */
 
 
 
 /* ItemList */
+
+.search-wrapper, .related-searches-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.search-wrapper {
+    display: flex;
+    gap: 3rem;
+}
 
 
 /* Footer */

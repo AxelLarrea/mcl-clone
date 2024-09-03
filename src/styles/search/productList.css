@@ -1,0 +1,6 @@
+
+.products-wrapper {
+    display: grid;
+    gap: .1rem;
+    flex: 1;
+}
