@@ -4,3 +4,69 @@
     gap: .1rem;
     flex: 1;
 }
+
+.products-orderby-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.products-orderby {
+    display: flex;
+    align-items: center;
+}
+
+.products-orderby > span{
+    font-weight: 600;
+}
+
+.btn-wrapper {
+    position: relative;
+}
+
+.btn-wrapper button {
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+    border: none;
+    background-color: transparent;
+}
+
+.options {
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .12);
+}
+
+.options ul {
+    list-style-type: none;
+    border-radius: 6px;
+    padding: 0;
+    margin: 0;
+}
+
+.options ul li {
+    cursor: pointer;
+    padding: 15px;
+}
+
+.options ul li:hover {
+    padding-left: 10px;
+    border-left: 5px solid rgba(110, 92, 110, 0.4);
+    background-color: #f5f5f5;
+}
+
+.options ul li:first-child:hover {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.options ul li:last-child:hover {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.options ul li:not(:last-child) {
+    border-bottom: 1px solid #d8d8d8;
+}

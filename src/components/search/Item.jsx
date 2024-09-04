@@ -25,8 +25,7 @@ const Item = ({ item }) => {
 
                 <div className="product-header">
                     <div className="brand">
-                        { item.sale_price.metadata.promotion_type === "deal_of_the_day" && <span>OFERTA DEL DÍA</span> }
-                        <span>{ item.attributes[0].value_name.toUpperCase() }</span>
+                        { item.sale_price.metadata.promotion_type === "deal_of_the_day" && <span className="offer">OFERTA DEL DÍA</span> }
                     </div>
 
                     <div className="title">

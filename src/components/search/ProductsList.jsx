@@ -4,17 +4,41 @@ import '../../styles/search/productList.css';
 
 const ProductList = ({ data }) => {
 
+    const handleTopProductsClick = () => {
+        const optionsList = document.querySelector('.btn-wrapper .options')
+        optionsList.style.display = optionsList.style.display === 'none'? 'block' : 'none'
+    }
+
     return (
         <>
             <section className="products-wrapper">
                 <div className="products-orderby-wrapper">
                     <div className="products-orderby">
-                        <span>Ordenar por: </span>
-                        <select>
-                            <option value="Más relevantes">Más relevantes</option>
-                            <option value="Menor precio">Menor precio</option>
-                            <option value="Mayor precio">Mayor precio</option>
-                        </select>
+                        <span>Ordenar por </span>
+                        <div className="btn-wrapper">
+                            <button onClick={handleTopProductsClick}>
+                                Más relevantes
+                                <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" fill="rgba(0, 0, 0, 0.9)">
+                                    <path stroke="#3483FA" d="M9.35229 3.70447L6.00004 7.05672L2.64779 3.70447L1.85229 4.49996L6.00004 8.64771L10.1478 4.49996L9.35229 3.70447Z" fill="rgba(0, 0, 0, 0.9)">
+                                    </path>            
+                                </svg>
+                            </button>
+                            <div className="options">
+                                <ul>
+                                    <li value="Más relevantes">
+                                        <span>Más relevantes</span>
+                                    </li>
+                                    <li value="Menor precio">
+                                        <span>Menor precio</span>
+                                    </li>
+                                    <li value="Mayor precio">
+                                        <span>Mayor precio</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        
                     </div>
                 </div>
 
