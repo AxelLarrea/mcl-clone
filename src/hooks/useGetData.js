@@ -4,9 +4,11 @@ import axios from 'axios';
 
 const useGetData = (url) => {
 
-    const [data, setData] = useState();
+    const [data, setData] = useState(null);
+    const [isLoading, setIsLoading] = useState(false)
 
     const getDataHook = async () => {
+        setIsLoading(true);
         try {
             const response = await axios.get(url)
             const data = await response.data
@@ -14,14 +16,16 @@ const useGetData = (url) => {
             setData(data)
         } catch (error) {
             console.log(error)
+        } finally {
+            setIsLoading(false);
         }
     }
 
     useEffect(() => {
         getDataHook()
-    }, [])
+    }, [url])
     
-    return data;
+    return { data, isLoading };
 }
 
 export default useGetData;

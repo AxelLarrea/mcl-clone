@@ -31,9 +31,18 @@
     gap: .3rem;
     border: none;
     background-color: transparent;
+    cursor: pointer;
+}
+
+.btn-wrapper button:hover {
+    color: #3483FA;
 }
 
 .options {
+    position: absolute;
+    z-index: 1;
+    display: none;
+    width: 130px;
     background-color: #fff;
     border-radius: 6px;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .12);

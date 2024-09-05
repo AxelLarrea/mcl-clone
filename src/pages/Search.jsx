@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import Header from '../components/Header';
 import useGetData from '../hooks/useGetData';
+import Header from '../components/Header';
 import BottomMostSearched from '../components/BottomMostSearched';
 import Footer from '../components/Footer';
 import ProductList from '../components/search/ProductsList';
@@ -9,7 +9,9 @@ import Sidebar from '../components/search/Sidebar';
 
 const Search = () => {
 
-    const data = useGetData('https://api.mercadolibre.com/sites/MLA/search?q=samsung&limit=10')
+    const { data } = useGetData('https://api.mercadolibre.com/sites/MLA/search?q=samsung&limit=10')
+    const dataCategory = data && data.results[0].category_id
+    dataCategory && console.log(dataCategory)
     
     return (
         <>
@@ -32,7 +34,12 @@ const Search = () => {
             </div> */}
             
             <div className="search-wrapper">
-                <Sidebar/>
+
+                { dataCategory && 
+                    <Sidebar
+                        categoryName={dataCategory}
+                    />
+                }
 
                 <ProductList
                     data={data}

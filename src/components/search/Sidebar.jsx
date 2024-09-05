@@ -1,5 +1,10 @@
+import useGetData from "../../hooks/useGetData";
 
-const Sidebar = () => {
+const Sidebar = ({ categoryName }) => {
+
+    const { data } = useGetData(`https://api.mercadolibre.com/categories/${categoryName}`)
+    
+    data && console.log('path: ', data)
     return (
         <>
             <aside className="aside-wrapper">

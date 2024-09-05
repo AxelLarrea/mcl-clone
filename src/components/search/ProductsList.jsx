@@ -1,14 +1,17 @@
 import Item from "./Item";
 import '../../styles/search/productList.css';
+import { useState } from "react";
 
 
 const ProductList = ({ data }) => {
+    const [display, setDisplay] = useState(true)
 
     const handleTopProductsClick = () => {
         const optionsList = document.querySelector('.btn-wrapper .options')
-        optionsList.style.display = optionsList.style.display === 'none'? 'block' : 'none'
+        optionsList.style.display = display === true ? 'block' : 'none'
+        setDisplay(!display)
     }
-
+    
     return (
         <>
             <section className="products-wrapper">
