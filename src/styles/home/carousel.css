@@ -102,6 +102,7 @@
     background-color: rgb(167, 158, 158);
     border-radius: 50%;
     border: 1px solid #fff;
+    transition: all .2s ease;
 }
 
 .carrousel-dot.active {

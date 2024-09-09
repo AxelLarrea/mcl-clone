@@ -9,9 +9,10 @@ import Sidebar from '../components/search/Sidebar';
 
 const Search = () => {
 
-    const { data } = useGetData('https://api.mercadolibre.com/sites/MLA/search?q=samsung&limit=10')
+    const { data } = useGetData('https://api.mercadolibre.com/sites/MLA/search?q=teclado gamer&limit=10')
     const dataCategory = data && data.results[0].category_id
-    dataCategory && console.log(dataCategory)
+    const totalResults = data && data.paging.total
+    const query = data && data.query
     
     return (
         <>
@@ -38,6 +39,8 @@ const Search = () => {
                 { dataCategory && 
                     <Sidebar
                         categoryName={dataCategory}
+                        totalResults={totalResults}
+                        query={query}
                     />
                 }
 

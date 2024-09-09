@@ -1,27 +1,75 @@
 import useGetData from "../../hooks/useGetData";
+import "../../styles/search/sidebar.css"
 
-const Sidebar = ({ categoryName }) => {
+
+const Sidebar = ({ categoryName, totalResults, query }) => {
 
     const { data } = useGetData(`https://api.mercadolibre.com/categories/${categoryName}`)
     
-    data && console.log('path: ', data)
+
     return (
         <>
             <aside className="aside-wrapper">
 
                 <div className="aside-category-path">
+                    <ul>
+                        {data &&
+                            data.path_from_root.map((item, index) => (
+                                <li key={index}>
+                                    <a href="#">
+                                        <span> {item.name} </span>
+                                    </a>
+
+                                    <svg width="64px" height="64px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000">
+                                        <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" stroke="#CCCCCC" strokeWidth="0.43200000000000005"></g>
+                                        <g id="SVGRepo_iconCarrier"> 
+                                            <path d="M10 7L15 12L10 17" stroke="#666" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+                                            </path> 
+                                        </g>
+                                    </svg>
+                                </li>
+                            ))
+                        }
+                    </ul>
 
                 </div>
 
                 <div className="aside-search-info">
-
+                    <h2>{ query[0].toUpperCase() + query.slice(1) }</h2>
+                    <span>{ totalResults } resultados</span>
                 </div>
 
                 <div className="aside-toggle-filters">
-                    <div className="toggle-filter"></div>
-                    <div className="toggle-filter"></div>
-                    <div className="toggle-filter"></div>
-                    <div className="toggle-filter"></div>
+                    <div className="toggle-filter">
+                        <div className="text">
+                            <span>Llega mañana</span>
+                        </div>
+                        <input type="checkbox"/>
+                    </div>
+
+                    <div className="toggle-filter">
+                        <div className="text">
+                            <span>FULL te da envío gratis</span>
+                            <span>En carritos desde $23.000</span>
+                        </div>
+                        <input type="checkbox"/>
+                    </div>
+
+                    <div className="toggle-filter">
+                        <div className="text">
+                            <span>Envío gratis</span>
+                        </div>
+                        <input type="checkbox"/>
+                    </div>
+
+                    <div className="toggle-filter">
+                        <div className="text">
+                            <span>Mejor precio en cuotas</span>
+                            <span>Al mismo precio o con bajo interés</span>
+                        </div>
+                        <input type="checkbox"/>
+                    </div>
                 </div>
 
                 <div className="aside-brand-filter">

@@ -2,6 +2,8 @@ import '../../styles/search/searchItem.css';
 
 const Item = ({ item }) => {
 
+    // Refactorizar componente destructurando la prop item en los elementos que necesito
+
     const discount = (1 - (item.price / Math.round(item.original_price))) * 100
 
     return (
@@ -35,16 +37,19 @@ const Item = ({ item }) => {
                 </div>
 
                 <div className="official-store">
-                    <span> Por { item.official_store_name }</span>
+                    { item.official_store_name && 
+                    <span> Por { item.official_store_name }</span> }
                 </div>
 
                 <div className="product-price-rating-wrapper">
                     <div className="product-price">
-                        <span>{ Math.round(item.original_price).toLocaleString("en-US", {
-                                style: "currency",
-                                currency: "USD"
-                            }) }
-                        </span>
+                        {   item.original_price &&
+                            <span>{ Math.round(item.original_price).toLocaleString("en-US", {
+                                    style: "currency",
+                                    currency: "USD"
+                                }) }
+                            </span>
+                        }
                         
                         <div>
                             <h3>{ item.price.toLocaleString("en-US", {
@@ -53,7 +58,7 @@ const Item = ({ item }) => {
                                 }) }
                             </h3>
 
-                            <span>{ Math.trunc(discount) }% OFF</span>
+                            { item.original_price && <span>{ Math.trunc(discount) }% OFF</span> }
                         </div>
                     </div>
 

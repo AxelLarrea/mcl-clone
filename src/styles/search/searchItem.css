@@ -39,6 +39,10 @@
     border-radius: 2px;
 }
 
+.title {
+    max-width: 95%;
+}
+
 .title h2 {
     font-size: 20px;
     font-weight: 200;
