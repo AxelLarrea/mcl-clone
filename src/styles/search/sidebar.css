@@ -58,7 +58,7 @@
 .aside-toggle-filters {
     display: grid;
     gap: 1rem;
-    border: 2px solid red;
+    max-width: 250px;
 }
 
 .toggle-filter {
@@ -66,5 +66,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 15px;
-    border: 2px solid blue;
+    background-color: #fff;
+    border-radius: 6px;
+    border: 1px solid #ddd;
 }
+
