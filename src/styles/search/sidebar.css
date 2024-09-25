@@ -71,3 +71,8 @@
     border: 1px solid #ddd;
 }
 
+.aside-filter {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}

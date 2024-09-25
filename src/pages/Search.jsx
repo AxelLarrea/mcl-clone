@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import useGetData from '../hooks/useGetData';
 import Header from '../components/Header';
 import BottomMostSearched from '../components/BottomMostSearched';
@@ -13,7 +12,8 @@ const Search = () => {
     const dataCategory = data && data.results[0].category_id
     const totalResults = data && data.paging.total
     const query = data && data.query
-    
+    const filters = data && data.available_filters
+
     return (
         <>
             <Header />
@@ -41,6 +41,7 @@ const Search = () => {
                         categoryName={dataCategory}
                         totalResults={totalResults}
                         query={query}
+                        filters={filters}
                     />
                 }
 
