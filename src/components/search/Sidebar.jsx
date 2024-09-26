@@ -66,7 +66,7 @@ const Sidebar = ({ categoryName, totalResults, query, filters }) => {
 
                     <div className="toggle-filter">
                         <div className="text">
-                            <span>FULL te da envío gratis</span>
+                            <span> <span>FULL</span> te da envío gratis</span>
                             <span>En carritos desde $23.000</span>
                         </div>
                         <input type="checkbox"/>
@@ -91,7 +91,7 @@ const Sidebar = ({ categoryName, totalResults, query, filters }) => {
                 {/* Brand filters */}
                 <div className="aside-brand-filter aside-filter">
                     <span>Marca</span>
-
+                    
                     { filters && cant.map( (item, index) => (
                             <div key={index} className="filter-option">
                                 <a href="#">
@@ -211,6 +211,7 @@ const Sidebar = ({ categoryName, totalResults, query, filters }) => {
                 <div className="aside-promotion-type aside-filter">
                     <span>Tipo de promoción</span>
                     { filters && 
+                        
                         <a href="#">  
                             <span> {`${oferta_dia.values[0].name}`} </span>  
                             <span> {`(${oferta_dia.values[0].results})`} </span>
@@ -237,7 +238,7 @@ const Sidebar = ({ categoryName, totalResults, query, filters }) => {
                 {/* Official store filters */}
                 <div className="aside-official-store aside-filter">
                     <span>Tiendas oficiales</span>
-
+                    
                     { filters && 
                         <div className="filter-option">
                             <a href="#">

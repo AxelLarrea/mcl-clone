@@ -2,7 +2,7 @@
 .aside-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
     width: 300px;
 }
 
@@ -71,8 +71,69 @@
     border: 1px solid #ddd;
 }
 
+.toggle-filter .text {
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    max-width: 150px;
+    gap: .3em;
+}
+
+.toggle-filter .text span:not(:first-child) {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.toggle-filter .text span span {
+    color: #00a650;
+    font-weight: 600;
+    font-style: italic;
+}
+
 .aside-filter {
     display: flex;
     flex-direction: column;
     gap: .5em;
+}
+
+.aside-filter > span {
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.aside-filter a {
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.aside-filter > a {
+    color: #3483FA;
+}
+
+.aside-filter > a:hover {
+    color: #2968c8;
+}
+
+.filter-option {
+    font-size: 14px;
+}
+
+.filter-option span:first-child {
+    color: #666;
+}
+
+.filter-option span:last-child {
+    font-weight: 300;
+    color: #999;
+}
+
+.aside-promotion-type span:first-child {
+    color: #666;
+}
+
+.aside-promotion-type span:last-child {
+    font-weight: 300;
+    color: #999;
 }
