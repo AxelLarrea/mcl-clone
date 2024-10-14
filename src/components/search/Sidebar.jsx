@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import useGetData from "../../hooks/useGetData";
 import "../../styles/search/sidebar.css"
 
@@ -21,7 +22,15 @@ const Sidebar = ({ categoryName, totalResults, query, filters }) => {
     const tienda_oficial = filters.find(filter => filter.id === 'official_store')
     const bestseller = filters.find(filter => filter.id === 'power_seller')
 
-    
+    const toggleBtn1 = useRef(null)
+    const toggleBtn2 = useRef(null)
+    const toggleBtn3 = useRef(null)
+    const toggleBtn4 = useRef(null)
+
+    const handleClick = (btn) => {
+        btn.current.checked = !btn.current.checked
+    }
+
     return (
         <>
             <aside className="aside-wrapper">
@@ -57,34 +66,42 @@ const Sidebar = ({ categoryName, totalResults, query, filters }) => {
                 
                 {/* Toggle filters */}
                 <div className="aside-toggle-filters">
-                    <div className="toggle-filter">
+                    <div className="toggle-filter" onClick={() => handleClick(toggleBtn1)}>
                         <div className="text">
                             <span>Llega mañana</span>
                         </div>
-                        <input type="checkbox"/>
+                        <div className="btn-toggle">
+                            <input type="checkbox" ref={toggleBtn1}/>
+                        </div>
                     </div>
 
-                    <div className="toggle-filter">
+                    <div className="toggle-filter" onClick={() => handleClick(toggleBtn2)}>
                         <div className="text">
                             <span> <span>FULL</span> te da envío gratis</span>
                             <span>En carritos desde $23.000</span>
                         </div>
-                        <input type="checkbox"/>
+                        <div className="btn-toggle">
+                            <input type="checkbox" ref={toggleBtn2}/>
+                        </div>
                     </div>
 
-                    <div className="toggle-filter">
+                    <div className="toggle-filter" onClick={() => handleClick(toggleBtn3)}>
                         <div className="text">
                             <span>Envío gratis</span>
                         </div>
-                        <input type="checkbox"/>
+                        <div className="btn-toggle">
+                            <input type="checkbox" ref={toggleBtn3}/>
+                        </div>
                     </div>
 
-                    <div className="toggle-filter">
+                    <div className="toggle-filter" onClick={() => handleClick(toggleBtn4)}>
                         <div className="text">
                             <span>Mejor precio en cuotas</span>
                             <span>Al mismo precio o con bajo interés</span>
                         </div>
-                        <input type="checkbox"/>
+                        <div className="btn-toggle">
+                            <input type="checkbox" ref={toggleBtn4}/>
+                        </div>
                     </div>
                 </div>
                 

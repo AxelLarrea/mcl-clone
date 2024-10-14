@@ -69,6 +69,7 @@
     background-color: #fff;
     border-radius: 6px;
     border: 1px solid #ddd;
+    cursor: pointer;
 }
 
 .toggle-filter .text {
@@ -90,6 +91,58 @@
     color: #00a650;
     font-weight: 600;
     font-style: italic;
+}
+
+.btn-toggle {
+    width: 50px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-toggle input {
+    position: relative;
+    appearance: none;
+    display: flex;
+    align-items: center;
+    width: 40px;
+    height: 30px;
+}
+
+.btn-toggle input::before {
+    content: " ";
+    position: absolute;
+    right: 0;
+    width: 34px;
+    height: 18px;
+    background: rgba(0, 0, 0, .1);
+    border-radius: 12px;
+}
+
+.btn-toggle input::after {
+    content: " ";
+    position: absolute;
+    left: 8px;
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .55);
+}
+
+.btn-toggle input::after, .btn-toggle input::before {
+    content: "";
+    position: absolute;
+    transition: .15s ease-in-out;
+}
+
+.btn-toggle input:checked::after {
+    left: 24px;
+}
+
+.btn-toggle input:checked::before {
+    background: #3483fa;
 }
 
 .aside-filter {
@@ -136,4 +189,8 @@
 .aside-promotion-type span:last-child {
     font-weight: 300;
     color: #999;
+}
+
+.aside-promotion-type > span:first-child {
+    color: #000;
 }

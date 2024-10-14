@@ -21,6 +21,7 @@ header::before {
 }
 
 .header-wrapper {
+    position: relative;
     height: 100%;
     width: 100%;
     max-width: 1200px;
@@ -71,9 +72,8 @@ header::before {
 }
 
 .search-bar input[type="text"] {
-    font-family: "Proxima Nova", -apple-system, Roboto, Arial, sans-serif, sans-serif;
     font-size: 16px;
-    color: rgba(0, 0, 0, .898);
+    color: rgba(0, 0, 0, 0.9);
     padding-left: 15px;
 }
 
@@ -90,7 +90,7 @@ header::before {
     position: relative;
     content: "";
     border-left: 1px solid #e6e6e6;
-    right: 50%;
+    right: 30%;
 }
 
 .disney-add img {

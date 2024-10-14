@@ -14,7 +14,7 @@ const Header = () => {
 
                     <div className="search-bar">
                         <input type="text" placeholder="Buscar productos, marcas y más..."/>
-                        <button></button>
+                        <button>Go</button>
                     </div>
 
                     <div className="disney-add">
