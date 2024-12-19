@@ -7,8 +7,8 @@ import Sidebar from '../components/search/Sidebar';
 
 
 const Search = () => {
-
-    const { data } = useGetData('https://api.mercadolibre.com/sites/MLA/search?q=teclado gamer&limit=10')
+    const urlQueryWord = window.location.pathname.split('/')[2]
+    const { data } = useGetData(`https://api.mercadolibre.com/sites/MLA/search?q=${urlQueryWord}&limit=10`)
     const dataCategory = data && data.results[0].category_id
     const totalResults = data && data.paging.total
     const query = data && data.query

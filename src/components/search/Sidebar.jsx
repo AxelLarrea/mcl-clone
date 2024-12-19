@@ -3,15 +3,13 @@ import useGetData from "../../hooks/useGetData";
 import "../../styles/search/sidebar.css"
 
 
-const cant = Array.from({ length: 9 }, (v, i) => i);
+// const cant = Array.from({ length: 9 }, (v, i) => i);
 
 const Sidebar = ({ categoryName, totalResults, query, filters }) => {
 
     const { data } = useGetData(`https://api.mercadolibre.com/categories/${categoryName}`)
     const marca = filters.find(filter => filter.id === 'BRAND')
-    const color = filters.find(filter => filter.id === 'KEYBOARD_COLOR')
-    // const colores2 = filters.find(filter => filter.id.includes('COLOR'))
-
+    const color = filters.find(filter => filter.id.includes('COLOR'))
     const condicion = filters.find(filter => filter.id === 'ITEM_CONDITION')
     const envio = filters.find(filter => filter.id === 'shipping')
     const price = filters.find(filter => filter.id === 'price')
@@ -30,6 +28,7 @@ const Sidebar = ({ categoryName, totalResults, query, filters }) => {
     const handleClick = (btn) => {
         btn.current.checked = !btn.current.checked
     }
+
 
     return (
         <>
@@ -70,7 +69,7 @@ const Sidebar = ({ categoryName, totalResults, query, filters }) => {
                         <div className="text">
                             <span>Llega mañana</span>
                         </div>
-                        <div className="btn-toggle">
+                        <div className="btn-toggle" onClick={() => handleClick(toggleBtn1)}>
                             <input type="checkbox" ref={toggleBtn1}/>
                         </div>
                     </div>
@@ -80,7 +79,7 @@ const Sidebar = ({ categoryName, totalResults, query, filters }) => {
                             <span> <span>FULL</span> te da envío gratis</span>
                             <span>En carritos desde $23.000</span>
                         </div>
-                        <div className="btn-toggle">
+                        <div className="btn-toggle" onClick={() => handleClick(toggleBtn2)}>
                             <input type="checkbox" ref={toggleBtn2}/>
                         </div>
                     </div>
@@ -89,7 +88,7 @@ const Sidebar = ({ categoryName, totalResults, query, filters }) => {
                         <div className="text">
                             <span>Envío gratis</span>
                         </div>
-                        <div className="btn-toggle">
+                        <div className="btn-toggle" onClick={() => handleClick(toggleBtn3)}>
                             <input type="checkbox" ref={toggleBtn3}/>
                         </div>
                     </div>
@@ -99,81 +98,91 @@ const Sidebar = ({ categoryName, totalResults, query, filters }) => {
                             <span>Mejor precio en cuotas</span>
                             <span>Al mismo precio o con bajo interés</span>
                         </div>
-                        <div className="btn-toggle">
+                        <div className="btn-toggle" onClick={() => handleClick(toggleBtn4)}>
                             <input type="checkbox" ref={toggleBtn4}/>
                         </div>
                     </div>
                 </div>
                 
                 {/* Brand filters */}
-                <div className="aside-brand-filter aside-filter">
-                    <span>Marca</span>
-                    
-                    { filters && cant.map( (item, index) => (
-                            <div key={index} className="filter-option">
-                                <a href="#">
-                                    <span> {`${marca.values[index].name}`} </span>
-                                    <span> {`(${marca.values[index].results})`} </span>
-                                </a>
-                            </div>
-                        ))
-                    }
+                {   marca &&
+                    <div className="aside-brand-filter aside-filter">
+                        <span>Marca</span>
+                        
+                        {   marca.values.slice(0, 10).map( (item, index) => (
+                                <div key={index} className="filter-option">
+                                    <a href="#">
+                                        <span> {`${marca.values[index].name}`} </span>
+                                        <span> {`(${marca.values[index].results})`} </span>
+                                    </a>
+                                </div>
+                            ))
+                        }
 
-                    <a href="#">Mostrar más</a>
-                </div>
+                        <a href="#">Mostrar más</a>
+                    </div>
+                }
                 
-                {/* Color filters */}
-                <div className="aside-color-filter aside-filter">
-                    <span>Color del teclado</span>
+                
+                {/* Color filters */}    
+                {   color &&
+                    <div className="aside-color-filter aside-filter">
+                        <span>{color.name}</span>
 
-                    { filters && cant.map( (item, index) => (
-                            <div key={index} className="filter-option">
-                                <a href="#">
-                                    <span> {`${color.values[index].name}`} </span>
-                                    <span> {`(${color.values[index].results})`} </span>
-                                </a>
-                            </div>
-                        ))
-                    }
+                        {   color.values.map( (item, index) => (
+                                <div key={index} className="filter-option">
+                                    <a href="#">
+                                        <span> {color.values[index].name} </span>
+                                        <span> ({color.values[index].results}) </span>
+                                    </a>
+                                </div>
+                            ))
+                        }
                     
-                    <a href="#">Mostrar más</a>
-                </div>
+                        
+                        <a href="#">Mostrar más</a>
+                    </div>
+                }
                 
                 {/* Condition filters */}
-                <div className="aside-state-filter aside-filter">
-                    <span>Condición</span>
+                {   condicion &&
+                    <div className="aside-state-filter aside-filter">
+                        <span>Condición</span>
 
-                    { filters && condicion.values.map( (item, index) => (
-                            <div key={index} className="filter-option">
-                                <a href="#">
-                                    <span> {`${item.name}`} </span>
-                                    <span> {`(${item.results})`} </span>
-                                </a>
-                            </div>
-                        ))
-                    }
-                </div>
+                        {   condicion.values.map( (item, index) => (
+                                <div key={index} className="filter-option">
+                                    <a href="#">
+                                        <span> {item.name} </span>
+                                        <span> ({item.results}) </span>
+                                    </a>
+                                </div>
+                            ))
+                        }
+                    </div>
+                }
 
                 {/* Shipping filters */}
-                <div className="aside-shipment-filter aside-filter">
-                    <span>Envío</span>
+                {   envio &&
+                    <div className="aside-shipment-filter aside-filter">
+                        <span>Envío</span>
 
-                    { filters && envio.values.map( (item, index) => (
-                            <div key={index} className="filter-option">
-                                <a href="#">
-                                    <span> {`${item.name}`} </span>
-                                    <span> {`(${item.results})`} </span>
-                                </a>
-                            </div>
-                        ))
-                    }
-                </div>
+                        { envio.values.map( (item, index) => (
+                                <div key={index} className="filter-option">
+                                    <a href="#">
+                                        <span> {`${item.name}`} </span>
+                                        <span> {`(${item.results})`} </span>
+                                    </a>
+                                </div>
+                            ))
+                        }
+                    </div>
+                }
                 
                 {/* Price range filters */}
                 <div className="aside-price-range-filter aside-filter">
                     <span>Precio</span>
 
-                    { filters && price.values.map( (item, index) => (
+                    { price && price.values.map( (item, index) => (
                             <div key={index} className="filter-option">
                                 <a href="#">
                                     <span> {`${item.name}`} </span>
@@ -185,104 +194,112 @@ const Sidebar = ({ categoryName, totalResults, query, filters }) => {
 
 
                     <div className="price-range-input-wrapper">
-                        <div className="min-input">
-                            <input type="text" className="price-range-input" placeholder="Mínimo"/>
-                            {/* Para hacer la línea que separa ambos inputs, usar :after */}
+                        <div className="price-range-input-container">
+                            <div className="min-input">
+                                <input type="text" className="price-range-input" placeholder="Mínimo"/>
+                                {/* Para hacer la línea que separa ambos inputs, usar :after */}
+                            </div>
+                            <input type="text" className="price-range-input" placeholder="Máximo"/>
                         </div>
-                        <input type="text" className="price-range-input" placeholder="Máximo"/>
-                        <button className="price-range-apply-btn">Go</button>
+                        <button className="price-range-btn">
+                            <svg aria-hidden="true" width="20" height="20" viewBox="3 -1 20 20" fill="rgba(0, 0, 0, 0.9)">
+                                <path d="M8.27686 4.34644L7.42834 5.19496L12.224 9.99059L7.42334 14.7912L8.27187 15.6397L13.921 9.99059L8.27686 4.34644Z" fill="rgba(255, 255, 255, 0.9)"></path>
+                            </svg>
+                        </button>
                     </div>
                 </div>
                 
                 {/* Installments filters */}
-                <div className="aside-installments-filter aside-filter">
-                    <span>Cuotas</span>
+                {   cuota &&
+                    <div className="aside-installments-filter aside-filter">
+                        <span>Cuotas</span>
 
-                    { filters && cuota.values.map( (item, index) => (
-                            <div key={index} className="filter-option">
-                                <a href="#">
-                                    <span> {`${item.name}`} </span>
-                                    <span> {`(${item.results})`} </span>
-                                </a>
-                            </div>
-                        ))
-                    }
-                </div>
+                        {   cuota.values.map( (item, index) => (
+                                <div key={index} className="filter-option">
+                                    <a href="#">
+                                        <span> {`${item.name}`} </span>
+                                        <span> {`(${item.results})`} </span>
+                                    </a>
+                                </div>
+                            ))
+                        }
+                    </div>
+                }
                 
                 {/* Discount filters */}
-                <div className="aside-discounts-filter aside-filter">
-                    <span>Descuentos</span>
+                {   descuento &&
+                    <div className="aside-discounts-filter aside-filter">
+                        <span>Descuentos</span>
 
-                    { filters && descuento.values.map( (item, index) => (
-                            <div key={index} className="filter-option">
-                                <a href="#">
-                                    <span> {`${item.name}`} </span>
-                                    <span> {`(${item.results})`} </span>
-                                </a>
-                            </div>
-                        ))
-                    }
-                </div>
+                        {   descuento.values.map( (item, index) => (
+                                <div key={index} className="filter-option">
+                                    <a href="#">
+                                        <span> {`${item.name}`} </span>
+                                        <span> {`(${item.results})`} </span>
+                                    </a>
+                                </div>
+                            ))
+                        }
+                    </div>
+                }
                 
                 {/* Promotion type filters */}
-                <div className="aside-promotion-type aside-filter">
-                    <span>Tipo de promoción</span>
-                    { filters && 
-                        
+                { oferta_dia && 
+                    <div className="aside-promotion-type aside-filter">
+                        <span>Tipo de promoción</span>
                         <a href="#">  
-                            <span> {`${oferta_dia.values[0].name}`} </span>  
-                            <span> {`(${oferta_dia.values[0].results})`} </span>
+                            <span> {`${oferta_dia?.values[0].name}`} </span>  
+                            <span> {`(${oferta_dia?.values[0].results})`} </span>
                         </a>
-                    }
-                </div>
+                    </div>
+                }
                 
                 {/* Ubication filters */}
-                <div className="aside-ubication-filter aside-filter">
-                    <span>Ubicación</span>
+                { ubicacion &&
+                    <div className="aside-ubication-filter aside-filter">
+                        <span>Ubicación</span>
 
-                    { filters && cant.map( (item, index) => (
-                            <div key={index} className="filter-option">
-                                <a href="#">
-                                    <span> {`${ubicacion.values[index].name}`} </span>
-                                    <span> {`(${ubicacion.values[index].results})`} </span>
-                                </a>
-                            </div>
-                        ))
-                    }
-                    <a href="#">Mostrar más</a>
-                </div>
+                        {   ubicacion.values.slice(0, 10).map( (item, index) => (
+                                <div key={index} className="filter-option">
+                                    <a href="#">
+                                        <span> {`${ubicacion.values[index].name}`} </span>
+                                        <span> {`(${ubicacion.values[index].results})`} </span>
+                                    </a>
+                                </div>
+                            ))
+                        }
+                        <a href="#">Mostrar más</a>
+                    </div>
+                }
 
                 {/* Official store filters */}
-                <div className="aside-official-store aside-filter">
-                    <span>Tiendas oficiales</span>
-                    
-                    { filters && 
+                { tienda_oficial && 
+                    <div className="aside-official-store aside-filter">
+                        <span>Tiendas oficiales</span>
                         <div className="filter-option">
                             <a href="#">
                                 <span> {`${tienda_oficial.values[0].name}`} </span>
                                 <span> {`(${tienda_oficial.values[0].results})`} </span>
                             </a>
                         </div>
-                    }
-                </div>
+                    </div>
+                }
                 
 
                 {/* Faltan filtros que deben ser generados en base al tipo de producto */}
                 
                 {/* Bestsellers filters */}
-                <div className="aside-bestsellers aside-filter">
-                    <span>Detalles de la publicación</span>
-
-                    { filters && 
+                {   bestseller && 
+                    <div className="aside-bestsellers aside-filter">
+                        <span>Detalles de la publicación</span>
                         <div className="filter-option">
                             <a href="#">
                                 <span> {`${bestseller.values[0].name}`} </span>
                                 <span> {`(${bestseller.values[0].results})`} </span>
                             </a>
                         </div>
-                    }
-                </div>
-                
+                    </div>
+                }
 
                 <div className="aside-mercadoshops">
                     <div className="logo">

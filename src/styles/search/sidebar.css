@@ -19,7 +19,7 @@
 
 .aside-category-path li {
     display: inline;
-    align-items: center;
+    
     list-style: none;
     
 }
@@ -108,6 +108,7 @@
     align-items: center;
     width: 40px;
     height: 30px;
+    cursor: pointer;
 }
 
 .btn-toggle input::before {
@@ -193,4 +194,52 @@
 
 .aside-promotion-type > span:first-child {
     color: #000;
+}
+
+.price-range-input-wrapper, .price-range-input-container {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+}                       
+
+.price-range-input-container {
+    gap: 1.1em;
+}
+
+.min-input {
+    position: relative;
+}
+
+.min-input::after {
+    content: "";
+    position: absolute;
+    right: -9px;
+    top: 8px;
+    width: 1px;
+    height: 9px;
+    transform: rotate(90deg);
+    background-color: rgb(153, 153, 153);
+}
+
+.price-range-input {
+    height: 25px;
+    width: 85px;
+    font-size: 13px;
+    padding: 8px 10px;
+    border: 0;
+    border-radius: 6px;
+    background-color: #fafafa;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .25);
+    outline: none;
+}
+
+.price-range-input:focus {
+    box-shadow: 0 0 0 .125em #3483FA;
+}
+.price-range-btn {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: none;
+    background-color: #e0e0e0;
 }

@@ -55,9 +55,14 @@ header::before {
     height: 40px;
     width: 100%;
     max-width: 600px;
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.search-bar-form {
+    height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
-    box-shadow: 0 1px 0 0 rgba(0, 0, 0, .1);
 }
 
 .search-bar input {
@@ -78,6 +83,10 @@ header::before {
 }
 
 .search-bar button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100%;
     width: 50px;
     border: none;
@@ -87,10 +96,11 @@ header::before {
 }
 
 .search-bar button::before {
-    position: relative;
+    position: absolute;
     content: "";
     border-left: 1px solid #e6e6e6;
-    right: 30%;
+    height: 20px;
+    left: 5%
 }
 
 .disney-add img {

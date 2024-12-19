@@ -1,6 +1,7 @@
 
 .products-wrapper {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: .1rem;
     flex: 1;
 }
@@ -8,8 +9,8 @@
 .products-orderby-wrapper {
     display: flex;
     justify-content: flex-end;
-    margin: 10px 0 20px 0;
     font-size: 14px;
+    margin: 8px 0 20px;
 }
 
 .products-orderby {
