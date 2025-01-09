@@ -4,6 +4,7 @@
     display: flex;
     background-color: #fff;
     cursor: pointer;
+    height: 220px;
 }
 
 .product-wrapper:hover > .add-fav-icon {
@@ -92,6 +93,7 @@
 .product-price h3 {
     margin: 0;
     font-size: 22px;
+    font-weight: 400;
 }
 
 .product-shipment {
@@ -101,7 +103,7 @@
     font-size: 14px;
 }
 
-.product-shipment span:first-child {
+.free_shipment {
     color: #00a650;
-    font-weight: 600;
+    font-weight: 500;
 }

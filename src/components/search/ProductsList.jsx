@@ -1,7 +1,7 @@
 import Item from "./Item";
 import '../../styles/search/productList.css';
 import { useState } from "react";
-
+import filter from "../../utils/filter";
 
 const ProductList = ({ data }) => {
     const [display, setDisplay] = useState(true)
@@ -11,7 +11,9 @@ const ProductList = ({ data }) => {
         optionsList.style.display = display === true ? 'block' : 'none'
         setDisplay(!display)
     }
-    
+    data && console.log('envio gratis:', filter(data.results, 'envio gratis', true))
+    data && console.log('envio full:', filter(data.results, 'envio full', 'fulfillment'))
+
     return (
         <>
             <section className="products-wrapper">

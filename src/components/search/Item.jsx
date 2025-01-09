@@ -6,6 +6,7 @@ const Item = ({ item }) => {
 
     const discount = (1 - (item.price / Math.round(item.original_price))) * 100
 
+
     return (
         <div className="product-wrapper">
             <div className="product-image">
@@ -25,7 +26,7 @@ const Item = ({ item }) => {
 
             <div className="product-content">
 
-                <div className="product-header">
+                <div>
                     <div className="brand">
                         { item.sale_price.metadata.promotion_type === "deal_of_the_day" && <span className="offer">OFERTA DEL DÍA</span> }
                     </div>
@@ -44,17 +45,15 @@ const Item = ({ item }) => {
                 <div className="product-price-rating-wrapper">
                     <div className="product-price">
                         {   item.original_price &&
-                            <span>{ Math.round(item.original_price).toLocaleString("en-US", {
-                                    style: "currency",
-                                    currency: "USD"
+                            <span>$ { Math.round(item.original_price).toLocaleString("es-AR", {
+                                maximumFractionDigits: "0"
                                 }) }
                             </span>
                         }
                         
                         <div>
-                            <h3>{ item.price.toLocaleString("en-US", {
-                                    style: "currency",
-                                    currency: "USD"
+                            <h3>$ { item.price.toLocaleString("es-AR", {
+                                    maximumFractionDigits: "0"
                                 }) }
                             </h3>
 
@@ -68,7 +67,10 @@ const Item = ({ item }) => {
                 </div>
                 
                 <div className="product-shipment">
-                    { item.shipping.free_shipping && <span>Envío gratis</span> }
+                    { item.installments.quantity > 1 && 
+                        <span> en {item.installments.quantity} cuotas de $ {item.installments.amount.toLocaleString("es-AR", {maximumFractionDigits: "0"})}
+                        </span> }
+                    { item.shipping.free_shipping && <span className="free_shipment">Envío gratis</span> }
                     { item.shipping.logistic_type === "fulfillment" && <span>Enviado por <span>FULL</span></span> }
                 </div>
 
