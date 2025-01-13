@@ -11,8 +11,8 @@ const ProductList = ({ data }) => {
         optionsList.style.display = display === true ? 'block' : 'none'
         setDisplay(!display)
     }
-    data && console.log('envio gratis:', filter(data.results, 'envio gratis', true))
-    data && console.log('envio full:', filter(data.results, 'envio full', 'fulfillment'))
+   
+    
 
     return (
         <>

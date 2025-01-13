@@ -22,6 +22,7 @@
 
 .product-content {
     padding: 20px 0;
+    width: 70%;
 }
 
 .brand {
@@ -40,10 +41,6 @@
     border-radius: 2px;
 }
 
-.title {
-    max-width: 95%;
-}
-
 .title h2 {
     font-size: 20px;
     font-weight: 200;
@@ -54,8 +51,13 @@
     opacity: 0;
     position: absolute;
     right: 20px;
-    top: 20px;
+    top: 25px;
     transition: opacity .1s;
+    z-index: 10;
+}
+
+.add-fav-icon.active > svg {
+    fill: #3483FA;
 }
 
 .add-fav-icon svg {
@@ -98,12 +100,30 @@
 
 .product-shipment {
     display: grid;
-    gap: .5rem;
+    gap: .8rem;
     margin-top: 10px;
     font-size: 14px;
 }
 
-.free_shipment {
+.international-purchase {
+    color: #2968c8;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.item-shipment-wrapper {
+    display: flex;
+}
+
+.item-shipment {
     color: #00a650;
     font-weight: 500;
+}
+
+.full-shipment {
+    display: flex;
+    align-items: center;
+    font-style: italic;
+    font-size: small;
 }
