@@ -1,7 +1,8 @@
+import { useState } from "react";
+
 import Item from "./Item";
 import '../../styles/search/productList.css';
-import { useState } from "react";
-import filter from "../../utils/filter";
+
 
 const ProductList = ({ data }) => {
     const [display, setDisplay] = useState(true)
@@ -11,7 +12,7 @@ const ProductList = ({ data }) => {
         optionsList.style.display = display === true ? 'block' : 'none'
         setDisplay(!display)
     }
-   
+
     
 
     return (
@@ -48,7 +49,7 @@ const ProductList = ({ data }) => {
                 </div>
 
 
-                { data && data.results.map( item => (
+                { data?.map( item => (
                     <Item 
                         key={item.id}
                         item={item}

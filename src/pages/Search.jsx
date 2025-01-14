@@ -1,18 +1,29 @@
-import useGetData from '../hooks/useGetData';
+import { useParams } from 'wouter';
+import { useQuery } from '@tanstack/react-query';
+import { useFilterStore } from '../utils/store';
+
 import Header from '../components/Header';
 import BottomMostSearched from '../components/BottomMostSearched';
 import Footer from '../components/Footer';
 import ProductList from '../components/search/ProductsList';
 import Sidebar from '../components/search/Sidebar';
-import { useParams } from 'wouter';
+import useGetData2 from '../utils/useGetData2.js';
+
 
 
 const Search = () => {
+
     const { query } = useParams()
-    const { data } = useGetData(`https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=20`)
-    const dataCategory = data?.results[0].category_id
-    const totalResults = data?.paging.total
-    const filters = data?.available_filters
+    const { filters } = useFilterStore()
+    const url = `https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=20`
+
+    const { data } = useQuery({
+        queryKey: ['search', filters, query],
+        queryFn: () => useGetData2(url, filters),
+    })
+
+    console.log('Le data:', data)
+
 
     return (
         <>
@@ -20,17 +31,17 @@ const Search = () => {
             
             <div className="search-wrapper">
 
-                { dataCategory && 
+                { data?.dataCategory && 
                     <Sidebar
-                        categoryName={dataCategory}
-                        totalResults={totalResults}
+                        categoryName={data?.dataCategory}
+                        totalResults={data?.totalResults}
                         query={query}
-                        sbfilters={filters}
+                        sbfilters={data?.sbfilters}
                     />
                 }
 
                 <ProductList
-                    data={data}
+                    data={data?.filteredData}
                 />
 
             </div>

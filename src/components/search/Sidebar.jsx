@@ -1,7 +1,8 @@
 import { useRef } from "react";
-import useGetData from "../../hooks/useGetData";
-import "../../styles/search/sidebar.css"
 import { useFilterStore } from "../../utils/store";
+import useGetData from "../../hooks/useGetData";
+
+import "../../styles/search/sidebar.css"
 
 
 // const cant = Array.from({ length: 9 }, (v, i) => i);
@@ -30,11 +31,11 @@ const Sidebar = ({ categoryName, totalResults, query, sbfilters }) => {
 
     const { filters, setFilters, removeFilter } = useFilterStore()
 
-    const handleClick = (btn, value) => {
+    const handleClick = (btn, type, value) => {
         if (value) { 
-            filters.includes(value) ? 
-            removeFilter(filters.filter((f) => f !== value)) : 
-            setFilters([...filters, value])
+            filters.some((filter) => filter.type === type) ? 
+            removeFilter(filters.filter((f) => f.type !== type)) : 
+            setFilters([...filters, {type: type, value: value}])
         }
         btn.current.checked = !btn.current.checked
     }
@@ -83,7 +84,7 @@ const Sidebar = ({ categoryName, totalResults, query, sbfilters }) => {
                         </div>
                     </div>
 
-                    <div className="toggle-filter" onClick={() => handleClick(toggleBtn2, 'envio full')}>
+                    <div className="toggle-filter" onClick={() => handleClick(toggleBtn2, 'envio full', 'fulfillment')}>
                         <div className="text">
                             
                             <span className="item_shipment_wrapper_sidebar">
@@ -107,7 +108,7 @@ const Sidebar = ({ categoryName, totalResults, query, sbfilters }) => {
                         </div>
                     </div>
 
-                    <div className="toggle-filter" onClick={() => handleClick(toggleBtn3, 'envio gratis')}>
+                    <div className="toggle-filter" onClick={() => handleClick(toggleBtn3, 'envio gratis', true)}>
                         <div className="text">
                             <span>Envío gratis</span>
                         </div>
