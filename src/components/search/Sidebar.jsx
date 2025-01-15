@@ -5,6 +5,7 @@ import useGetData from "../../hooks/useGetData";
 import "../../styles/search/sidebar.css"
 
 
+
 // const cant = Array.from({ length: 9 }, (v, i) => i);
 
 const Sidebar = ({ categoryName, totalResults, query, sbfilters }) => {
@@ -29,17 +30,25 @@ const Sidebar = ({ categoryName, totalResults, query, sbfilters }) => {
     const toggleBtn4 = useRef(null)
     const toggleBtn5 = useRef(null)
 
-    const { filters, setFilters, removeFilter } = useFilterStore()
+    const { filters, setFilters, removeFilter, order } = useFilterStore()
 
     const handleClick = (btn, type, value) => {
         if (value) { 
             filters.some((filter) => filter.type === type) ? 
-            removeFilter(filters.filter((f) => f.type !== type)) : 
+            removeFilter(type) : 
             setFilters([...filters, {type: type, value: value}])
+            
+        } else {
+            btn.current.checked = !btn.current.checked
         }
-        btn.current.checked = !btn.current.checked
     }
 
+    const isActive = (type) => {
+        return filters.some(filter => filter.type === type);
+    };
+    
+    console.log('Orden: ',order)
+    
     return (
         <>
             <aside className="aside-wrapper">
@@ -103,8 +112,8 @@ const Sidebar = ({ categoryName, totalResults, query, sbfilters }) => {
 
                             <span>En carritos desde $23.000</span>
                         </div>
-                        <div className="btn-toggle" onClick={() => handleClick(toggleBtn2)}>
-                            <input type="checkbox" ref={toggleBtn2}/>
+                        <div className="btn-toggle" onClick={() => handleClick(toggleBtn2)}>                     
+                            <input type="checkbox" ref={toggleBtn2} checked={isActive('envio full')} readOnly/> 
                         </div>
                     </div>
 
@@ -113,7 +122,7 @@ const Sidebar = ({ categoryName, totalResults, query, sbfilters }) => {
                             <span>Envío gratis</span>
                         </div>
                         <div className="btn-toggle" onClick={() => handleClick(toggleBtn3)}>
-                            <input type="checkbox" ref={toggleBtn3}/>
+                            <input type="checkbox" ref={toggleBtn3} checked={isActive('envio gratis')} readOnly/>
                         </div>
                     </div>
 

@@ -14,12 +14,12 @@ import useGetData2 from '../utils/useGetData2.js';
 const Search = () => {
 
     const { query } = useParams()
-    const { filters } = useFilterStore()
+    const { filters, order } = useFilterStore()
     const url = `https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=20`
 
     const { data } = useQuery({
-        queryKey: ['search', filters, query],
-        queryFn: () => useGetData2(url, filters),
+        queryKey: ['search', query, filters, order],
+        queryFn: () => useGetData2(url, filters, order),
     })
 
     console.log('Le data:', data)

@@ -28,8 +28,8 @@ const filter = (data, query) => {
         return filtered[0].filter( item => filtered[1].includes(item))
     }
     
-    const f = filtered[0] ? filtered[0] : filtered
-    return f;
+    return filtered[0] ? filtered[0] : filtered
+    
    
 }
 
