@@ -1,31 +1,28 @@
-import { useState, useEffect } from 'react';
 import axios from 'axios';
+import filter from '../utils/filter';
 
 
-const useGetData = (url) => {
+const useGetData = async (url, filters, order, type) => {
 
-    const [data, setData] = useState(null);
-    const [isLoading, setIsLoading] = useState(false)
+    try {
+        const response = await axios.get(url)
+        const data = await response.data
 
-    const getDataHook = async () => {
-        setIsLoading(true);
-        try {
-            const response = await axios.get(url)
-            const data = await response.data
-            console.log(data)
-            setData(data)
-        } catch (error) {
-            console.log(error)
-        } finally {
-            setIsLoading(false);
-        }
+        if (type === 'category') return data
+
+        const dataCategory = data.results[0].category_id
+        const totalResults = data.paging.total
+        const sbfilters = data.available_filters
+        const filteredData = filter(data.results, filters);
+        
+        if (order === 'asc') filteredData.sort((a, b) => a.sale_price.amount - b.sale_price.amount)
+        if (order === 'desc') filteredData.sort((a, b) => b.sale_price.amount - a.sale_price.amount)
+
+        return { filteredData, dataCategory, totalResults, sbfilters };
+
+    } catch (error) {
+        console.log(error)
     }
-
-    useEffect(() => {
-        getDataHook()
-    }, [url])
-    
-    return { data, isLoading };
 }
 
 export default useGetData;

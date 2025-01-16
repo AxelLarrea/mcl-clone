@@ -2,6 +2,7 @@
 const keys = {
     'envio gratis' : 'shipping.free_shipping',
     'envio full' : 'shipping.logistic_type',
+    'bajo interes' : 'installments.rate',
 }
 
 const filter = (data, query) => {
@@ -20,17 +21,21 @@ const filter = (data, query) => {
                 }
                 item = item[key];
             }
+            if (filter.type === 'bajo interes') return item < filter.value;
             return item === filter.value;
         });
     })
+
+    
     
     if (filtered.length > 1) {
-        return filtered[0].filter( item => filtered[1].includes(item))
+        return filtered.reduce((acc, curr) => {
+            return acc.filter(item => curr.includes(item));
+        }, filtered[0]);
     }
     
-    return filtered[0] ? filtered[0] : filtered
     
-   
+    return filtered[0] ? filtered[0] : filtered;
 }
 
 export default filter;

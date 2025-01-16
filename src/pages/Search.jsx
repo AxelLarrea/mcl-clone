@@ -7,23 +7,38 @@ import BottomMostSearched from '../components/BottomMostSearched';
 import Footer from '../components/Footer';
 import ProductList from '../components/search/ProductsList';
 import Sidebar from '../components/search/Sidebar';
-import useGetData2 from '../utils/useGetData2.js';
+import useGetData from '../hooks/useGetData.js';
+import { useEffect } from 'react';
 
 
 
 const Search = () => {
 
     const { query } = useParams()
-    const { filters, order } = useFilterStore()
-    const url = `https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=20`
+    const { filters, order, toggleFilter } = useFilterStore()
+    const url = `https://api.mercadolibre.com/sites/MLA/search?q=${query}`
 
     const { data } = useQuery({
         queryKey: ['search', query, filters, order],
-        queryFn: () => useGetData2(url, filters, order),
+        queryFn: () => useGetData(url, filters, order),
     })
 
-    console.log('Le data:', data)
+    
+    
+    useEffect(() => {
+        if (data) {
+            const filterens = {
+                fullShipping: data?.filteredData.some(item => item.shipping.logistic_type === "fulfillment"),
+                freeShipping: data?.filteredData.some(item => item.shipping.free_shipping),
+                lowInterest: data?.filteredData.some(item => item.installments.rate < 15),
+                internationalDelivery: data?.filteredData.some(item => item.address.state_id.includes("US-"))
+            }
+            toggleFilter(filterens)
+        }
+    }, [data])
 
+    // if (data) console.log('Le data:', data)
+    
 
     return (
         <>

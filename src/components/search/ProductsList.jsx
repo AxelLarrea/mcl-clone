@@ -29,7 +29,7 @@ const ProductList = ({ data }) => {
             <section className="products-wrapper">
                 <div className="products-orderby-wrapper">
                     <div className="products-orderby">
-                        <span>Ordenar por </span>
+                        <span> Ordenar por </span>
                         <div className="btn-wrapper">
                             <button onClick={handleTopProductsClick}>
                                 { options_text() }

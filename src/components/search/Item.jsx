@@ -37,11 +37,11 @@ const Item = ({ item }) => {
 
                 <div>
                     <div className="brand">
-                        { item.sale_price.metadata.promotion_type === "deal_of_the_day" && <span className="offer">OFERTA DEL DÍA</span> }
+                        { item?.sale_price?.metadata.promotion_type === "deal_of_the_day" && <span className="offer">OFERTA DEL DÍA</span> }
                     </div>
 
                     <div className="title">
-                        <h2>{ item.title }</h2>
+                        <h2>{ item?.title }</h2>
                     </div>
                     
                 </div>

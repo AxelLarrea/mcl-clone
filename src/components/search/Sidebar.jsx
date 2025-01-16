@@ -3,14 +3,19 @@ import { useFilterStore } from "../../utils/store";
 import useGetData from "../../hooks/useGetData";
 
 import "../../styles/search/sidebar.css"
-
+import { useQuery } from "@tanstack/react-query";
 
 
 // const cant = Array.from({ length: 9 }, (v, i) => i);
 
 const Sidebar = ({ categoryName, totalResults, query, sbfilters }) => {
 
-    const { data } = useGetData(`https://api.mercadolibre.com/categories/${categoryName}`)
+    const url = `https://api.mercadolibre.com/categories/${categoryName}`
+    const { data } = useQuery({
+        queryKey: ['category', categoryName],
+        queryFn: () => useGetData(url, null, null, 'category'),
+    })
+    
     const marca = sbfilters.find(filter => filter.id === 'BRAND')
     const color = sbfilters.find(filter => filter.id.includes('COLOR'))
     const condicion = sbfilters.find(filter => filter.id === 'ITEM_CONDITION')
@@ -30,7 +35,9 @@ const Sidebar = ({ categoryName, totalResults, query, sbfilters }) => {
     const toggleBtn4 = useRef(null)
     const toggleBtn5 = useRef(null)
 
-    const { filters, setFilters, removeFilter, order } = useFilterStore()
+    const { filters, setFilters, removeFilter, viewFilters } = useFilterStore()
+    const { fullShipping, freeShipping, lowInterest, internationalDelivery } = viewFilters
+
 
     const handleClick = (btn, type, value) => {
         if (value) { 
@@ -47,16 +54,16 @@ const Sidebar = ({ categoryName, totalResults, query, sbfilters }) => {
         return filters.some(filter => filter.type === type);
     };
     
-    console.log('Orden: ',order)
     
     return (
         <>
             <aside className="aside-wrapper">
 
+                {/* Category path */}
                 <div className="aside-category-path">
                     <ul>
-                        {data &&
-                            data.path_from_root.map((item, index) => (
+                        {
+                            data?.path_from_root.map((item, index) => (
                                 <li key={index}>
                                     <a href="#">
                                         <span> {item.name} </span>
@@ -76,7 +83,8 @@ const Sidebar = ({ categoryName, totalResults, query, sbfilters }) => {
                     </ul>
 
                 </div>
-
+                
+                {/* Total results */}
                 <div className="aside-search-info">
                     <h2>{ query[0].toUpperCase() + query.slice(1) }</h2>
                     <span>{ totalResults } resultados</span>
@@ -84,6 +92,8 @@ const Sidebar = ({ categoryName, totalResults, query, sbfilters }) => {
                 
                 {/* Toggle filters */}
                 <div className="aside-toggle-filters">
+
+                    {/* Llega mañana */}
                     <div className="toggle-filter" onClick={() => handleClick(toggleBtn1)}>
                         <div className="text">
                             <span>Llega mañana</span>
@@ -92,51 +102,62 @@ const Sidebar = ({ categoryName, totalResults, query, sbfilters }) => {
                             <input type="checkbox" ref={toggleBtn1}/>
                         </div>
                     </div>
+                    
+                    {/* Envio full */}
+                    {   fullShipping && 
+                        <div className="toggle-filter" onClick={() => handleClick(toggleBtn2, 'envio full', 'fulfillment')}>
+                            <div className="text">
+                                
+                                <span className="item_shipment_wrapper_sidebar">
+                                    <span className="full_shipment">
+                                        <svg height="15px" width="15px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 400 400" xmlSpace="preserve" fill="#00a650">
+                                            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                                            <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <g><polygon fill="#00a650" points="157.055,0 90.798,196.319 164.417,196.319 88.344,400 289.571,159.509 218.405,159.509 311.656,0 "></polygon></g> 
+                                            </g>
+                                        </svg>
+                                        FULL
+                                    </span> 
+                                    te da envío gratis
+                                </span>
 
-                    <div className="toggle-filter" onClick={() => handleClick(toggleBtn2, 'envio full', 'fulfillment')}>
-                        <div className="text">
-                            
-                            <span className="item_shipment_wrapper_sidebar">
-                                <span className="full_shipment">
-                                    <svg height="15px" width="15px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 400 400" xmlSpace="preserve" fill="#00a650">
-                                        <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-                                        <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
-                                        <g id="SVGRepo_iconCarrier">
-                                            <g><polygon fill="#00a650" points="157.055,0 90.798,196.319 164.417,196.319 88.344,400 289.571,159.509 218.405,159.509 311.656,0 "></polygon></g> 
-                                        </g>
-                                    </svg>
-                                    FULL
-                                </span> 
-                                te da envío gratis
-                            </span>
-
-                            <span>En carritos desde $23.000</span>
+                                <span>En carritos desde $23.000</span>
+                            </div>
+                            <div className="btn-toggle" onClick={() => handleClick(toggleBtn2)}>                     
+                                <input type="checkbox" ref={toggleBtn2} checked={isActive('envio full')} readOnly/> 
+                            </div>
                         </div>
-                        <div className="btn-toggle" onClick={() => handleClick(toggleBtn2)}>                     
-                            <input type="checkbox" ref={toggleBtn2} checked={isActive('envio full')} readOnly/> 
-                        </div>
-                    </div>
-
-                    <div className="toggle-filter" onClick={() => handleClick(toggleBtn3, 'envio gratis', true)}>
+                    }
+                    
+                    {/* Envio gratis */}
+                    {   freeShipping &&
+                        <div className="toggle-filter" onClick={() => handleClick(toggleBtn3, 'envio gratis', true)}>
                         <div className="text">
                             <span>Envío gratis</span>
                         </div>
                         <div className="btn-toggle" onClick={() => handleClick(toggleBtn3)}>
                             <input type="checkbox" ref={toggleBtn3} checked={isActive('envio gratis')} readOnly/>
                         </div>
-                    </div>
-
-                    <div className="toggle-filter" onClick={() => handleClick(toggleBtn4)}>
+                        </div>
+                    }
+                    
+                    {/* Cuotas */}
+                    {   lowInterest &&
+                        <div className="toggle-filter" onClick={() => handleClick(toggleBtn4, 'bajo interes', 15)}>
                         <div className="text">
                             <span>Mejor precio en cuotas</span>
                             <span>Al mismo precio o con bajo interés</span>
                         </div>
                         <div className="btn-toggle" onClick={() => handleClick(toggleBtn4)}>
-                            <input type="checkbox" ref={toggleBtn4}/>
+                            <input type="checkbox" ref={toggleBtn4} checked={isActive('bajo interes')} readOnly/>
                         </div>
-                    </div>
-
-                    <div className="toggle-filter" onClick={() => handleClick(toggleBtn5)}>
+                        </div>
+                    }
+                    
+                    {/* Compra internacional */}
+                    {   internationalDelivery &&
+                        <div className="toggle-filter" onClick={() => handleClick(toggleBtn5)}>
                         <div className="text">
 
                             <span className="international_purchase_sidebar">
@@ -158,7 +179,8 @@ const Sidebar = ({ categoryName, totalResults, query, sbfilters }) => {
                         <div className="btn-toggle" onClick={() => handleClick(toggleBtn5)}>
                             <input type="checkbox" ref={toggleBtn5}/>
                         </div>
-                    </div>
+                        </div>
+                    }
                 </div>
                 
                 {/* Brand filters */}
@@ -373,9 +395,6 @@ const Sidebar = ({ categoryName, totalResults, query, sbfilters }) => {
                         </div>
                     </div>
                 }
-                
-                {/* Faltan filtros que deben ser generados en base al tipo de producto */}
-                
 
                 {/* Bestsellers filters */}
                 {   bestseller && 
