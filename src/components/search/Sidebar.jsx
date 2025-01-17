@@ -1,9 +1,9 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useFilterStore } from "../../utils/store";
+import { useQuery } from "@tanstack/react-query";
 import useGetData from "../../hooks/useGetData";
 
 import "../../styles/search/sidebar.css"
-import { useQuery } from "@tanstack/react-query";
 
 
 // const cant = Array.from({ length: 9 }, (v, i) => i);
@@ -35,9 +35,23 @@ const Sidebar = ({ categoryName, totalResults, query, sbfilters }) => {
     const toggleBtn4 = useRef(null)
     const toggleBtn5 = useRef(null)
 
-    const { filters, setFilters, removeFilter, viewFilters } = useFilterStore()
+    const { filters, setFilters, removeFilter, viewFilters, setPriceRange } = useFilterStore()
     const { fullShipping, freeShipping, lowInterest, internationalDelivery } = viewFilters
 
+    const [priceRangeFilter, setPriceRangeFilter] = useState({ min: '', max: '' })
+
+    const handlePriceChange = (e) => {
+        const { name, value } = e.target;
+        setPriceRangeFilter( prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
+    const handlePriceSubmit = (e) => {
+        e.preventDefault();
+        setPriceRange(priceRangeFilter)
+    }
 
     const handleClick = (btn, type, value) => {
         if (value) { 
@@ -157,7 +171,7 @@ const Sidebar = ({ categoryName, totalResults, query, sbfilters }) => {
                     
                     {/* Compra internacional */}
                     {   internationalDelivery &&
-                        <div className="toggle-filter" onClick={() => handleClick(toggleBtn5)}>
+                        <div className="toggle-filter" onClick={() => handleClick(toggleBtn5, 'internacional', 'US-')}>
                         <div className="text">
 
                             <span className="international_purchase_sidebar">
@@ -177,7 +191,7 @@ const Sidebar = ({ categoryName, totalResults, query, sbfilters }) => {
                             <span>Miles de productos del mundo a tu casa</span>
                         </div>
                         <div className="btn-toggle" onClick={() => handleClick(toggleBtn5)}>
-                            <input type="checkbox" ref={toggleBtn5}/>
+                            <input type="checkbox" ref={toggleBtn5} checked={isActive('internacional')} readOnly/>
                         </div>
                         </div>
                     }
@@ -304,20 +318,36 @@ const Sidebar = ({ categoryName, totalResults, query, sbfilters }) => {
                     }
 
 
-                    <div className="price-range-input-wrapper">
+                    <form className="price-range-input-wrapper" onSubmit={handlePriceSubmit}>
                         <div className="price-range-input-container">
                             <div className="min-input">
-                                <input type="text" className="price-range-input" placeholder="Mínimo"/>
-                                {/* Para hacer la línea que separa ambos inputs, usar :after */}
+                                <input 
+                                    type="text"
+                                    name="min"
+                                    className="price-range-input" 
+                                    placeholder="Mínimo"
+                                    value={priceRangeFilter?.min}
+                                    onChange={handlePriceChange}
+                                    pattern="[0-9]+"
+                                />
                             </div>
-                            <input type="text" className="price-range-input" placeholder="Máximo"/>
+
+                            <input 
+                                type="text"
+                                name="max"
+                                className="price-range-input" 
+                                placeholder="Máximo"
+                                value={priceRangeFilter?.max}
+                                onChange={handlePriceChange}
+                                pattern="[0-9]+"
+                            />
                         </div>
-                        <button className="price-range-btn">
+                        <button className="price-range-btn" type="submit">
                             <svg aria-hidden="true" width="20" height="20" viewBox="3 -1 20 20" fill="rgba(0, 0, 0, 0.9)">
                                 <path d="M8.27686 4.34644L7.42834 5.19496L12.224 9.99059L7.42334 14.7912L8.27187 15.6397L13.921 9.99059L8.27686 4.34644Z" fill="rgba(255, 255, 255, 0.9)"></path>
                             </svg>
                         </button>
-                    </div>
+                    </form>
                 </div>
                 
                 {/* Installments filters */}

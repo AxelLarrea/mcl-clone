@@ -1,0 +1,42 @@
+
+.items-page-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.items-page-wrapper > ul {
+    display: flex;
+    gap: 1em;
+    list-style-type: none;
+    padding: 0;
+}
+
+.items-page-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    min-width: 32px;
+    border: none;
+    border-radius: 6px;
+    background-color: transparent;
+    color: rgba(0, 0, 0, .55);
+    cursor: pointer;
+    transition: background-color .25s ease;
+}
+
+.next-page-btn, .prev-page-btn {
+    padding: 6px 8px;
+}
+
+.active-page-btn {
+    background-color: #fff;
+    border-color: rgba(65, 137, 230, 1);
+}
+
+.items-page-btn:hover {
+    background-color: rgba(65, 137, 230, .15);
+    color: #2968c8;
+}

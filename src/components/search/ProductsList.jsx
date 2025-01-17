@@ -1,11 +1,12 @@
 import { useState } from "react";
-
-import Item from "./Item";
-import '../../styles/search/productList.css';
 import { useFilterStore } from "../../utils/store";
 
+import '../../styles/search/productList.css';
+import Item from "./Item";
+import ItemsPage from "./itemsPage";
 
-const ProductList = ({ data }) => {
+
+const ProductList = ({ data, totalResults }) => {
     const [display, setDisplay] = useState(true)
     const { order, setOrder } = useFilterStore()
 
@@ -24,6 +25,7 @@ const ProductList = ({ data }) => {
             return 'Más relevantes'
         }
     }
+
     return (
         <>
             <section className="products-wrapper">
@@ -65,6 +67,14 @@ const ProductList = ({ data }) => {
                     />
                     ))
                 }
+
+                {   totalResults && 
+                    <ItemsPage
+                        totalResults={totalResults}
+                    />
+
+                }
+
             </section>
         </>
     );
