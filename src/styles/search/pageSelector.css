@@ -27,16 +27,32 @@
     transition: background-color .25s ease;
 }
 
-.next-page-btn, .prev-page-btn {
-    padding: 6px 8px;
-}
-
-.active-page-btn {
+.items-page-btn.active {
+    color: #000;
     background-color: #fff;
-    border-color: rgba(65, 137, 230, 1);
+    border: 2px solid rgba(65, 137, 230, 1);
 }
 
 .items-page-btn:hover {
     background-color: rgba(65, 137, 230, .15);
     color: #2968c8;
+}
+
+.next-page-btn, .prev-page-btn {
+    position: relative;
+    visibility: hidden;
+    padding: 6px 8px;
+    gap: .5em;
+}
+
+.next-page-btn.active-dir, .prev-page-btn.active-dir {
+    visibility: visible;
+}
+
+.prev-page-btn {
+    padding-left: 4px;
+}
+
+.next-page-btn {
+    padding-right: 4px;
 }

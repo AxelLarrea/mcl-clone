@@ -1,9 +1,18 @@
 import { create } from "zustand"
 
 export const useFilterStore = create( (set) => ({
+    // page number
+    page: 1,
+    setPage: (page) => set({ page: page }),
+
+    pageRange: [0, 10],
+    setPageRange: (range) => set({ pageRange: range }),
+
+
     // sort order
     order: undefined,
     setOrder: (order) => set({ order: order }),
+
     
     // toggle filters
     filters: [],
@@ -11,6 +20,7 @@ export const useFilterStore = create( (set) => ({
     removeFilter: (type) => {
         set( (state) => ({ filters : state.filters.filter((f) => f.type !== type) }))
     },
+
 
     // view available toggle filters
     viewFilters: {
@@ -20,6 +30,7 @@ export const useFilterStore = create( (set) => ({
         internationalDelivery: false,
     },
     setViewFilter: (filters) => set({ viewFilters: filters }),
+
 
     // price range filter
     priceRange: undefined,

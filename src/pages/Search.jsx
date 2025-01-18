@@ -15,16 +15,17 @@ import useGetData from '../hooks/useGetData.js';
 const Search = () => {
 
     const { query } = useParams()
-    const { filters, order, setViewFilter, priceRange } = useFilterStore()
-    const url = `https://api.mercadolibre.com/sites/MLA/search?q=${query}&offset=100`
+    const { filters, order, setViewFilter, priceRange, page } = useFilterStore()
+    const url = `https://api.mercadolibre.com/sites/MLA/search?q=${query}&offset=${(page-1)*50}`
 
     const { data } = useQuery({
-        queryKey: ['search', query, filters, order, priceRange],
+        queryKey: ['search', query, filters, order, priceRange, page],
         queryFn: () => useGetData(url, filters, order, null ,priceRange),
     })
 
-    
+
     useEffect(() => {
+        
         if (data) {
             const filters = {
                 fullShipping: data?.filteredData.some(item => item.shipping?.logistic_type === "fulfillment"),
@@ -36,6 +37,7 @@ const Search = () => {
         }
     }, [data])
 
+    // console.log('page ', page)
     // if (data) console.log('Le data:', data)
     
 

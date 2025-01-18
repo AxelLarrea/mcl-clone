@@ -3,7 +3,7 @@ import { useFilterStore } from "../../utils/store";
 
 import '../../styles/search/productList.css';
 import Item from "./Item";
-import ItemsPage from "./itemsPage";
+import PageSelector from "./PageSelector";
 
 
 const ProductList = ({ data, totalResults }) => {
@@ -69,10 +69,9 @@ const ProductList = ({ data, totalResults }) => {
                 }
 
                 {   totalResults && 
-                    <ItemsPage
+                    <PageSelector
                         totalResults={totalResults}
                     />
-
                 }
 
             </section>
