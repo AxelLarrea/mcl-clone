@@ -4,7 +4,7 @@
     display: flex;
     background-color: #fff;
     cursor: pointer;
-    height: 220px;
+    min-height: 220px;
 }
 
 .product-wrapper:hover > .add-fav-icon {

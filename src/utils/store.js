@@ -1,10 +1,17 @@
 import { create } from "zustand"
 
 export const useFilterStore = create( (set) => ({
+    // previous query
+    prevQuery: '',
+    setPrevQuery: (query) => set({ prevQuery: query }),
+
+    
     // page number
     page: 1,
     setPage: (page) => set({ page: page }),
 
+
+    // page range
     pageRange: [0, 10],
     setPageRange: (range) => set({ pageRange: range }),
 

@@ -10,26 +10,15 @@ const PageSelector = ({ totalResults }) => {
 
 
     const handleNext = () => {
-        
-        if (page === pageRange[1]) {
-            setPageRange([pageRange[0] + 10, pageRange[1] + 10])
-        }
-        
+        if (page === pageRange[1]) setPageRange([pageRange[0] + 10, pageRange[1] + 10])
         setPage(page + 1)
     }
 
     const handlePrev = () => {
-        
-        if (page === pageRange[0] + 1) {
-            setPageRange([pageRange[0] - 10, pageRange[1] - 10])
-        }
-
+        if (page === pageRange[0] + 1) setPageRange([pageRange[0] - 10, pageRange[1] - 10])
         setPage(page - 1)
     }
 
-    const handleClick = (item) => {
-        setPage(item + 1)
-    }
 
     return (
         <div className="items-page-wrapper">
@@ -48,7 +37,7 @@ const PageSelector = ({ totalResults }) => {
                         <li 
                             key={ index } 
                             className={`items-page-btn numbers ${page - 1 === item ? 'active' : ''}`}
-                            onClick={() => handleClick(item)}
+                            onClick={() => setPage(item + 1)}
                         > 
                             { item + 1 }
                         </li>

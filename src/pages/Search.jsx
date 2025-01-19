@@ -15,14 +15,13 @@ import useGetData from '../hooks/useGetData.js';
 const Search = () => {
 
     const { query } = useParams()
-    const { filters, order, setViewFilter, priceRange, page } = useFilterStore()
+    const { filters, order, setViewFilter, priceRange, page, setPage, prevQuery, setPrevQuery } = useFilterStore()
     const url = `https://api.mercadolibre.com/sites/MLA/search?q=${query}&offset=${(page-1)*50}`
 
     const { data } = useQuery({
         queryKey: ['search', query, filters, order, priceRange, page],
         queryFn: () => useGetData(url, filters, order, null ,priceRange),
     })
-
 
     useEffect(() => {
         
@@ -35,10 +34,13 @@ const Search = () => {
             }
             setViewFilter(filters)
         }
-    }, [data])
 
-    // console.log('page ', page)
-    // if (data) console.log('Le data:', data)
+        if (query !== prevQuery) {
+            setPrevQuery(query)
+            setPage(1)
+        }
+
+    }, [data])
     
 
     return (
