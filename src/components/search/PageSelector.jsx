@@ -1,5 +1,5 @@
-import '../../styles/search/pageSelector.css';
 import { useFilterStore } from '../../utils/store';
+import '../../styles/search/pageSelector.css';
 
 const PageSelector = ({ totalResults }) => {
 

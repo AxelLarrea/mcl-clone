@@ -1,28 +1,32 @@
 import { useRef, useState } from 'react';
+import { useLocation } from 'wouter';
 import '../../styles/search/searchItem.css';
 
 const Item = ({ item }) => {
 
-    // Refactorizar componente destructurando la prop item en los elementos que necesito
-
-    const discount = (1 - (item.price / Math.round(item.original_price))) * 100
-    
     const toggleFav = useRef(null)
 
     const [fav, setFav] = useState(true)
 
-    const handleClick = () => {
+    const [location, navigate] = useLocation()
+
+    const { id, thumbnail, title, sale_price, official_store_name, original_price, price, installments, shipping, address} = item;
+
+    const discount = (1 - (price / Math.round(original_price))) * 100
+    
+
+    const handleFavClick = () => {
         fav ? toggleFav.current.style.fill = "#3483FA" : toggleFav.current.style.fill = "#FFF"
         setFav(!fav)
     }
     
     return (
-        <div className="product-wrapper">
+        <div className="product-wrapper" onClick={() => navigate(`/product/${id}`)}>
             <div className="product-image">
-                <img src={ item.thumbnail } alt={ item.title } />
+                <img src={ thumbnail } alt={ title } />
             </div>
             
-            <div className="add-fav-icon" onClick={handleClick}>
+            <div className="add-fav-icon" onClick={handleFavClick}>
                 <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#3483FA" ref={toggleFav}>
                     <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                     <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
@@ -37,7 +41,7 @@ const Item = ({ item }) => {
 
                 <div>
                     <div className="brand">
-                        { item.sale_price?.metadata.promotion_type === "deal_of_the_day" && <span className="offer">OFERTA DEL DÍA</span> }
+                        { sale_price?.metadata.promotion_type === "deal_of_the_day" && <span className="offer">OFERTA DEL DÍA</span> }
                     </div>
 
                     <div className="title">
@@ -47,26 +51,26 @@ const Item = ({ item }) => {
                 </div>
 
                 <div className="official-store">
-                    { item.official_store_name && 
-                    <span> Por { item.official_store_name }</span> }
+                    { official_store_name && 
+                    <span> Por { official_store_name }</span> }
                 </div>
 
                 <div className="product-price-rating-wrapper">
                     <div className="product-price">
-                        {   item.original_price &&
-                            <span>$ { Math.round(item.original_price).toLocaleString("es-AR", {
+                        {   original_price &&
+                            <span>$ { Math.round(original_price).toLocaleString("es-AR", {
                                 maximumFractionDigits: "0"
                                 }) }
                             </span>
                         }
                         
                         <div>
-                            <h3>$ { item.price?.toLocaleString("es-AR", {
+                            <h3>$ { price?.toLocaleString("es-AR", {
                                     maximumFractionDigits: "0"
                                 }) }
                             </h3>
 
-                            { item.original_price && <span>{ Math.trunc(discount) }% OFF</span> }
+                            { original_price && <span>{ Math.trunc(discount) }% OFF</span> }
                         </div>
                     </div>
 
@@ -76,15 +80,15 @@ const Item = ({ item }) => {
                 </div>
                 
                 <div className="product-shipment">
-                    { item.installments?.quantity > 1 && 
-                        <span> en {item.installments.quantity} cuotas de $ {item.installments.amount.toLocaleString("es-AR", {maximumFractionDigits: "0"})}
+                    { installments?.quantity > 1 && 
+                        <span> en {installments.quantity} cuotas de $ {installments.amount.toLocaleString("es-AR", {maximumFractionDigits: "0"})}
                         </span> }
 
-                    { item.shipping?.free_shipping && <span className="item-shipment">Envío gratis</span> }
+                    { shipping?.free_shipping && <span className="item-shipment">Envío gratis</span> }
                     
-                    { item.address?.state_id.includes("US-") && <span className="international-purchase"> COMPRA INTERNACIONAL </span>  }
+                    { address?.state_id.includes("US-") && <span className="international-purchase"> COMPRA INTERNACIONAL </span>  }
 
-                    { item.shipping?.logistic_type === "fulfillment" && 
+                    { shipping?.logistic_type === "fulfillment" && 
                         <span className="item-shipment-wrapper">Enviado por 
                             <span className="item-shipment full-shipment"> 
                                 <svg height="15px" width="15px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 400 400" xmlSpace="preserve" fill="#00a650">

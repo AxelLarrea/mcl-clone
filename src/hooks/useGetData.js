@@ -8,14 +8,13 @@ const useGetData = async (url, filters, order, type, priceRange) => {
         const response = await axios.get(url)
         const data = await response.data
 
-        if (type === 'category') return data
-
+        if (type === 'category' || type === 'product') return data
+        
         
         const dataCategory = data.results[0].category_id
         const totalResults = data.paging.total
         const sbfilters = data.available_filters
         const filteredData = filter(data.results, filters, priceRange);
-
         
         if (order === 'asc') filteredData.sort((a, b) => a.sale_price.amount - b.sale_price.amount)
         if (order === 'desc') filteredData.sort((a, b) => b.sale_price.amount - a.sale_price.amount)

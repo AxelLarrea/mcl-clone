@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useFilterStore } from "../../utils/store";
 
-import '../../styles/search/productsList.css';
 import Item from "./Item";
 import PageSelector from "./PageSelector";
+import '../../styles/search/productsList.css';
 
 
 const ProductList = ({ data, totalResults }) => {

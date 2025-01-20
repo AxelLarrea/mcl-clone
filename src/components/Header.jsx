@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import '../styles/header.css';
 import { useLocation } from 'wouter';
+import '../styles/header.css';
 
 
 const Header = () => {
