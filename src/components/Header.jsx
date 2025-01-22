@@ -27,6 +27,7 @@ const Header = () => {
                         <form onSubmit={handleSubmit} className='search-bar-form'>
                             <input 
                                 type="text" 
+                                name="search"
                                 placeholder="Buscar productos, marcas y más..." 
                                 value={inputValue} 
                                 onChange={(e) => setInputValue(e.target.value)}

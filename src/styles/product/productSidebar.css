@@ -1,0 +1,36 @@
+.product-content-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-sidebar-info {
+    max-width: 380px;
+    margin: 20px;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.product-sidebar-top {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.product-sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-sidebar-header span {
+    color: rgba(0, 0, 0, .55);
+    font-size: 14px;
+    font-weight: 400;
+    white-space: pre-wrap;
+}
+
+.add-fav-icon-sidebar {
+    cursor: pointer;
+}

@@ -1,5 +1,5 @@
-import { useRef, useState } from "react";
-import { useFilterStore } from "../../utils/store";
+import { useEffect, useRef, useState } from "react";
+import { useFilterStore, useProductStore } from "../../utils/store";
 import { useQuery } from "@tanstack/react-query";
 import useGetData from "../../hooks/useGetData";
 
@@ -35,6 +35,7 @@ const Sidebar = ({ categoryName, totalResults, query, sbfilters }) => {
     const toggleBtn4 = useRef(null)
     const toggleBtn5 = useRef(null)
 
+    const { setProductPath } = useProductStore()
     const { filters, setFilters, removeFilter, viewFilters, setPriceRange } = useFilterStore()
     const { fullShipping, freeShipping, lowInterest, internationalDelivery } = viewFilters
 
@@ -67,7 +68,11 @@ const Sidebar = ({ categoryName, totalResults, query, sbfilters }) => {
     const isActive = (type) => {
         return filters.some(filter => filter.type === type);
     };
+ 
     
+    useEffect(() => {
+        if (data) setProductPath(data.path_from_root)
+    }, [data])
     
     return (
         <>

@@ -75,8 +75,9 @@ const Item = ({ item }) => {
                     </div>
 
                     <div className="product-rating-colors">
-                        
+                        {/* Agregar el rating en estrellitas */}
                     </div>
+
                 </div>
                 
                 <div className="product-shipment">

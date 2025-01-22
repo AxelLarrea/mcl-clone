@@ -25,6 +25,7 @@ body {
 }
 
 .search-wrapper {
+    min-height: 100svh;
     display: flex;
     gap: 1rem;
     margin-top: 2rem;

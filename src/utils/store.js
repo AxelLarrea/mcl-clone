@@ -1,4 +1,5 @@
 import { create } from "zustand"
+import { createJSONStorage, persist } from "zustand/middleware"
 
 export const useFilterStore = create( (set) => ({
     // previous query
@@ -43,3 +44,14 @@ export const useFilterStore = create( (set) => ({
     priceRange: undefined,
     setPriceRange: (price) => set({ priceRange: price })
 }))
+
+export const useProductStore = create( persist((set) => ({
+    // product path from
+    productPath: '',
+    setProductPath: (path) => set({ productPath: path })
+    }),
+    {
+        name: 'path-storage', // Nombre del item en el almacenamiento
+        storage: createJSONStorage(() => localStorage), // Almacenamiento por defecto es localStorage
+    }
+))
