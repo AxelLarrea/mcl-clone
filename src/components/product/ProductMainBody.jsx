@@ -1,5 +1,5 @@
-
-const ProductMainBody = () => {
+import '../../styles/product/ProductMainBody.css';
+const ProductMainBody = ({ data }) => {
     return (
         <div className="product-main">
             <section className="product-pictures">

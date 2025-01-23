@@ -1,21 +1,40 @@
 .product-content-sidebar {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    max-width: 380px;
+    margin: 24px 24px 0 24px;
+}
+
+.product-sidebar-wrapper {
+    position: sticky;
+    top: 0;
 }
 
 .product-sidebar-info {
-    max-width: 380px;
-    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    max-width: 350px;
     border: 1px solid rgba(0, 0, 0, .1);
     border-radius: 8px;
     padding: 16px;
+    margin-bottom: 24px;
 }
 
+
+/* Sidebar's top/header */
 .product-sidebar-top {
     display: flex;
     flex-direction: column;
     gap: .5em;
+}
+
+.product-sidebar-top > h1 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 500;
 }
 
 .product-sidebar-header {
@@ -24,7 +43,7 @@
     justify-content: space-between;
 }
 
-.product-sidebar-header span {
+.product-sidebar-header > span {
     color: rgba(0, 0, 0, .55);
     font-size: 14px;
     font-weight: 400;
@@ -33,4 +52,148 @@
 
 .add-fav-icon-sidebar {
     cursor: pointer;
+}
+
+
+/* Sidebar's price */
+.product-sidebar-price span:first-child {
+    color: rgba(0, 0, 0, .55);
+    text-decoration: line-through;
+}
+
+.see-payments-methods {
+    margin-top: 5px;
+}
+
+.see-payments-methods a, .shipment-info a {
+    color: #3483fa;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.price-info {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.price-info > h2 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 300;
+}
+
+.price-info > span, .product-sidebar-price > span {
+    color: #00a650;
+}
+
+
+/* Sidebar's shipment */
+.product-sidebar-shipment {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.shipment-info {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    font-size: 14px;
+}
+
+.shipment-info span:first-child{
+    color: #00a650;
+}
+
+.shipment-text span:first-child{
+    font-size: 16px;
+}
+
+.shipment-text span:last-child{
+    font-size: 15px;
+}
+
+
+/* Sidebar's stock */
+.product-sidebar-stock {
+    margin: 10px 0;
+}
+
+.product-sidebar-stock > span {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.stock-status {
+    font-size: 16px;
+    margin: 20px 0;
+}
+
+.stock-status span:nth-child(2) {
+    font-weight: 500;
+}
+
+.stock-status span:last-child {
+    color: rgba(0, 0, 0, .55);
+    font-size: 14px;
+}
+
+
+/* Sidebar's buy buttons */
+.product-sidebar-buy {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.product-sidebar-buy button {
+    height: 50px;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    background-color: #3483fa;
+    transition: background-color .2s;
+    border-color: transparent;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.product-sidebar-buy button:first-child:hover {
+    background-color: #2968c8;
+}
+
+.product-sidebar-buy button:last-child{
+    background-color: rgba(65, 137, 230, .15);
+    color: #3483fa;
+}
+
+.product-sidebar-buy button:last-child:hover {
+    background-color: rgba(65, 137, 230, .2);
+}
+
+
+/* Sidebar's selled by */
+.product-sidebar-seller {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.seller-info {
+    font-size: 13px;
+}
+
+.seller-info a {
+    color: #3483fa;
+    text-decoration: none;
+}
+
+.seller-info span:nth-child(2){
+    color: rgba(0, 0, 0, .55);
+}
+
+.seller-info span:nth-child(3){
+    font-weight: 500;
 }

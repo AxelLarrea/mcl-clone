@@ -48,10 +48,14 @@ export const useFilterStore = create( (set) => ({
 export const useProductStore = create( persist((set) => ({
     // product path from
     productPath: '',
-    setProductPath: (path) => set({ productPath: path })
+    setProductPath: (path) => set({ productPath: path }),
+
+    // product data
+    productData: '',
+    setProductData: (data) => set({ productData: data }),
     }),
     {
-        name: 'path-storage', // Nombre del item en el almacenamiento
-        storage: createJSONStorage(() => localStorage), // Almacenamiento por defecto es localStorage
+        name: 'product-storage',
+        storage: createJSONStorage(() => localStorage),
     }
 ))

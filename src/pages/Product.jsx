@@ -14,7 +14,7 @@ const description = 'https://api.mercadolibre.com/items/MLA1469113567/descriptio
 const Product = () => {
 
     const { id } = useParams()
-	const { productPath } = useProductStore() 
+	const { productPath, productData } = useProductStore() 
     const url = `https://api.mercadolibre.com/items/${id}`
 
     const { data } = useQuery({
@@ -24,7 +24,7 @@ const Product = () => {
 
     console.log('item data: ', data)
 	console.log('product path: ', productPath)
-
+	console.log('product data: ', productData)
     return (
 		<>
 			<Header/>
@@ -33,7 +33,7 @@ const Product = () => {
 				<div className="product-content-header">
 					{/* Category path */}
 					<div className="product-category-path">
-						<a>Volver al listado</a>
+						<a href="#">Volver al listado</a>
 						<ul>
 							{	productPath &&
 								productPath.map((item, index) => (
@@ -63,10 +63,20 @@ const Product = () => {
 				</div>
 				
 				<div className="product-content-body">
+					
+					{	data &&
+						<ProductMainBody
+							data={data}
+						/>
 
-					<ProductMainBody/>
+					}
 
-					<ProductSidebar/>
+					{	productData &&
+						<ProductSidebar
+							productData={productData}
+						/>
+					}
+
 				</div>
 				
 				<h2>Quienes vieron este producto también compraron</h2>

@@ -1,15 +1,15 @@
 import { useRef, useState } from 'react';
 import { useLocation } from 'wouter';
+import { useProductStore } from '../../utils/store';
 import '../../styles/search/searchItem.css';
 
 const Item = ({ item }) => {
 
     const toggleFav = useRef(null)
-
     const [fav, setFav] = useState(true)
 
     const [location, navigate] = useLocation()
-
+    const { setProductData } = useProductStore()
     const { id, thumbnail, title, sale_price, official_store_name, original_price, price, installments, shipping, address} = item;
 
     const discount = (1 - (price / Math.round(original_price))) * 100
@@ -19,9 +19,14 @@ const Item = ({ item }) => {
         fav ? toggleFav.current.style.fill = "#3483FA" : toggleFav.current.style.fill = "#FFF"
         setFav(!fav)
     }
+
+    const handleItemClick = () => {
+        setProductData(item)
+        navigate(`/product/${id}`)
+    }
     
     return (
-        <div className="product-wrapper" onClick={() => navigate(`/product/${id}`)}>
+        <div className="product-wrapper" onClick={handleItemClick}>
             <div className="product-image">
                 <img src={ thumbnail } alt={ title } />
             </div>
