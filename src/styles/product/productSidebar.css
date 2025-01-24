@@ -19,12 +19,16 @@
     max-width: 350px;
     border: 1px solid rgba(0, 0, 0, .1);
     border-radius: 8px;
-    padding: 16px;
+    padding: 16px 16px 32px;
     margin-bottom: 24px;
 }
 
+.product-sidebar-info:not(:first-child) {
+    padding: 32px 16px;
+}
 
-/* Sidebar's top/header */
+
+/* Sidebar's top/header section */
 .product-sidebar-top {
     display: flex;
     flex-direction: column;
@@ -55,7 +59,7 @@
 }
 
 
-/* Sidebar's price */
+/* Sidebar's price section */
 .product-sidebar-price span:first-child {
     color: rgba(0, 0, 0, .55);
     text-decoration: line-through;
@@ -88,7 +92,7 @@
 }
 
 
-/* Sidebar's shipment */
+/* Sidebar's shipment section */
 .product-sidebar-shipment {
     display: flex;
     flex-direction: column;
@@ -115,7 +119,7 @@
 }
 
 
-/* Sidebar's stock */
+/* Sidebar's stock section */
 .product-sidebar-stock {
     margin: 10px 0;
 }
@@ -140,7 +144,7 @@
 }
 
 
-/* Sidebar's buy buttons */
+/* Sidebar's buy buttons section */
 .product-sidebar-buy {
     display: flex;
     flex-direction: column;
@@ -174,7 +178,7 @@
 }
 
 
-/* Sidebar's selled by */
+/* Sidebar's selled by section */
 .product-sidebar-seller {
     display: flex;
     flex-direction: column;
@@ -196,4 +200,211 @@
 
 .seller-info span:nth-child(3){
     font-weight: 500;
+}
+
+
+/* Sidebar's buy benefits section */
+.buy-benefits {
+    display: flex;
+    gap: .5em;
+}
+
+.buy-benefits-icon {
+    padding-top: 3px;
+}
+
+.buy-benefits a {
+    font-size: 14px;
+    color: #3483fa;
+    text-decoration: none;
+}
+
+.buy-benefits a:hover {
+    color: #2968c8;
+}
+
+.buy-benefits span {
+    color: rgba(0, 0, 0, .55);
+    font-size: 14px;
+}
+
+
+/* Sidebar's add button section */
+.product-sidebar-add-list button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    width: 100%;
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 6px;
+    color: #3483fa;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 16px;
+}
+
+
+/* Sidebar's seller info section */
+.header-seller-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: .5em;
+}
+
+.seller-img img {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+}
+
+.seller-name h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.seller-name span {
+    font-size: 12px;
+}
+
+.seller-name span:nth-child(2n) {
+    color: rgba(0, 0, 0, .55);
+    margin-right: 5px;
+}
+
+.seller-follow button {
+    height: 25px;
+    width: 55px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    border-color: transparent;
+    background-color: rgba(65, 137, 230, .15);
+    color: #3483fa;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.seller-status {
+    display: flex;
+    align-items: flex-start;
+    gap: .5em;
+}
+
+.seller-status-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    color: #00a650;
+}
+
+.seller-status-text span:last-child {
+    font-size: 12px;
+    color: rgba(0, 0, 0, .55);
+}
+
+
+/* Sidebar's sellers info thermometer section */
+.seller-rating-thermometer ul {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    padding: 0;
+}
+
+.thermometer-level {
+    list-style-type: none;
+    height: 6px;
+    width: 20%;
+}
+
+.t-level1 {
+    background: #f23d4f;
+    opacity: .15;
+}
+
+.t-level2 {
+    background: #f73;
+    opacity: .15;
+}
+
+.t-level3 {
+    background: #ffe600;
+    opacity: .15;
+}
+
+.t-level4 {
+    background: #aadb1e;
+    opacity: .15;
+}
+
+.t-level5 {
+    background: #00a650;
+    height: 8px;
+    opacity: 1;
+}
+
+
+/* Sidebar's sellers info status section */
+.seller-status-info {
+    display: flex;
+}
+
+.seller-status-block {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    flex-direction: column;
+}
+
+.seller-status-block h5 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.seller-status-block img {
+    height: 16px;
+    width: 16px;
+}
+
+.seller-status-block span {
+    text-align: center;
+    font-size: 11px;
+    color: rgba(0, 0, 0, .55);
+    margin-top: 10px;
+}
+
+.footer-seller-page {
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    color: #3483fa;
+    background-color: rgba(65, 137, 230, .15);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Sidebar's payment methods section */
+.product-sidebar-info > h3 {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.payment-methods-imgs {
+    display: flex;
+    gap: 1em;
+    margin-top: 5px;
+}
+
+.product-payment-methods-link a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #3483fa;
 }

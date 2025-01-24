@@ -23,7 +23,6 @@ const Product = () => {
     })
 
     console.log('item data: ', data)
-	console.log('product path: ', productPath)
 	console.log('product data: ', productData)
     return (
 		<>
