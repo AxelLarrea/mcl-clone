@@ -21,9 +21,8 @@ const Product = () => {
         queryKey: ['product', id],
         queryFn: () => useGetData(url, null, null, 'product', null)
     })
+	
 
-    console.log('item data: ', data)
-	console.log('product data: ', productData)
     return (
 		<>
 			<Header/>

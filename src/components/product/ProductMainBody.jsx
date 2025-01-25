@@ -1,17 +1,18 @@
 import '../../styles/product/ProductMainBody.css';
+
 const ProductMainBody = ({ data }) => {
     return (
         <div className="product-main">
             <section className="product-pictures">
                 
                 <div className="product-main-thumbnails">
-                    {/* {data?.pictures.map((image, index) => (
+                    {/* {   data?.pictures.map((image, index) => (
                         <img key={index} src={image.secure_url} alt="" />
                     // ))} */}
                 </div>
                 
                 <div className="product-main-image">
-                    {/* <img src={data?.thumbnail} alt="" /> */}
+                    {/* <img src={ data?.thumbnail } alt="" /> */}
                 </div>
             </section>
 
@@ -26,7 +27,7 @@ const ProductMainBody = ({ data }) => {
             <section className="product-specs">
                 <h2>Características del producto</h2>
                 <div className="specs-wrapper">
-                    {/* {data?.specs.map((spec, index) => (
+                    {/* {   data?.specs.map((spec, index) => (
                         <div key={index} className="spec">
                             <div className="spec-title">{spec.name}</div>
                             <div className="spec-value">{spec.value_name}</div>
