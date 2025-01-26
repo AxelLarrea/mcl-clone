@@ -162,7 +162,7 @@
     top: 2.5em;
     z-index: 99;
     width: 130px;
-    display: flex;
+    display: none;
     justify-content: center;
     background-color: #fff;
     border-radius: 4px;

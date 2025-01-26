@@ -1,19 +1,43 @@
+import { useState } from 'react';
 import '../../styles/product/ProductMainBody.css';
 
 const ProductMainBody = ({ data }) => {
+
+    const [pictureInd, setPictureInd] = useState(0)
+
+    const activePicture = (index) => {
+        setPictureInd(index)
+
+        const thumbnails = document.querySelectorAll('.product-thumbnail-container')
+
+        thumbnails.forEach(thumbnail => thumbnail.style.border = '1px solid rgba(0, 0, 0, 0.25)')
+        thumbnails[index].style.border = '2px solid #3483fa';
+        
+    }
+
+    console.log(data.pictures)
+
     return (
         <div className="product-main">
             <section className="product-pictures">
                 
                 <div className="product-main-thumbnails">
-                    {/* {   data?.pictures.map((image, index) => (
-                        <img key={index} src={image.secure_url} alt="" />
-                    // ))} */}
+                    {   data?.pictures.map((image, index) => (
+                            <div className="product-thumbnail-container" key={index}>
+                                <img  
+                                    src={image.secure_url} 
+                                    alt="side product image"
+                                    onMouseEnter={() => activePicture(index)}
+                                />
+                            </div>
+                        ))
+                    }
                 </div>
                 
                 <div className="product-main-image">
-                    {/* <img src={ data?.thumbnail } alt="" /> */}
+                    <img src={ data?.pictures[pictureInd].secure_url } alt="main product image"/>
                 </div>
+
             </section>
 
             <section className="seller-products">
