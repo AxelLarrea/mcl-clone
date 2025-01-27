@@ -64,7 +64,8 @@ const Product = () => {
 					
 					{	data &&
 						<ProductMainBody
-							data={data}
+							productData={data}
+							seller={productData.seller}
 						/>
 
 					}

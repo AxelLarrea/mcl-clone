@@ -90,13 +90,9 @@ const Carousel = () => {
 
                 </div>
                 
-                <button className="carrousel-btn prev" onClick={handlePrev}>
-                    <span></span>
-                </button>
+                <button className="carrousel-btn prev" onClick={handlePrev}></button>
 
-                <button className="carrousel-btn next" onClick={handleNext}>
-                    <span></span>
-                </button>
+                <button className="carrousel-btn next" onClick={handleNext}></button>
                 
                 <div className="carrousel-dots">
                     {   img_data.map( (item, key) => 

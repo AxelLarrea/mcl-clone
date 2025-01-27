@@ -1,0 +1,133 @@
+
+.seller-products {
+    position: relative;
+    max-width: 720px;
+}
+
+.seller-products-slider-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    margin-bottom: 1.5em;
+}
+
+.seller-products-slider {
+    display: flex;
+    gap: 1em;
+    padding-bottom: 5px;
+    transition: margin-left .3s;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 43%;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    border: none;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
+    cursor: pointer;
+}
+
+.slider-btn:hover {
+    box-shadow: 0 8px 15px 0 rgba(0, 0, 0, .1);
+}
+
+.prev-btn {
+    left: 0;
+    transform: translateX(-50%);
+    visibility: hidden;
+}
+
+.prev-btn::before, .next-btn::before {
+    content: '';
+    position: absolute;
+    top: 40%;
+    width: 7px;
+    height: 7px;
+    border-top: 2px solid #3483fa;
+    border-left: 2px solid #3483fa;
+}
+
+.prev-btn::before {
+    transform: rotate(-45deg);
+    left: 40%;
+}
+
+.next-btn {
+    right: 0;
+    transform: translateX(40%);
+}
+
+.next-btn::before {
+    transform: rotate(135deg);
+    right: 40%;
+}
+
+.seller-product-card {
+    width: 350px;
+    max-height: 160px;
+    display: flex;
+    align-items: flex-start;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 6px;
+    padding: .8em .5em;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
+}
+
+.seller-product-card:hover {
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .1), 
+                0 2px 4px 0 rgba(0, 0, 0, .1);
+}
+
+.seller-product-image {
+    height: 100%;
+}
+
+.seller-product-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.seller-product-info {
+    display: flex;
+    flex-direction: column;
+    gap:.2em;
+}
+
+.seller-product-title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.seller-original-price {
+    font-size: 12px;
+    color: rgba(0, 0, 0, .55);
+    text-decoration: line-through;
+}
+
+.current-price-wrapper {
+    display: flex;
+    gap: .5em;
+    align-items: center;
+}
+
+.current-price-wrapper > span, .free-shipment {
+    font-size: 14px;
+    font-weight: 500;
+    color: #00a650;
+}
+
+.current-price-wrapper > span:first-child {
+    font-size: 24px;
+    font-weight: 400;
+    color: #333;
+}

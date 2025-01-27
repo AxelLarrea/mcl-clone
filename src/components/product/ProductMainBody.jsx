@@ -1,10 +1,22 @@
 import { useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import SellerProductsSlider from './SellerProductsSlider';
+import useGetData from '../../hooks/useGetData';
 import '../../styles/product/ProductMainBody.css';
 
-const ProductMainBody = ({ data }) => {
+
+const ProductMainBody = ({ productData, seller }) => {
 
     const [pictureInd, setPictureInd] = useState(0)
+    const { id } = seller
+    const sellerItemsUrl = `https://api.mercadolibre.com/sites/MLA/search?seller_id=${id}`
 
+    const { data } = useQuery({
+        queryKey: ['seller', id],
+        queryFn: () => useGetData(sellerItemsUrl, null, null, 'seller', null)
+    })
+
+ 
     const activePicture = (index) => {
         setPictureInd(index)
 
@@ -12,17 +24,16 @@ const ProductMainBody = ({ data }) => {
 
         thumbnails.forEach(thumbnail => thumbnail.style.border = '1px solid rgba(0, 0, 0, 0.25)')
         thumbnails[index].style.border = '2px solid #3483fa';
-        
     }
 
-    console.log(data.pictures)
+
 
     return (
         <div className="product-main">
             <section className="product-pictures">
                 
                 <div className="product-main-thumbnails">
-                    {   data?.pictures.map((image, index) => (
+                    {   productData?.pictures.map((image, index) => (
                             <div className="product-thumbnail-container" key={index}>
                                 <img  
                                     src={image.secure_url} 
@@ -35,13 +46,18 @@ const ProductMainBody = ({ data }) => {
                 </div>
                 
                 <div className="product-main-image">
-                    <img src={ data?.pictures[pictureInd].secure_url } alt="main product image"/>
+                    <img src={ productData?.pictures[pictureInd].secure_url } alt="main product image"/>
                 </div>
 
             </section>
 
             <section className="seller-products">
-                {/* Slider */}
+                <h2>Publicaciones del vendedor</h2>
+                
+                <SellerProductsSlider
+                    sellerItems={data?.results}
+                />
+
                 <button className="see-more-specs-btn">
                     Ir a la página del vendedor
                     {/* svg */}
@@ -51,7 +67,7 @@ const ProductMainBody = ({ data }) => {
             <section className="product-specs">
                 <h2>Características del producto</h2>
                 <div className="specs-wrapper">
-                    {/* {   data?.specs.map((spec, index) => (
+                    {/* {   productData?.specs.map((spec, index) => (
                         <div key={index} className="spec">
                             <div className="spec-title">{spec.name}</div>
                             <div className="spec-value">{spec.value_name}</div>

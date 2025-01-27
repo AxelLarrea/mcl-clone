@@ -63,18 +63,11 @@ const Item = ({ item }) => {
                 <div className="product-price-rating-wrapper">
                     <div className="product-price">
                         {   original_price &&
-                            <span>$ { Math.round(original_price).toLocaleString("es-AR", {
-                                maximumFractionDigits: "0"
-                                }) }
-                            </span>
+                            <span>$ { Math.round(original_price).toLocaleString("es-AR", { maximumFractionDigits: "0" }) } </span>
                         }
                         
                         <div>
-                            <h3>$ { price?.toLocaleString("es-AR", {
-                                    maximumFractionDigits: "0"
-                                }) }
-                            </h3>
-
+                            <h3>$ { price?.toLocaleString("es-AR", { maximumFractionDigits: "0" }) }</h3>
                             { original_price && <span>{ Math.trunc(discount) }% OFF</span> }
                         </div>
                     </div>
@@ -87,8 +80,7 @@ const Item = ({ item }) => {
                 
                 <div className="product-shipment">
                     { installments?.quantity > 1 && 
-                        <span> en {installments.quantity} cuotas de $ {installments.amount.toLocaleString("es-AR", {maximumFractionDigits: "0"})}
-                        </span> }
+                        <span> en {installments.quantity} cuotas de $ {installments.amount.toLocaleString("es-AR", {maximumFractionDigits: "0"})} </span> }
 
                     { shipping?.free_shipping && <span className="item-shipment">Envío gratis</span> }
                     

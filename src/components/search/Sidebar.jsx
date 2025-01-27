@@ -2,11 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { useFilterStore, useProductStore } from "../../utils/store";
 import { useQuery } from "@tanstack/react-query";
 import useGetData from "../../hooks/useGetData";
-
 import "../../styles/search/sidebar.css"
 
 
-// const cant = Array.from({ length: 9 }, (v, i) => i);
 
 const Sidebar = ({ categoryName, totalResults, query, sbfilters }) => {
 

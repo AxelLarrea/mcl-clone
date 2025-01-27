@@ -8,7 +8,7 @@ const useGetData = async (url, filters, order, type, priceRange) => {
         const response = await axios.get(url)
         const data = await response.data
 
-        if (type === 'category' || type === 'product') return data
+        if (type === 'category' || type === 'product' || type === 'seller') return data
         
         
         const dataCategory = data.results[0].category_id
