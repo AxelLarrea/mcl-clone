@@ -8,10 +8,10 @@ const ProductSidebar = ({ productData }) => {
     const productCondition = condition === "new" ? "Nuevo" : "Usado";
 
     const handleShowQuantityModal = () => {
-        const svg = document.querySelector('.stock-status svg');
+        const svg = document.querySelector('.stock-status');
         const modal = document.querySelector('.select-quantity');
-        svg.style.transform = svg.style.transform === "rotate(180deg)" ? "rotate(360deg)" : "rotate(180deg)";
-        modal.style.display = modal.style.display === "none" ? "flex" : "none";
+        svg.classList.toggle('rotate-stock-svg')
+        modal.classList.toggle('show-modal');
     }
 
     const handleSelectQuantity = (index) => {

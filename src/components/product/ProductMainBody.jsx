@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import SellerProductsSlider from './SellerProductsSlider';
 import useGetData from '../../hooks/useGetData';
 import '../../styles/product/ProductMainBody.css';
+import ProductSpecs from './ProductSpecs';
 
 
 const ProductMainBody = ({ productData, seller }) => {
@@ -25,7 +26,6 @@ const ProductMainBody = ({ productData, seller }) => {
         thumbnails.forEach(thumbnail => thumbnail.style.border = '1px solid rgba(0, 0, 0, 0.25)')
         thumbnails[index].style.border = '2px solid #3483fa';
     }
-
 
 
     return (
@@ -58,28 +58,17 @@ const ProductMainBody = ({ productData, seller }) => {
                     sellerItems={data?.results}
                 />
 
-                <button className="see-more-specs-btn">
-                    Ir a la página del vendedor
-                    {/* svg */}
-                </button>
-            </section>
-                        
-            <section className="product-specs">
-                <h2>Características del producto</h2>
-                <div className="specs-wrapper">
-                    {/* {   productData?.specs.map((spec, index) => (
-                        <div key={index} className="spec">
-                            <div className="spec-title">{spec.name}</div>
-                            <div className="spec-value">{spec.value_name}</div>
-                        </div>
-                    // ))} */}
-                </div>
-                <button className="see-more-specs-btn">
-                    Ver todas las caracteristicas
-                    {/* svg */}
-                </button>
+                <a href="#">Ir a la página del vendedor</a>   
             </section>
             
+            <hr />
+
+            <ProductSpecs
+                specs={productData?.attributes}
+            />
+            
+            <hr />
+
             <section className="product-description">
                 <h2>Descripción</h2>
                 <p> Le texto </p>
@@ -89,6 +78,8 @@ const ProductMainBody = ({ productData, seller }) => {
                 </button>
             </section>
             
+            <hr />
+
             <section className="product-questions">
                 <h2>Preguntas</h2>
                 <section className="product-questions-to-know">
@@ -136,6 +127,7 @@ const ProductMainBody = ({ productData, seller }) => {
 
             </section>
 
+            <hr />
         </div>
     );
 }

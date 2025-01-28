@@ -5,6 +5,17 @@
     margin: 24px 0 0 24px;
 }
 
+.product-main h2 {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.product-main hr {
+    margin: 3em 0;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 .product-pictures {
     display: flex;
     margin-bottom: 5em;
@@ -42,4 +53,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.seller-products {
+    position: relative;
+    max-width: 720px;
+}
+
+.seller-products a {
+    font-size: 14px;
+    color: #3483fa;
+    text-decoration: none;
+}
+
+.seller-products a:hover {
+    color: #2968c8;
 }

@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: space-between;
     max-width: 380px;
-    margin: 24px 24px 0 24px;
+    margin: 24px;
 }
 
 .product-content-sidebar hr {
@@ -148,6 +148,10 @@
     transition: transform .2s;
 }
 
+.rotate-stock-svg svg {
+    transform: rotate(360deg);
+}
+
 .stock-status span:nth-child(2) {
     font-weight: 500;
 }
@@ -168,6 +172,10 @@
     border-radius: 4px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .1), 
                 0 0 6px 0 rgba(0, 0, 0, .1);
+}
+
+.show-modal {
+    display: flex;
 }
 
 .select-quantity ul {
