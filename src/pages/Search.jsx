@@ -2,13 +2,13 @@ import { useEffect } from 'react';
 import { useParams } from 'wouter';
 import { useQuery } from '@tanstack/react-query';
 import { useFilterStore } from '../utils/store';
+import useGetData from '../hooks/useGetData.js';
 
 import Header from '../components/Header';
 import BottomMostSearched from '../components/BottomMostSearched';
 import Footer from '../components/Footer';
 import ProductList from '../components/search/ProductsList';
 import Sidebar from '../components/search/Sidebar';
-import useGetData from '../hooks/useGetData.js';
 
 
 
@@ -20,7 +20,7 @@ const Search = () => {
 
     const { data } = useQuery({
         queryKey: ['search', query, filters, order, priceRange, page],
-        queryFn: () => useGetData(url, filters, order, null ,priceRange),
+        queryFn: () => useGetData(url, filters, order, 'productList' ,priceRange),
     })
 
     useEffect(() => {

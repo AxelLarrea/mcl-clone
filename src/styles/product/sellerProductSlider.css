@@ -1,6 +1,5 @@
 .seller-products-slider-wrapper {
     display: flex;
-    flex-wrap: wrap;
     overflow: hidden;
     margin-bottom: 1.5em;
 }

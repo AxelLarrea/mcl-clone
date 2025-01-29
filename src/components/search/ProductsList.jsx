@@ -7,6 +7,7 @@ import '../../styles/search/productsList.css';
 
 
 const ProductList = ({ data, totalResults }) => {
+    
     const [display, setDisplay] = useState(true)
     const { order, setOrder } = useFilterStore()
 

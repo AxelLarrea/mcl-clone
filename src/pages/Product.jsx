@@ -7,10 +7,10 @@ import Footer from "../components/Footer";
 import ProductSidebar from "../components/product/ProductSidebar";
 import ProductMainBody from "../components/product/ProductMainBody";
 import '../styles/product/product.css';
+import ProductSlider from "../components/product/ProductSlider";
 
-const questions = 'https://api.mercadolibre.com/questions/search?item_id=MLA1469113567'
-const description = 'https://api.mercadolibre.com/items/MLA1469113567/description'
 
+const cards = Array.from({ length: 20 }, (v, i) => i);
 const Product = () => {
 
     const { id } = useParams()
@@ -77,14 +77,15 @@ const Product = () => {
 					}
 
 				</div>
-				
-				<h2>Quienes vieron este producto también compraron</h2>
-				{/* Slider */}
-
-				<h2>Quienes compraron este producto también compraron</h2>
-				{/* Slider */}
-
 			</div>
+
+			<section className="recomendations-slider-wrapper">
+				<h2>Quienes compraron este producto también compraron</h2>
+				<ProductSlider
+					data={cards}
+					totalCards={5}
+				/>
+			</section>
 
 			<Footer/>
 		</>

@@ -69,3 +69,23 @@
 .seller-products a:hover {
     color: #2968c8;
 }
+
+.product-description p {
+    font-size: 20px;
+    font-weight: 300;
+    color: rgba(0, 0, 0, .55);
+    padding: 10px 0;
+}
+
+.description-container-hide {
+    mask: linear-gradient(
+        black 70%,
+        transparent);
+    max-height: 300px;
+    overflow: hidden;
+}
+
+.similar-products {
+    position: relative;
+    max-width: 720px;
+}

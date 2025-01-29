@@ -5,6 +5,7 @@ const ProductSpecs = ({ specs }) => {
     const handleSeeMore = () => {
         const section = document.querySelector('.specs-bottom-section')
         const btn = document.querySelector('.see-more-specs-btn')
+        
         section.classList.toggle('show-specs')
         btn.classList.toggle('rotate-see-more-btn')
     }
@@ -79,5 +80,5 @@ const ProductSpecs = ({ specs }) => {
         </section>
     );
 }
- 
+
 export default ProductSpecs;

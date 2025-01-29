@@ -1,0 +1,132 @@
+
+.product-slider-wrapper {
+    display: flex;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+
+.product-slider-btn {
+    position: absolute;
+    top: 50%;
+    z-index: 99;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.prev-product-btn {
+    left: 0;
+    visibility: hidden;
+    transform: translateX(-50%);
+}
+
+.next-product-btn {
+    right: 0;
+    transform: translateX(50%);
+}
+
+.prev-product-btn::before {
+    transform: rotate(-45deg);
+    left: 40%;
+}
+
+.next-product-btn::before {
+    transform: rotate(135deg);
+    right: 40%;
+}
+
+.prev-product-btn::before, .next-product-btn::before {
+    content: '';
+    position: absolute;
+    top: 40%;
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid #3483fa;
+    border-left: 2px solid #3483fa;
+}
+
+.product-slider {
+    display: flex;
+    gap: 12px;
+    transition: margin-left .5s;
+}
+
+.slider-card {
+    height: 450px;
+    width: 230px;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.slider-card:hover {
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, .1);
+}
+
+.slider-img {
+    width: 100%;
+    height: 50%;
+    border-radius: 6px;
+}
+
+.slider-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 6px 6px 0 0;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    padding: 1em;
+}
+
+.slider-card-original-price {
+    font-size: 12px;
+    text-decoration: line-through;
+    color: #777;
+}
+
+.slider-card-price {
+    display: flex;
+    align-items: center;
+    gap:.5em;
+}
+
+.slider-card-price > span:first-child {
+    font-size: 24px;
+}
+
+.slider-card-price > span:last-child, .slider-card-free-shipment {
+    font-size: 14px;
+    color: #00a650;
+}
+
+.slider-card-installments {
+    font-size: 14px;
+}
+
+.slider-card-free-shipment {
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+.slider-card-title {
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 14px;
+    color: #333;
+}
