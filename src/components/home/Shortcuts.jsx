@@ -3,7 +3,7 @@ import '../../styles/home/shortcuts.css'
 
 const Shortcuts = () => {
 
-    // useState para guardar y modificar el tamaño del transform size equivale a dos cards
+    // useState para guardar y modificar el tamaño del transform, size equivale a dos cards
     // ya que necesitamos mostrar dos nuevas cards en el slide.
     const [size, setSize] = useState(0)
     const [sizeAcum, setSizeAcum] = useState(0)

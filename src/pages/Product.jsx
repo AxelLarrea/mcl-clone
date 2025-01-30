@@ -80,10 +80,10 @@ const Product = () => {
 			</div>
 
 			<section className="recomendations-slider-wrapper">
-				<h2>Quienes compraron este producto también compraron</h2>
 				<ProductSlider
 					data={cards}
 					totalCards={5}
+					title={"Quienes compraron este producto también compraron"}
 				/>
 			</section>
 

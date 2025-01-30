@@ -1,5 +1,10 @@
 
-.product-content-wrapper, .recomendations-slider-wrapper {
+.product-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.recomendations-slider-wrapper {
     max-width: 1200px;
     margin: 0 auto;
 }

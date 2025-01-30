@@ -86,7 +86,7 @@ const BannerSlider = ({data, totalCards, title, showLink=false, link, linkText})
                         </div>
                     </div>
                     
-                    <div className="banner-cards" ref={carousel}>
+                    <div className="banner-cards" ref={carousel}> 
 
                         { data && data.map((card, key) => (
                                 <div className="card" key={key}>

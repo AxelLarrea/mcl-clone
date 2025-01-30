@@ -16,6 +16,10 @@
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.product-main hr:last-child {
+    margin-bottom: 24px;
+}
+
 .product-pictures {
     display: flex;
     margin-bottom: 5em;
@@ -83,9 +87,4 @@
         transparent);
     max-height: 300px;
     overflow: hidden;
-}
-
-.similar-products {
-    position: relative;
-    max-width: 720px;
 }

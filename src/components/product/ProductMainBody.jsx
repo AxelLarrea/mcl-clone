@@ -6,6 +6,7 @@ import SellerProductsSlider from './SellerProductsSlider';
 import ProductSpecs from './ProductSpecs';
 import ProductSlider from './ProductSlider';
 import '../../styles/product/ProductMainBody.css';
+import ProductQuestionsAnswers from './ProductQuestionsAnswers';
 
 
 
@@ -29,12 +30,12 @@ const ProductMainBody = ({ productData, seller }) => {
         queryFn: () => useGetData(description, null, null, 'description', null)
     })
 
-    // const { data: questionData } = useQuery({
-    //     queryKey: ['questions', productData.id],
-    //     queryFn: () => useGetData(questions, null, null, 'questions', null)
-    // })
+    const { data: questionData } = useQuery({
+        queryKey: ['questions', productData.id],
+        queryFn: () => useGetData(questions, null, null, 'questions', null)
+    })
 
-    
+
     const descripcion = descriptionData?.plain_text.split('\n').filter(descripcion => descripcion !== '')
     
 
@@ -80,22 +81,16 @@ const ProductMainBody = ({ productData, seller }) => {
 
             </section>
 
-            <section className="seller-products">
-                <h2>Publicaciones del vendedor</h2>
-                
-                <SellerProductsSlider
-                    sellerItems={data?.results}
-                />
-
-                <a href="#">Ir a la página del vendedor</a>   
-            </section>
-            
+  
+            <SellerProductsSlider
+                sellerItems={data?.results}
+            />
             <hr />
+
 
             <ProductSpecs
                 specs={productData?.attributes}
             />
-            
             <hr />
 
             <section className="product-description">
@@ -120,69 +115,23 @@ const ProductMainBody = ({ productData, seller }) => {
                     </svg>
                 </button>
             </section>
-            
             <hr />
             
-            <section className="similar-products">
-                <h2>Quienes vieron este producto también compraron</h2>
-                <ProductSlider
-                    data={cards}
-                    totalCards={3}
-                />
-            </section>
 
+            <ProductSlider
+                data={cards}
+                totalCards={3}
+                title={"Quienes vieron este producto también compraron"}
+            />
             <hr />
 
-            <section className="product-questions">
-                <h2>Preguntas</h2>
-                <section className="product-questions-to-know">
-                    <div className="questions-to-know">Costo y tiempo de envío</div>
-                    <div className="questions-to-know">Devoluciones gratis</div>
-                    <div className="questions-to-know">Medios de pago y promociones</div>
-                    <div className="questions-to-know">Garantía</div>
-                    <div className="questions-to-know">Cuotas sin tarjeta</div>
-                </section>
 
-                <section className="product-questions-doubts">
-                    <div className="questions-doubts">
-                        <span>¿Tenés dudas?</span>
-                        <span>X</span>
-                    </div>
-                    <span>Estos atajos te ayudarán a encontrar lo que buscás.</span>
-                </section>
-                
-                <section className="make-a-question">
-                    <form>
-                        <input type="text" name="make-cuestion" placeholder="Escribí tu pregunta..." />
-                        <button>Preguntar</button>
-                    </form>
-                </section>
-
-                <section className="questions-n-answers">
-                    <h3>Últimas realizadas</h3>
-
-                    <div className="question-container">
-                        <div className="question">
-                            <span>La pregunta en cuestión</span>
-                        </div>
-
-                        <div className="answer">
-                            <span>Respuesta de la pregunta</span>
-                        </div>
-
-                    </div>
-
-                    <button className="see-more-specs-btn">
-                        Ver todas las preguntas
-                        {/* svg */}
-                    </button>
-                </section>
-
-            </section>
-
+            <ProductQuestionsAnswers
+                questions={questionData?.questions}
+            />
             <hr />
         </div>
     );
 }
- 
+
 export default ProductMainBody;

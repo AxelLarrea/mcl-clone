@@ -54,60 +54,64 @@ const SellerProductsSlider = ({ sellerItems }) => {
 
 
     return (  
-        <div className="seller-products-slider-wrapper">
-            
-            <div className="seller-products-slider">
+        <section className="seller-products">
+            <h2>Publicaciones del vendedor</h2>
+            <div className="seller-products-slider-wrapper">
+                
+                <div className="seller-products-slider">
 
-                {
-                    sellerItems?.slice(0, 10).map((item, index) => (
-                        <div className="seller-product-card" key={item.id}>
-                            <div className="seller-product-image">
-                                <img src={item.thumbnail} alt="product"/>
-                            </div>
-                            <div className="seller-product-info">
-                                {/* Título */}
-                                <span className="seller-product-title">{ item.title }</span>
-                                
-                                {/* Precio original */}
-                                { item.original_price && 
-                                    <span className="seller-original-price">
-                                        $ { item.original_price.toLocaleString(
-                                            'es-AR', 
-                                            { maximumFractionDigits: '0' }) 
-                                        }
-                                    </span> 
-                                }
-                                
-                                <div className="current-price-wrapper">
-
-                                    {/* Precio actual */}
-                                    <span>  
-                                        $ { item.price.toLocaleString(
-                                            'es-AR', 
-                                            { maximumFractionDigits: '0' }
-                                        )}
-                                    </span>
-                                    
-                                    {/* Descuento */}
-                                    { item.original_price && <span>{ Math.trunc((1 - (item.price / Math.round(item.original_price))) * 100) }% OFF</span> }
+                    {
+                        sellerItems?.slice(0, 10).map((item, index) => (
+                            <div className="seller-product-card" key={item.id}>
+                                <div className="seller-product-image">
+                                    <img src={item.thumbnail} alt="product"/>
                                 </div>
-                                
-                                {/* Cuotas */}
-                                { item.installments && 
-                                    <span>{`${item.installments.quantity} cuotas de $ ${item.installments.amount.toLocaleString("es-AR", {maximumFractionDigits: '0'})}`}</span> }
+                                <div className="seller-product-info">
+                                    {/* Título */}
+                                    <span className="seller-product-title">{ item.title }</span>
+                                    
+                                    {/* Precio original */}
+                                    { item.original_price && 
+                                        <span className="seller-original-price">
+                                            $ { item.original_price.toLocaleString(
+                                                'es-AR', 
+                                                { maximumFractionDigits: '0' }) 
+                                            }
+                                        </span> 
+                                    }
+                                    
+                                    <div className="current-price-wrapper">
 
-                                {/* Envío gratis */}
-                                { item.shipping.free_shipping && <span className="free-shipment">Envío gratis</span> }
+                                        {/* Precio actual */}
+                                        <span>  
+                                            $ { item.price.toLocaleString(
+                                                'es-AR', 
+                                                { maximumFractionDigits: '0' }
+                                            )}
+                                        </span>
+                                        
+                                        {/* Descuento */}
+                                        { item.original_price && <span>{ Math.trunc((1 - (item.price / Math.round(item.original_price))) * 100) }% OFF</span> }
+                                    </div>
+                                    
+                                    {/* Cuotas */}
+                                    { item.installments && 
+                                        <span>{`${item.installments.quantity} cuotas de $ ${item.installments.amount.toLocaleString("es-AR", {maximumFractionDigits: '0'})}`}</span> }
+
+                                    {/* Envío gratis */}
+                                    { item.shipping.free_shipping && <span className="free-shipment">Envío gratis</span> }
+                                </div>
                             </div>
-                        </div>
-                    ))
-                }
+                        ))
+                    }
 
+                </div>
+
+                <button className="slider-btn prev-btn" onClick={handlePrevClick}></button>
+                <button className="slider-btn next-btn" onClick={handleNextClick}></button>
             </div>
-
-            <button className="slider-btn prev-btn" onClick={handlePrevClick}></button>
-            <button className="slider-btn next-btn" onClick={handleNextClick}></button>
-        </div>
+            <a href="#">Ir a la página del vendedor</a> 
+        </section>
     );
 }
  

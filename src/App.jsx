@@ -6,7 +6,14 @@ import Search from './pages/Search';
 import Product from './pages/Product';
 import './styles/styles.css';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+          refetchOnWindowFocus: false,
+          refetchOnMount: false
+        }
+      }
+});
 
 const App = () => {
     return (
