@@ -24,6 +24,7 @@ const filter = (data, query, priceRange) => {
                 }
                 item = item[key];
             }
+            
             if (filter.type === 'bajo interes') return item < filter.value;
             if (filter.type === 'internacional') return item.includes(filter.value)
             return item === filter.value;

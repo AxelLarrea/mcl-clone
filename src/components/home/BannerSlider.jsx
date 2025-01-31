@@ -2,9 +2,6 @@ import { useState, useRef} from "react"
 import "../../styles/home/bannerSlider.css"
 
 
-
-
-
 const BannerSlider = ({data, totalCards, title, showLink=false, link, linkText}) => {
 
     const size = -100

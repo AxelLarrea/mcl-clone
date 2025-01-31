@@ -2,12 +2,13 @@ import { useParams } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { useProductStore } from "../utils/store";
 import useGetData from "../hooks/useGetData";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+
+import Header from "../components/general/Header";
+import Footer from "../components/general/Footer";
 import ProductSidebar from "../components/product/ProductSidebar";
 import ProductMainBody from "../components/product/ProductMainBody";
-import '../styles/product/product.css';
 import ProductSlider from "../components/product/ProductSlider";
+import '../styles/product/product.css';
 
 
 const cards = Array.from({ length: 20 }, (v, i) => i);

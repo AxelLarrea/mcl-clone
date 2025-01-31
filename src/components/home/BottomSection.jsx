@@ -1,5 +1,5 @@
 import '../../styles/home/bottomSection.css'
-import BottomMostSearched from '../BottomMostSearched';
+import BottomMostSearched from '../general/BottomMostSearched';
 
 const BottomSection = () => {
     return (

@@ -1,4 +1,4 @@
-import '../styles/bottomMostSearched.css'
+import '../../styles/general/bottomMostSearched.css'
 
 const productos = [ "Aire Acondicionado", "Aire Acondicionado Frio Calor", "Aire Acondicionado Inverter", "Aire Acondicionado Split",
     "Apple Iphone", "Auriculares Jbl", "Calefon", "Celulares Samsung", "Cocina Gas","Cocinas", "Freezer", "Freidora Aire", 

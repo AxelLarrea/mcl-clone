@@ -1,5 +1,9 @@
+import { useState } from 'react';
 import '../../styles/product/ProductQuestionsAnswers.css';
 const ProductQuestionsAnswers = ({ questions }) => {
+    
+    const [limitComments, setLimitComments] = useState(2)
+    const filteredQuestions = questions?.filter( question => question.status !== 'BANNED')
 
     const capitalizeFirstLetter = (string) => {
         return string[0].toUpperCase() + string.slice(1);
@@ -10,6 +14,7 @@ const ProductQuestionsAnswers = ({ questions }) => {
     }
 
     const handleClick = () => {
+        setLimitComments(prev => prev === 2 ? filteredQuestions.length - 1 : 2)
         const section = document.querySelector('.questions-n-answers')
         const btn = document.querySelector('.see-more-specs-btn.question')
 
@@ -17,7 +22,6 @@ const ProductQuestionsAnswers = ({ questions }) => {
         btn.classList.toggle('rotate-see-more-btn')
     }
 
-    console.log(questions)
 
     return (
         <section className="product-questions">
@@ -52,29 +56,31 @@ const ProductQuestionsAnswers = ({ questions }) => {
                 </button>
             </section>
 
-            <section className="questions-n-answers hide">
-                <h3>Últimas realizadas</h3>
 
-                {   questions?.map( (question, index) => (
-                        <div className="question-container" key={index}>
-                            <div className="question">
-                                <span>{ capitalizeFirstLetter(question.text) }</span>
-                                <a href="#">Denunciar</a>
-                            </div>
+            {   filteredQuestions?.length >= 1 && 
+                <section className="questions-n-answers">
+                    <h3>Últimas realizadas</h3>
 
-                            <div className="answer">
-                                <span>{ capitalizeFirstLetter(question.answer.text) }</span>
-                                <div className="answer-date">
-                                    <span className="date">{ formatDate(question.answer.date_created) }</span>
+                    {   filteredQuestions?.slice(0, limitComments).map( (question, index) => (
+                            <div className="question-container" key={index}>
+                                <div className="question">
+                                    <span>{ capitalizeFirstLetter(question.text) }</span>
                                     <a href="#">Denunciar</a>
                                 </div>
+
+                                <div className="answer">
+                                    <span>{ capitalizeFirstLetter(question.answer.text) }</span>
+                                    <div className="answer-date">
+                                        <span className="date">{ formatDate(question.answer.date_created) }</span>
+                                        <a href="#">Denunciar</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    ))
-                }
+                        ))
+                    }
+                </section>
+            }
 
-
-            </section>
             {   questions?.length > 2 &&
                 <button className="see-more-specs-btn question" onClick={handleClick}>
                     Ver todas las preguntas

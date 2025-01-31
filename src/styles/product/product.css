@@ -6,7 +6,12 @@
 
 .recomendations-slider-wrapper {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 3rem auto;
+}
+
+.recomendations-slider-wrapper h2 {
+    font-size: 24px;
+    font-weight: 400;
 }
 
 .product-content-header {

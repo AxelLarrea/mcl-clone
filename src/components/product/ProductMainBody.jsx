@@ -24,19 +24,23 @@ const ProductMainBody = ({ productData, seller }) => {
         queryKey: ['seller', id],
         queryFn: () => useGetData(sellerItemsUrl, null, null, 'seller', null)
     })
-
+    
     const { data: descriptionData } = useQuery({
         queryKey: ['description', productData.id],
         queryFn: () => useGetData(description, null, null, 'description', null)
     })
-
+    
     const { data: questionData } = useQuery({
         queryKey: ['questions', productData.id],
         queryFn: () => useGetData(questions, null, null, 'questions', null)
     })
 
-
+    
+    const cantImg = productData?.pictures.length > 6
+    const cantImgFaltantes = productData?.pictures.length - 6
+    
     const descripcion = descriptionData?.plain_text.split('\n').filter(descripcion => descripcion !== '')
+    const descriptionSize = descriptionData?.plain_text.length > 460
     
 
     const activePicture = (index) => {
@@ -63,7 +67,7 @@ const ProductMainBody = ({ productData, seller }) => {
             <section className="product-pictures">
                 
                 <div className="product-main-thumbnails">
-                    {   productData?.pictures.map((image, index) => (
+                    {   productData?.pictures.slice(0, 6).map((image, index) => (
                             <div className="product-thumbnail-container" key={index}>
                                 <img  
                                     src={image.secure_url} 
@@ -72,6 +76,16 @@ const ProductMainBody = ({ productData, seller }) => {
                                 />
                             </div>
                         ))
+                    }
+                    {   cantImg && 
+                        <div className="product-thumbnail-container last-thumbnail">
+                            <img  
+                                src={productData.pictures[6].secure_url} 
+                                alt="side product image"
+                                onMouseEnter={() => activePicture(6)}
+                            />
+                            <span>+{cantImgFaltantes}</span>
+                        </div>
                     }
                 </div>
                 
@@ -96,24 +110,26 @@ const ProductMainBody = ({ productData, seller }) => {
             <section className="product-description">
                 <h2>Descripción</h2>
                 
-                <div className="description-container-hide">
+                <div className={`${descriptionSize ? 'description-container-hide' : ''}`}>
                     {   descripcion?.map((line, index) => (
                             <p key={index}>{line}</p>
                         ))
                     }
                 </div>
-
-                <button className="see-more-specs-btn" onClick={handleShowDescription}>
-                    Ver descripción completa
-                    <svg fill="#3483fa" height="12px" width="14px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 240.823 240.823" xmlSpace="preserve" stroke="#3483fa">
-                        <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-                        <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <g> <path id="Chevron_Right_1_" d="M183.189,111.816L74.892,3.555c-4.752-4.74-12.451-4.74-17.215,0c-4.752,4.74-4.752,12.439,0,17.179 l99.707,99.671l-99.695,99.671c-4.752,4.74-4.752,12.439,0,17.191c4.752,4.74,12.463,4.74,17.215,0l108.297-108.261 C187.881,124.315,187.881,116.495,183.189,111.816z"></path>
+                
+                {   descriptionSize &&
+                    <button className="see-more-specs-btn" onClick={handleShowDescription}>
+                        Ver descripción completa
+                        <svg fill="#3483fa" height="12px" width="14px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 240.823 240.823" xmlSpace="preserve" stroke="#3483fa">
+                            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                            <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <g> <path id="Chevron_Right_1_" d="M183.189,111.816L74.892,3.555c-4.752-4.74-12.451-4.74-17.215,0c-4.752,4.74-4.752,12.439,0,17.179 l99.707,99.671l-99.695,99.671c-4.752,4.74-4.752,12.439,0,17.191c4.752,4.74,12.463,4.74,17.215,0l108.297-108.261 C187.881,124.315,187.881,116.495,183.189,111.816z"></path>
+                                </g>
                             </g>
-                        </g>
-                    </svg>
-                </button>
+                        </svg>
+                    </button>
+                }
             </section>
             <hr />
             

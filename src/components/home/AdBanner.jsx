@@ -24,15 +24,11 @@ const AdBanner = () => {
                         </div>
 
                         <div className='bigger-text'>
-                            <span>
-                                NUESTRO CATÁLOGO DE PRODUCTOS
-                            </span>
+                            <span>NUESTRO CATÁLOGO DE PRODUCTOS</span>
                         </div>
 
                         <div className='ad-link'>
-                            <a href="#">
-                                IR A TIENDA
-                            </a>
+                            <a href="#">IR A TIENDA</a>
                         </div>
                     </div>
                 </div>

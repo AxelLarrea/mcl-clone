@@ -4,9 +4,9 @@ import { useQuery } from '@tanstack/react-query';
 import { useFilterStore } from '../utils/store';
 import useGetData from '../hooks/useGetData.js';
 
-import Header from '../components/Header';
-import BottomMostSearched from '../components/BottomMostSearched';
-import Footer from '../components/Footer';
+import Header from '../components/general/Header';
+import Footer from '../components/general/Footer';
+import BottomMostSearched from '../components/general/BottomMostSearched';
 import ProductList from '../components/search/ProductsList';
 import Sidebar from '../components/search/Sidebar';
 
