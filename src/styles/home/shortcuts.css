@@ -17,7 +17,6 @@
     overflow: hidden;
 }
 
-
 .cards-container {
     position: relative;
     display: flex;
@@ -87,7 +86,6 @@
     flex-direction: column;
     align-items: flex-start;
 }
-
 
 .card-bottom-price {
     width: 100%;
@@ -182,7 +180,6 @@
     border-top: 1px solid #3483fa;
     transform: rotate(-45deg);
 }
-
 
 .btn-shortcut.right {
     right: -30px;

@@ -1,6 +1,5 @@
 import { priceRangeFilter } from "./priceRangeFilter";
 
-
 const keys = {
     'envio gratis' : 'shipping.free_shipping',
     'envio full' : 'shipping.logistic_type',
@@ -13,7 +12,6 @@ const filter = (data, query, priceRange) => {
     if (query.length < 1) return priceRangeFilter(data, priceRange);
     
     const filtered = query.map( (filter) => {
-
         const key = keys[filter.type];
         const sub_keys = key.split('.');
     
@@ -30,14 +28,12 @@ const filter = (data, query, priceRange) => {
             return item === filter.value;
         });
     })
-
     
     if (filtered.length > 1) {
         return priceRangeFilter(filtered.reduce((acc, curr) => {
             return acc.filter(item => curr.includes(item));
         }, filtered[0]), priceRange)
     }
-
     
     return filtered[0] ? priceRangeFilter(filtered[0], priceRange) : priceRangeFilter(filtered, priceRange);
 }

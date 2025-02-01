@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import Carousel from './Carousel';
 import Shortcuts from './Shortcuts';
 import BannerSlider from './BannerSlider';
@@ -13,23 +12,11 @@ import CategoriesSlider from './CategoriesSlider';
 import BottomSection from './BottomSection';
 
 import { benefitsData } from '../../utils/data';
-import useGetData from '../../hooks/useGetData';
-
-
 
 // Cards para el componente BannerSlider
 const cards = Array.from({ length: 24 }, (v, i) => i);
 
-
 const HomeBody = () => {
-
-    // API para imagenes random de Hatsune Miku https://api.nekosapi.com/v3/characters/1/images
-    // API para imagenes random de waifus https://api.waifu.im/search?is_nsfw=false&limit=24
-    // const data = useGetData('https://api.nekosapi.com/v3/characters/1/images')
-    // data && console.log(data)
-
-    
-
     return (
         <>
             <Carousel/>
@@ -89,7 +76,6 @@ const HomeBody = () => {
                 title={"Relacionado con lo último que viste"}
             />  
 
-            
             <TwoOffersSection
                 stCardtxt1={"TECNO OFERTAS"}
                 stCardtxt2={"HASTA 30% OFF Y"}
@@ -107,13 +93,11 @@ const HomeBody = () => {
                 title={"Similares a lo que te interesa"}
             />  
 
-            
             <BannerSlider
                 data={cards}
                 totalCards={6}
                 title={"Inspirado en lo que te interesa"}
             /> 
-
 
             <TwoOffersSection
                 stCardtxt1={""}
@@ -125,7 +109,6 @@ const HomeBody = () => {
                 ndCardtxt3={"LLEGAN VOLANDO"}
                 ndCardimg={"https://http2.mlstatic.com/D_NQ_758583-MLA78158668786_082024-OO.jpg"}
             />
-
 
             <BannerSlider
                 data={cards}

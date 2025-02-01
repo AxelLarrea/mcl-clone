@@ -77,7 +77,6 @@ const ProductSidebar = ({ productData }) => {
                         <div className="see-payments-methods">
                             <a href="#"> Ver los medios de pago </a>
                         </div>
-
                     </div>
                     
                     <div className="product-sidebar-shipment">
@@ -205,7 +204,6 @@ const ProductSidebar = ({ productData }) => {
                 
                 {/* Seller info */}
                 <section className="product-sidebar-info">
-
                     <div className="header-seller-info">
 
                         <div className="seller-img">
@@ -229,7 +227,6 @@ const ProductSidebar = ({ productData }) => {
                     </div>
 
                     <div className="seller-rating-info">
-                        
                         <div className="seller-status">
                             <img src="https://http2.mlstatic.com/frontend-assets/vpp-frontend/medal.svg" alt="medal"/>
                             <div className="seller-status-text">
@@ -264,7 +261,6 @@ const ProductSidebar = ({ productData }) => {
                                 <span>Despacha sus productos a tiempo </span>
                             </div>
                         </div>
-                        
                     </div>
 
                     <button className="footer-seller-page">
@@ -275,7 +271,6 @@ const ProductSidebar = ({ productData }) => {
                 
                 {/* Payment methods */}
                 <section className="product-sidebar-info">
-
                     <h3> Medios de pago </h3>
 
                     <div className="product-payment-methods">

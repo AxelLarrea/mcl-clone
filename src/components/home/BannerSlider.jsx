@@ -1,7 +1,6 @@
 import { useState, useRef} from "react"
 import "../../styles/home/bannerSlider.css"
 
-
 const BannerSlider = ({data, totalCards, title, showLink=false, link, linkText}) => {
 
     const size = -100
@@ -11,13 +10,10 @@ const BannerSlider = ({data, totalCards, title, showLink=false, link, linkText})
     const btnRight = useRef(null)
     const btnLeft = useRef(null)
     
-    
     // Array para la cantidad de dots
     const dots = Array.from({ length: Math.ceil(data && data.length/totalCards) }, (v, i) => i);
 
-
     const handleNext = () => {
-        
         setIndex(prev => prev+1)
 
         // Tamaño límite total llegando a mostrar las últimas cards
@@ -37,7 +33,6 @@ const BannerSlider = ({data, totalCards, title, showLink=false, link, linkText})
         }
     }
     
-
     const handlePrev = () => {
         setIndex(prev => prev-1)
 

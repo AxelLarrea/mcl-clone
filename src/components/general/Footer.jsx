@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react';
 import '../../styles/general/footer.css'
 
-
 const Footer = () => {
 
     const [clicked, setClicked] = useState(true)
@@ -9,7 +8,6 @@ const Footer = () => {
     const footerBottom = useRef(null)
     const btn = useRef(null)
 
-    
     const handleClick = () => {
         
         const svg = document.querySelector('.footer-more-btn button svg')
@@ -32,12 +30,10 @@ const Footer = () => {
 
     return (
         <footer>
-            
             <div className="footer-more-info" ref={footerInfo}>
                 <div className="footer-more-btn">
                     <button onClick={handleClick} ref={btn}>
                         Más Información
-
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 58.5 37.3" enableBackground="new 0 0 58.5 37.3" xmlSpace="preserve">
                             <path fillRule="evenodd" clipRule="evenodd" fill="#3E3E3E" d="M54.7,26.3L32.5,4.2c-2-1.9-5-1.9-6.9,0L3.4,26.3
                                 c-2,2-2.4,4.8-0.4,6.7l0.8,0.9c1.7,1.6,3.9,1.9,5.4,0.2c5.5-5.5,11-10.8,16.5-16.3c1.8-2,4.9-2,6.9,0c5.5,5.5,10.9,10.8,16.3,16.3
@@ -98,7 +94,6 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-
 
             <div className="footer-bottom-wrapper" ref={footerBottom}>
                 <div className="footer-bottom-info">

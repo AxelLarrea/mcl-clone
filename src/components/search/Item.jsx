@@ -14,7 +14,6 @@ const Item = ({ item }) => {
 
     const discount = (1 - (price / Math.round(original_price))) * 100
     
-
     const handleFavClick = () => {
         fav ? toggleFav.current.style.fill = "#3483FA" : toggleFav.current.style.fill = "#FFF"
         setFav(!fav)
@@ -75,18 +74,17 @@ const Item = ({ item }) => {
                     <div className="product-rating-colors">
                         {/* Agregar el rating en estrellitas */}
                     </div>
-
                 </div>
                 
                 <div className="product-shipment">
-                    { installments?.quantity > 1 && 
+                    {   installments?.quantity > 1 && 
                         <span> en {installments.quantity} cuotas de $ {installments.amount.toLocaleString("es-AR", {maximumFractionDigits: "0"})} </span> }
 
                     { shipping?.free_shipping && <span className="item-shipment">Envío gratis</span> }
                     
                     { address?.state_id.includes("US-") && <span className="international-purchase"> COMPRA INTERNACIONAL </span>  }
 
-                    { shipping?.logistic_type === "fulfillment" && 
+                    {   shipping?.logistic_type === "fulfillment" && 
                         <span className="item-shipment-wrapper">Enviado por 
                             <span className="item-shipment full-shipment"> 
                                 <svg height="15px" width="15px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 400 400" xmlSpace="preserve" fill="#00a650">
@@ -97,7 +95,8 @@ const Item = ({ item }) => {
                                     </g>
                                 </svg> FULL
                             </span>
-                        </span> }
+                        </span> 
+                    }
                 </div>
 
             </div>

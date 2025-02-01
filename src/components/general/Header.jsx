@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useLocation } from 'wouter';
 import '../../styles/general/header.css';
 
-
 const Header = () => {
     const [location, navigate] = useLocation()
     const [inputValue, setInputValue] = useState('')

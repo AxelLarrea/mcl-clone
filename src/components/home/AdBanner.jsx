@@ -1,6 +1,5 @@
 import '../../styles/home/adBanner.css'
 
-
 const AdBanner = () => {
     return (
         <>

@@ -1,7 +1,6 @@
 import ThreeCatsItem from "./ThreeCatsItem";
 import '../../styles/home/threeCategories.css';
 
-
 const thumbs1 = ['http://http2.mlstatic.com/D_668683-MLA48680079527_122021-I.jpg', 
                 'http://http2.mlstatic.com/D_600230-MLU72273908364_102023-I.jpg', 
                 'http://http2.mlstatic.com/D_677335-MLU70064904527_062023-I.jpg', 

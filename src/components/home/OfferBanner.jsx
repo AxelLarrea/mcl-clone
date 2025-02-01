@@ -5,7 +5,6 @@ const OfferBanner = ({ cards }) => {
     return (
         <>
             <div className="offer-wrapper">
-
                 <div className="offer-day">
                     <div className="card">
                         <div className="title">
@@ -40,7 +39,6 @@ const OfferBanner = ({ cards }) => {
                     link={"#"}
                     linkText={"Mostrar todas las ofertas"}
                 />
-
             </div>
         </>
     );

@@ -1,11 +1,10 @@
-import '../../styles/home/twoOffers.css'
 import TwoOffersCard from './TwoOffersCard';
+import '../../styles/home/twoOffers.css'
 
 const TwoOffersSection = ({ stCardtxt1, stCardtxt2, stCardtxt3, stCardimg , ndCardtxt1, ndCardtxt2, ndCardtxt3, ndCardimg  }) => {
     return (
         <>
             <div className="two-offers-wrapper">
-                
                 <TwoOffersCard
                     imgUrl={stCardimg}
                     firstText={stCardtxt1}

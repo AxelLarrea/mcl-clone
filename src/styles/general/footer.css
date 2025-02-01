@@ -1,8 +1,6 @@
-
 footer {
     background-color: #fff;
 }
-
 
 .footer-more-info {
     position: relative;
@@ -78,6 +76,7 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
 }
+
 .footer-bottom-item {
     padding-top: 20px;
 }

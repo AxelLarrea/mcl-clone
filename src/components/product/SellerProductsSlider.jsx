@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import '../../styles/product/sellerProductSlider.css';
 
-
 const SellerProductsSlider = ({ sellerItems }) => {
 
     const [index, setIndex] = useState(0)
@@ -9,8 +8,6 @@ const SellerProductsSlider = ({ sellerItems }) => {
 
     const nextBtn = document.querySelector('.next-btn')
     const prevBtn = document.querySelector('.prev-btn')
-
-    
 
     const handleNextClick = () => {
         const carousel = document.querySelector('.seller-products-slider')
@@ -51,7 +48,6 @@ const SellerProductsSlider = ({ sellerItems }) => {
             prevBtn.style.visibility = 'hidden'
         }
     }
-
 
     return (  
         <section className="seller-products">

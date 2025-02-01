@@ -50,7 +50,6 @@ const Carousel = () => {
         const btn2 = document.querySelector('.carrousel-btn.next')
         btn2.style.border = 'none'
     }
-    
 
     const handleLeave = () => {
         const btn = document.querySelectorAll('.carrousel-btn')
@@ -78,30 +77,28 @@ const Carousel = () => {
     
     return ( 
         <div className="carrousel-container" onMouseLeave={handleLeave} onMouseEnter={() => setMouse(true)} >
+            <div className="carrousel-imgs">
 
-                <div className="carrousel-imgs">
-
-                    {img_data.map( (item, key) => 
-                        <div className="carrousel-item "key={key}>
-                            <img src={img_data[key]} alt="Products ads"/>
-                        </div>
-                        )
-                    }
-
-                </div>
-                
-                <button className="carrousel-btn prev" onClick={handlePrev}></button>
-
-                <button className="carrousel-btn next" onClick={handleNext}></button>
-                
-                <div className="carrousel-dots">
-                    {   img_data.map( (item, key) => 
-                            <span className={`carrousel-dot ${key === index ? "active" : ""}`} key={key}></span>
-                        )
-                    }
-                </div>
+                {img_data.map( (item, key) => 
+                    <div className="carrousel-item "key={key}>
+                        <img src={img_data[key]} alt="Products ads"/>
+                    </div>
+                    )
+                }
 
             </div>
+            
+            <button className="carrousel-btn prev" onClick={handlePrev}></button>
+
+            <button className="carrousel-btn next" onClick={handleNext}></button>
+            
+            <div className="carrousel-dots">
+                {   img_data.map( (item, key) => 
+                        <span className={`carrousel-dot ${key === index ? "active" : ""}`} key={key}></span>
+                    )
+                }
+            </div>
+        </div>
     );
 }
  

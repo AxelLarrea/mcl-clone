@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 
 import '../../styles/product/productSlider.css'
+
 const ProductSlider = ({ data, totalCards, title }) => {
     
     const [perAcum, setPerAcum] = useState(0)
@@ -10,7 +11,6 @@ const ProductSlider = ({ data, totalCards, title }) => {
     const carousel = useRef(null)
     
     const limit = (data.length/totalCards - 1) * 100
-
 
     const handleNextClick = () => {
         carousel.current.style.marginLeft = `-${perAcum+100}%`
@@ -35,7 +35,6 @@ const ProductSlider = ({ data, totalCards, title }) => {
             nextBtn.current.style.visibility = 'visible'
         }
     }
-
 
     return (
         <section className="similar-products">

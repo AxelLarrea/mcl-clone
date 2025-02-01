@@ -10,8 +10,6 @@ import BottomMostSearched from '../components/general/BottomMostSearched';
 import ProductList from '../components/search/ProductsList';
 import Sidebar from '../components/search/Sidebar';
 
-
-
 const Search = () => {
 
     const { query } = useParams()
@@ -41,7 +39,6 @@ const Search = () => {
         }
 
     }, [data])
-    
 
     return (
         <>

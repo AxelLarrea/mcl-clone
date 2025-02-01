@@ -8,7 +8,6 @@ const PageSelector = ({ totalResults }) => {
 
     const { page, setPage, pageRange, setPageRange } = useFilterStore();
 
-
     const handleNext = () => {
         if (page === pageRange[1]) setPageRange([pageRange[0] + 10, pageRange[1] + 10])
         setPage(page + 1)
@@ -18,7 +17,6 @@ const PageSelector = ({ totalResults }) => {
         if (page === pageRange[0] + 1) setPageRange([pageRange[0] - 10, pageRange[1] - 10])
         setPage(page - 1)
     }
-
 
     return (
         <div className="items-page-wrapper">
@@ -54,8 +52,6 @@ const PageSelector = ({ totalResults }) => {
                     </svg>
                 </li>
             </ul>
-                
-            
         </div>
     );
 }

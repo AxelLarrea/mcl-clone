@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import '../../styles/product/ProductQuestionsAnswers.css';
+
 const ProductQuestionsAnswers = ({ questions }) => {
     
     const [limitComments, setLimitComments] = useState(2)
@@ -21,7 +22,6 @@ const ProductQuestionsAnswers = ({ questions }) => {
         section.classList.toggle('hide')
         btn.classList.toggle('rotate-see-more-btn')
     }
-
 
     return (
         <section className="product-questions">
@@ -51,11 +51,9 @@ const ProductQuestionsAnswers = ({ questions }) => {
                             </g> 
                         </g>
                     </svg>
-                    
                     Preguntar
                 </button>
             </section>
-
 
             {   filteredQuestions?.length >= 1 && 
                 <section className="questions-n-answers">

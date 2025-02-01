@@ -2,9 +2,6 @@ import { useEffect, useState } from "react"
 import '../../styles/home/shortcuts.css'
 
 const Shortcuts = () => {
-
-    // useState para guardar y modificar el tamaño del transform, size equivale a dos cards
-    // ya que necesitamos mostrar dos nuevas cards en el slide.
     const [size, setSize] = useState(0)
     const [sizeAcum, setSizeAcum] = useState(0)
 
@@ -17,7 +14,6 @@ const Shortcuts = () => {
         setSizeAcum(tam)
     }
     
-
     useEffect(() => {
         getInitialSize()
     }, [])
@@ -63,11 +59,9 @@ const Shortcuts = () => {
         }
     }
 
-
     return (
         <>
             <div className="shortcuts-container">
-                
                 <div className="shortcuts-wrapper">
 
                     <button className='btn-shortcut left' onClick={handlePrev}>
@@ -213,10 +207,8 @@ const Shortcuts = () => {
                             </div>
 
                         </div>
-
                     </div>
                 </div>
-                
             </div>
         </>
     );

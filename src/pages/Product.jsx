@@ -10,8 +10,8 @@ import ProductMainBody from "../components/product/ProductMainBody";
 import ProductSlider from "../components/product/ProductSlider";
 import '../styles/product/product.css';
 
-
 const cards = Array.from({ length: 20 }, (v, i) => i);
+
 const Product = () => {
 
     const { id } = useParams()
@@ -23,7 +23,6 @@ const Product = () => {
         queryFn: () => useGetData(url, null, null, 'product', null)
     })
 	
-
     return (
 		<>
 			<Header/>

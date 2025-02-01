@@ -8,8 +8,6 @@ import ProductSlider from './ProductSlider';
 import '../../styles/product/ProductMainBody.css';
 import ProductQuestionsAnswers from './ProductQuestionsAnswers';
 
-
-
 const cards = Array.from({ length: 24 }, (v, i) => i);
 
 const ProductMainBody = ({ productData, seller }) => {
@@ -35,14 +33,12 @@ const ProductMainBody = ({ productData, seller }) => {
         queryFn: () => useGetData(questions, null, null, 'questions', null)
     })
 
-    
     const cantImg = productData?.pictures.length > 6
     const cantImgFaltantes = productData?.pictures.length - 6
     
     const descripcion = descriptionData?.plain_text.split('\n').filter(descripcion => descripcion !== '')
     const descriptionSize = descriptionData?.plain_text.length > 460
     
-
     const activePicture = (index) => {
         setPictureInd(index)
 
@@ -52,7 +48,6 @@ const ProductMainBody = ({ productData, seller }) => {
         thumbnails[index].style.border = '2px solid #3483fa';
     }
 
-
     const handleShowDescription = () => {
         const descriptionDiv = document.querySelector('.product-description > div')
         const btn = document.querySelectorAll('.see-more-specs-btn')
@@ -60,7 +55,6 @@ const ProductMainBody = ({ productData, seller }) => {
         descriptionDiv.classList.toggle('description-container-hide')
         btn[1].classList.toggle('rotate-see-more-btn')
     }
-
 
     return (
         <div className="product-main">
@@ -95,12 +89,10 @@ const ProductMainBody = ({ productData, seller }) => {
 
             </section>
 
-  
             <SellerProductsSlider
                 sellerItems={data?.results}
             />
             <hr />
-
 
             <ProductSpecs
                 specs={productData?.attributes}
@@ -133,14 +125,12 @@ const ProductMainBody = ({ productData, seller }) => {
             </section>
             <hr />
             
-
             <ProductSlider
                 data={cards}
                 totalCards={3}
                 title={"Quienes vieron este producto también compraron"}
             />
             <hr />
-
 
             <ProductQuestionsAnswers
                 questions={questionData?.questions}

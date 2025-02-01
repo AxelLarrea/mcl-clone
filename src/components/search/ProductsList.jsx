@@ -5,7 +5,6 @@ import Item from "./Item";
 import PageSelector from "./PageSelector";
 import '../../styles/search/productsList.css';
 
-
 const ProductList = ({ data, totalResults }) => {
     
     const [display, setDisplay] = useState(true)
@@ -59,7 +58,6 @@ const ProductList = ({ data, totalResults }) => {
                         
                     </div>
                 </div>
-
 
                 { data?.map( item => (
                     <Item 

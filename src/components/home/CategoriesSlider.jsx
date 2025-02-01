@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import "../../styles/home/categoriesSlider.css"
 
-
 const categories = [
     "Autos, Motos y Otros", "Celulares y Teléfonos", "Electrodomésticos y Aires Ac.", "Herramientas", 
     "Accesorios para Vehículos", "Ropa y Accesorios", "Deportes y Fitness", "Belleza y Cuidado Personal",
@@ -39,7 +38,6 @@ const CategoriesSlider = () => {
     const totalColumns = categories.length/3
         
     const handleNext = () => {
-        
         setIndex(prev => prev+1)
         
         // Límite del tamaño del translate para moverlo a la derecha
@@ -59,10 +57,8 @@ const CategoriesSlider = () => {
             setSizeAcum(sizeAcum+size)
         }
     }
-    
 
     const handlePrev = () => {
-
         setIndex(prev => prev-1)
 
         // Actualizamos el tamaño del translate para moverlo a la izquierda
@@ -88,7 +84,6 @@ const CategoriesSlider = () => {
                 <button className="btn-shortcut right" ref={btnRight} onClick={handleNext}></button>
 
                 <div className="banner-header">
-
                     <div>
                         <h3>Categorías</h3>
                         <a href="#">Mostrar todas las categorías</a>
@@ -102,11 +97,9 @@ const CategoriesSlider = () => {
                         }
 
                     </div>
-
                 </div>
 
                 <div className="categories-slider">
-
                     <div className="categories-cards" ref={carousel} style={{ gridTemplateColumns: `repeat(${totalColumns}, 1fr)` }}>
 
                         { categories.map( (card, id) => (
@@ -125,9 +118,7 @@ const CategoriesSlider = () => {
                         }
 
                     </div>
-
                 </div>
-
             </div>
         </>
     );

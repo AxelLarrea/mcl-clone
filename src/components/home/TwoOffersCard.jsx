@@ -1,5 +1,3 @@
-
-
 const TwoOffersCard = ({  imgUrl, firstText, secondText, thirdText }) => {
     return (
         <>

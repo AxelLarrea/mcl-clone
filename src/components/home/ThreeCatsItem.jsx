@@ -1,11 +1,7 @@
-
-
 const ThreeCatsItem = ({ link, title, thumbs }) => {
-
     return (
         <>
             <div className="three-categories-item">
-                
                 <div className="title">
                     <h3>{ title }</h3>
                 </div>

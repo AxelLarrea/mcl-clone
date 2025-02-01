@@ -12,9 +12,7 @@ const BenefitsBanner = ({ data, totalCards }) => {
 
     const dots = Array.from({ length: Math.ceil(data.length/totalCards) }, (v, i) => i);
 
-
     const handleNext = () => {
-
         setIndex(prev => prev+1)
 
         // Tamaño límite total llegando a mostrar las últimas cards
@@ -35,7 +33,6 @@ const BenefitsBanner = ({ data, totalCards }) => {
     }
 
     const handlePrev = () => {
-
         setIndex(prev => prev-1)
 
         // Actualizamos el tamaño del translate para moverlo a la izquierda

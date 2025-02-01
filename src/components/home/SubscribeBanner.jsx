@@ -1,6 +1,5 @@
 import '../../styles/home/subscribeBanner.css'
 
-
 const SubscribeBanner = () => {
     return (
         <>

@@ -1,7 +1,6 @@
 import axios from 'axios';
 import filter from '../utils/filter';
 
-
 const useGetData = async (url, filters, order, type, priceRange) => {
 
     try {
@@ -9,7 +8,6 @@ const useGetData = async (url, filters, order, type, priceRange) => {
         const data = await response.data
 
         if (type !== 'productList') return data
-        
         
         const dataCategory = data.results[0].category_id
         const totalResults = data.paging.total
