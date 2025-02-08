@@ -7,11 +7,11 @@ const keys = {
     'internacional' : 'address.state_id'
 }
 
-const filter = (data, query, priceRange) => {
+const filter = (data, filtersArray, priceRange) => {
 
-    if (query.length < 1) return priceRangeFilter(data, priceRange);
+    if (filtersArray.length < 1) return priceRangeFilter(data, priceRange);
     
-    const filtered = query.map( (filter) => {
+    const filtered = filtersArray.map( (filter) => {
         const key = keys[filter.type];
         const sub_keys = key.split('.');
     
