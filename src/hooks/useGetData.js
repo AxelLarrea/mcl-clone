@@ -1,11 +1,21 @@
 import axios from 'axios';
 import filter from '../utils/filter';
 
-const useGetData = async (url, filters, order, type, priceRange) => {
+const useGetData = async (url, filters, order, type, priceRange, token) => {
 
     try {
-        const response = await axios.get(url)
+        console.log('meta env', import.meta.env);
+        console.log('token: ', token);
+
+        const response = await axios.get(url, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            }
+        })
+
         const data = await response.data
+
+        console.log(response);
 
         if (type !== 'productList') return data
         

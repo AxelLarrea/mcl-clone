@@ -16,9 +16,20 @@ const Search = () => {
     const { filters, order, setViewFilter, priceRange, page, setPage, prevQuery, setPrevQuery } = useFilterStore()
     const url = `https://api.mercadolibre.com/sites/MLA/search?q=${query}&offset=${(page-1)*50}`
 
+    const fetchToken = async () => {
+        const response = await axios.get('/api/getToken');
+        return response.data.access_token;
+    };
+    
+    const { data: token } = useQuery({
+        queryKey: ['token'],
+        queryFn: fetchToken,
+    })
+
     const { data } = useQuery({
         queryKey: ['search', query, filters, order, priceRange, page],
-        queryFn: () => useGetData(url, filters, order, 'productList' ,priceRange),
+        queryFn: () => useGetData(url, filters, order, 'productList' ,priceRange, token),
+        enabled: !!token
     })
 
     useEffect(() => {
