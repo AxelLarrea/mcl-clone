@@ -5,7 +5,7 @@ import useGetData from '../../hooks/useGetData';
 import SellerProductsSlider from './SellerProductsSlider';
 import ProductSpecs from './ProductSpecs';
 import ProductSlider from './ProductSlider';
-import '../../styles/product/ProductMainBody.css';
+import '../../styles/product/productMainBody.css';
 import ProductQuestionsAnswers from './ProductQuestionsAnswers';
 
 const cards = Array.from({ length: 24 }, (v, i) => i);
