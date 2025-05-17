@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../../styles/product/ProductQuestionsAnswers.css';
+import '../../styles/product/productQuestionsAnswers.css';
 
 const ProductQuestionsAnswers = ({ questions }) => {
     
