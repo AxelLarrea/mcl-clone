@@ -18,13 +18,15 @@ const Search = () => {
 
     const fetchToken = async () => {
         const response = await axios.get('/api/getToken');
-        return response.data.access_token;
+        return response;
     };
     
     const { data: token } = useQuery({
         queryKey: ['token'],
         queryFn: fetchToken,
     })
+
+    console.log('token: ', token);
 
     const { data } = useQuery({
         queryKey: ['search', query, filters, order, priceRange, page],
