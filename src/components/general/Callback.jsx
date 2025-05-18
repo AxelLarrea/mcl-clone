@@ -10,7 +10,7 @@ const Callback = () => {
 
     const fetchToken = async () => {
         try {
-            const response = await axios.get('/api/getToken');
+            const response = await axios.get('https://mcl-clone.vercel.app/api/getToken');
             console.log('response en Search: ', response);
             return response;
         } catch (error) {
