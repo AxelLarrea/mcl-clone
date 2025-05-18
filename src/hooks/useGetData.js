@@ -4,9 +4,6 @@ import filter from '../utils/filter';
 const useGetData = async (url, filters, order, type, priceRange, token) => {
 
     try {
-        console.log('meta env', import.meta.env);
-        console.log('token: ', token);
-
         const response = await axios.get(url, {
             headers: {
                 Authorization: `Bearer ${token}`,
