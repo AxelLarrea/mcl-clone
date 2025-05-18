@@ -16,11 +16,13 @@ const Search = () => {
     const { filters, order, setViewFilter, priceRange, page, setPage, prevQuery, setPrevQuery } = useFilterStore()
     const { token } = useTokenStore()
     const url = `https://api.mercadolibre.com/sites/MLA/search?q=${query}&offset=${(page-1)*50}`
-    const APP_ID = process.env.CLIENT_ID
+    const APP_ID = import.meta.env.VITE_CLIENT_ID
     const REDIRECT_URI = 'https://mcl-clone.vercel.app/callback'
     const authorization_url = `https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=${APP_ID}&redirect_uri=${REDIRECT_URI}`
 
+    
     if (!token) {
+        console.log('APP_ID: ', APP_ID);
         window.location.href = authorization_url
     }
 
