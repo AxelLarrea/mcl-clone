@@ -1,12 +1,23 @@
 
 export async function GET(request) {
 	
-	const url = new URLSearchParams(window.location.search);
-	const code = url.get('code');
+	const { searchParams } = new URL(request.url);
+	const code = searchParams.get('code');
 	const REDIRECT_URI = 'https://mcl-clone.vercel.app/callback'
 
+	if (!code) {
+		return new Response(JSON.stringify({ error: 'Falta el código de autorización' }), {
+			status: 400,
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': '*',
+				'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+				'Access-Control-Allow-Headers': 'Content-Type',
+			},
+		});
+	}
+
 	try {
-		console.log('entra');
 		const body = new URLSearchParams({
 			grant_type: 'authorization_code',
 			client_id: process.env.CLIENT_ID,
@@ -14,7 +25,6 @@ export async function GET(request) {
 			code: code,
 			redirect_uri: REDIRECT_URI
 		});
-
     	
 		const response = await fetch('https://api.mercadolibre.com/oauth/token', {
 			method: 'POST',
@@ -25,8 +35,13 @@ export async function GET(request) {
 			body: body.toString(),
 		});
 
-		console.log('response: ', response);
-		return new Response(JSON.stringify({ response }), {
+		if (!response.ok) {
+			throw new Error(`Error de MercadoLibre`);
+		}
+
+		const tokenData = await response.json();
+
+		return new Response(JSON.stringify({ token: tokenData }), {
 			status: 200,
 			headers: { 
 				"Content-Type": "application/json",
@@ -36,8 +51,8 @@ export async function GET(request) {
 			},
 		});
   	} catch (error) {
-		console.error('Error al obtener el token:', error.response?.data);
-		return new Response(JSON.stringify({ error: 'Error al obtener el token' }), {
+		console.error('Error al obtener el token:', error.message);
+		return new Response(JSON.stringify({ error: 'Error al obtener el token', message: error.message }), {
 			status: 500,
 			headers: { 
 				"Content-Type": "application/json",
@@ -47,4 +62,15 @@ export async function GET(request) {
 			},
 		});
   	}
+}
+
+export async function OPTIONS() {
+    return new Response(null, {
+        status: 204,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        },
+    });
 }

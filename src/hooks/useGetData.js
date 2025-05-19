@@ -2,17 +2,18 @@ import axios from 'axios';
 import filter from '../utils/filter';
 
 const useGetData = async (url, filters, order, type, priceRange, token) => {
-
     try {
         const response = await axios.get(url, {
             headers: {
-                Authorization: `Bearer ${token}`,
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': '*',
+				'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+				'Access-Control-Allow-Headers': 'Content-Type',
             }
         })
 
         const data = await response.data
-
-        console.log(response);
 
         if (type !== 'productList') return data
         
@@ -25,9 +26,8 @@ const useGetData = async (url, filters, order, type, priceRange, token) => {
         if (order === 'desc') filteredData.sort((a, b) => b.sale_price.amount - a.sale_price.amount)
 
         return { filteredData, dataCategory, totalResults, sbfilters };
-
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 }
 
