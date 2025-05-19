@@ -6,15 +6,15 @@ import { useEffect } from 'react';
 const Callback = () => {
 
     const { setToken } = useTokenStore()
-    
+    const { searchParams } = new URL(window.location.href);
+    const code = searchParams.get('code');
 
     const fetchToken = async () => {
         try {
-            const response = await axios.get('https://mcl-clone.vercel.app/api/getToken');
-            console.log('response en Search: ', response);
-            return response;
+            const response = await axios.get(`/api/getToken?code=${code}`);
+            return response.data.token.access_token;
         } catch (error) {
-            console.log('error en fetchToken: ', error);
+            console.error('error en fetchToken: ', error);
         }
     };
     
@@ -23,7 +23,6 @@ const Callback = () => {
         queryFn: fetchToken,
     })
 
-    console.log('token: ', token);
 
     useEffect(() => {
         if (token) {
@@ -33,8 +32,8 @@ const Callback = () => {
     }, [token, setToken])
 
     return (
-        <div>
-            <h1>Callback xdd</h1>
+        <div className="callback-wrapper">
+            <h1>Cargando...</h1>
         </div>
     );
 }

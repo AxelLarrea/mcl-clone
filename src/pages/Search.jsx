@@ -11,7 +11,6 @@ import ProductList from '../components/search/ProductsList';
 import Sidebar from '../components/search/Sidebar';
 
 const Search = () => {
-
     const { query } = useParams()
     const { filters, order, setViewFilter, priceRange, page, setPage, prevQuery, setPrevQuery } = useFilterStore()
     const { token } = useTokenStore()
@@ -20,9 +19,7 @@ const Search = () => {
     const REDIRECT_URI = 'https://mcl-clone.vercel.app/callback'
     const authorization_url = `https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=${APP_ID}&redirect_uri=${REDIRECT_URI}`
 
-    
     if (!token) {
-        console.log('APP_ID: ', APP_ID);
         window.location.href = authorization_url
     }
 
@@ -33,7 +30,6 @@ const Search = () => {
     })
 
     useEffect(() => {
-        
         if (data) {
             const filters = {
                 fullShipping: data?.filteredData.some(item => item.shipping?.logistic_type === "fulfillment"),
