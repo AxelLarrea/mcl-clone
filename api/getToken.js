@@ -3,7 +3,8 @@ export async function GET(request) {
 	
 	const { searchParams } = new URL(request.url);
 	const code = searchParams.get('code');
-	const REDIRECT_URI = 'https://mcl-clone.vercel.app/callback'
+	// const REDIRECT_URI = 'https://mcl-clone.vercel.app/callback'
+	const REDIRECT_URI = 'https://eager-exotic-grouse.ngrok-free.app/callback'
 
 	if (!code) {
 		return new Response(JSON.stringify({ error: 'Falta el código de autorización' }), {
@@ -40,6 +41,8 @@ export async function GET(request) {
 		}
 
 		const tokenData = await response.json();
+
+		console.log('tokenData: ', tokenData);
 
 		return new Response(JSON.stringify({ token: tokenData }), {
 			status: 200,

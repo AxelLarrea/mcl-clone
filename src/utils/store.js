@@ -58,9 +58,5 @@ export const useTokenStore = create( persist((set) => ({
     // token for API
     token: '',
     setToken: (token) => set({ token: token }),
-    }),
-    {
-        name: 'token-storage',
-        storage: createJSONStorage(() => localStorage),
-    }
+    })
 ))

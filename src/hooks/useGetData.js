@@ -1,19 +1,16 @@
 import axios from 'axios';
 import filter from '../utils/filter';
 
-const useGetData = async (url, filters, order, type, priceRange, token) => {
-    try {
-        const response = await axios.get(url, {
-            headers: {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json',
-				'Access-Control-Allow-Origin': '*',
-				'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-				'Access-Control-Allow-Headers': 'Content-Type',
-            }
-        })
+const useGetData = async (query, offset, filters, order, type, priceRange, token) => {
+    // const FETCH_URL = `/api/getData?token=${token}&url=${url}`
+    const FETCH_URL = `http://localhost:3000/api/getData?token=${token}&query=${query}&offset=${offset}`
 
+    try {
+        const response = await axios.get(FETCH_URL);
         const data = await response.data
+
+        console.log('response: ', response);
+        console.log('data: ', data);
 
         if (type !== 'productList') return data
         
