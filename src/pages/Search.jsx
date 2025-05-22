@@ -14,11 +14,10 @@ const Search = () => {
     const { query } = useParams()
     const { filters, order, setViewFilter, priceRange, page, setPage, prevQuery, setPrevQuery } = useFilterStore()
     const { token } = useTokenStore()
-    // const url = `https://api.mercadolibre.com/sites/MLA/search?q=${query}&offset=${(page-1)*50}`
     const offset = (page-1)*50
     const APP_ID = import.meta.env.VITE_CLIENT_ID
-    // const REDIRECT_URI = 'https://mcl-clone.vercel.app/callback'
-    const REDIRECT_URI = 'https://eager-exotic-grouse.ngrok-free.app/callback'
+    const REDIRECT_URI = 'https://mcl-clone-dev.vercel.app/callback'
+    // const REDIRECT_URI = 'https://eager-exotic-grouse.ngrok-free.app/callback'
     const authorization_url = `https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=${APP_ID}&redirect_uri=${REDIRECT_URI}`
 
     console.log(token);

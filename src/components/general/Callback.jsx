@@ -8,8 +8,8 @@ const Callback = () => {
     const { setToken } = useTokenStore()
     const { searchParams } = new URL(window.location.href);
     const code = searchParams.get('code');
-    // const FETCH_URL = `/api/getToken?code=${code}`
-    const FETCH_URL = `http://localhost:3000/api/getToken?code=${code}`
+    const FETCH_URL = `/api/getToken?code=${code}`
+    // const FETCH_URL = `http://localhost:3000/api/getToken?code=${code}`
 
     const fetchToken = async () => {
         try {
